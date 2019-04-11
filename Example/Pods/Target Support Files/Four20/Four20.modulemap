@@ -1,0 +1,6 @@
+framework module Four20 {
+  umbrella header "Four20-umbrella.h"
+
+  export *
+  module * { export * }
+}

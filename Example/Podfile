@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'Four20_Example' do
+  pod 'Four20', :path => '../'
+end

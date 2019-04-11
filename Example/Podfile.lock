@@ -1,0 +1,16 @@
+PODS:
+  - Four20 (0.1.0)
+
+DEPENDENCIES:
+  - Four20 (from `../`)
+
+EXTERNAL SOURCES:
+  Four20:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Four20: a65686759d2369ba10be833d9bae6f301265050c
+
+PODFILE CHECKSUM: 2cf1caa0a8e880b4760efc6a84cc437da98e70fb
+
+COCOAPODS: 1.4.0

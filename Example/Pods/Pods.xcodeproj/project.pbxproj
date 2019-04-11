@@ -1,0 +1,810 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		038D5A2A9882AD78630E9E802258DD16 /* SCNVector3+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFBD5A7808BF1D62DBB7A1A02B66FF /* SCNVector3+Additions.swift */; };
+		18DB5683597BB694F6E701BD61C88897 /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D1DD3BF866A613966F19F7AD61FC3 /* UIImage+Additions.swift */; };
+		1A387FF9FB5193828879C066C6AF18D1 /* UILabel+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA4480E7F1D3E70D4F819E9C4455CE0 /* UILabel+Additions.swift */; };
+		203CFA7A733271FD462EA378EE97EDEF /* UIGestureRecognizer+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A7222B5AE98832EC2A81BC2AC80599 /* UIGestureRecognizer+Additions.swift */; };
+		26A43481AE0CFAD1A517CCDF6AB6FC79 /* Four20-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 198DE06EDB1FEBECDF83AD7AB100288C /* Four20-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		285A4E99E048605B16BADB6864E62DC8 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9C33B58B61FF621EE14A350C516352 /* UIViewController+Additions.swift */; };
+		2A2A977F0BE0299B345D1BAB09AEC868 /* Dictionary+ARFaceAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D971D92D781E2C6C58DBA65653DD3 /* Dictionary+ARFaceAnchor.swift */; };
+		31907BBDE000BFF91458FB239118C583 /* UIWindow+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2CCAF15FD3E0B99203429FFE48474 /* UIWindow+Additions.swift */; };
+		45697199A2E04BC5EAF233BA054341BA /* Pods-Four20_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FDA7500B3F20608ACCAC83B0660EDD /* Pods-Four20_Example-dummy.m */; };
+		598944F20D9AAF9B7FA432DE15790B02 /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E32598EE1874402337E59CDF1E17AD0 /* Array+Additions.swift */; };
+		5AE622511F1DE631FC3D2CEDF53FB3D0 /* SCNNode+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A7872174E34DC8EB4213A5572F310 /* SCNNode+Additions.swift */; };
+		602E44A596C10331289FD20E50453A7A /* CGSize+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58133637F3BC3ACDA6CAAE7B03F7786 /* CGSize+Additions.swift */; };
+		648820C6A0E26867F8DE8ED92F478414 /* Pods-Four20_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C36F4D8845BC26E47938015E1B0EE9 /* Pods-Four20_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69347D75800F7AD6EB1B744069847347 /* float4+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368F50620F8F47185CCA98092D57264E /* float4+Additions.swift */; };
+		81E6D7701FC70777F26C52F77DCD7A07 /* matrix_float4x4+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67153C878C1D274CF7ACA61C49757251 /* matrix_float4x4+Additions.swift */; };
+		84EC0F0CAAB2EBDB6657490960E09937 /* NSLayoutConstraint+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E37E2B76CBF108F7EBAAD3629BE21A /* NSLayoutConstraint+Additions.swift */; };
+		9BBE8478FA0FBC55B8D6E6EC63AB6943 /* NSObject+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495CE33F0555FB3C97407E966B5CF42 /* NSObject+Additions.swift */; };
+		A01BEEF938DF5986B5A659866F3EF2C3 /* ARWorldMappingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A6437D6CFB2B7B1F0199E821E6610 /* ARWorldMappingStatus.swift */; };
+		AF0C9A22FA4C59C5087A090E04376D90 /* Four20-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F936D18CC7E78D324BA87BE7E58EAB /* Four20-dummy.m */; };
+		B08FD7FC7735C534C7AAC8FC02B15CAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		B72F7F9F225F48A20005CC99 /* BinaryFloatingPoint+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F7F9E225F48A20005CC99 /* BinaryFloatingPoint+Additions.swift */; };
+		B72F7FA1225F4E590005CC99 /* CGStruct2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F7FA0225F4E590005CC99 /* CGStruct2D.swift */; };
+		B72F7FA3225F52210005CC99 /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F7FA2225F52210005CC99 /* StringProtocol.swift */; };
+		B72F7FA5225F53A00005CC99 /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F7FA4225F539F0005CC99 /* Date+Additions.swift */; };
+		B72F7FA7225F54650005CC99 /* NSAttributedString+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F7FA6225F54650005CC99 /* NSAttributedString+Additions.swift */; };
+		B72F7FA9225F54720005CC99 /* Notification+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F7FA8225F54720005CC99 /* Notification+Additions.swift */; };
+		B72F7FAB225F548B0005CC99 /* URLSession+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F7FAA225F548B0005CC99 /* URLSession+Additions.swift */; };
+		B7AB36282248739200B35766 /* NSFileManager+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB36262248739200B35766 /* NSFileManager+Additions.swift */; };
+		B7AB36292248739200B35766 /* NSURL+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB36272248739200B35766 /* NSURL+Additions.swift */; };
+		B7BE181B2233D2300026A3C2 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE181A2233D2300026A3C2 /* Atomic.swift */; };
+		B7BE181F2233D8E50026A3C2 /* CGFloat+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE181E2233D8E50026A3C2 /* CGFloat+Additions.swift */; };
+		B7BE18212233DBAB0026A3C2 /* Double+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE18202233DBAB0026A3C2 /* Double+Additions.swift */; };
+		B7BE18232233DBEF0026A3C2 /* Float+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE18222233DBEF0026A3C2 /* Float+Additions.swift */; };
+		B7D1CC532236336D0033B9AB /* Array+LayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D1CC522236336D0033B9AB /* Array+LayoutConstraints.swift */; };
+		C0C3F2803BE691F5F46A8AA0ED8617BA /* UIControl+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FF36CA3A417B58CED2945D5BF162 /* UIControl+Additions.swift */; };
+		C0CFD777D55BA89270C120B8399C14A8 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACADD4D0362505A488FA70C7F29E018 /* UIView+Additions.swift */; };
+		C61D21F47EEFAAB64A3DEA47F92E0891 /* ARKitTrackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC879117F15B8166E3F61F1DEFA32274 /* ARKitTrackingState.swift */; };
+		C9F552EF9E8F178FE892E723E3CF8269 /* SCNGeometry+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF910A01E13368B278EDED0EFA274D /* SCNGeometry+Additions.swift */; };
+		D6799A88F43A285BF6BDAAB6E773579C /* UIImageView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F2CC8096346FC29913A47E0FA2BB8 /* UIImageView+Additions.swift */; };
+		DE527A5693F41EEE3DDA045744C69078 /* MKCoordinateSpan+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D34DC1DD8348590EC3580A95767829 /* MKCoordinateSpan+Additions.swift */; };
+		DE9A041BEB849B3EE6EA20EA6EBED9BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E41453E394CB8D4E81CDEA6602BA11D1 /* UIButton+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED755554998BCBFFDA50E81071D0ED /* UIButton+Additions.swift */; };
+		F88AC837177408A691733220DA61204B /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC267DA8B557D529D224FA16DF0E0971 /* UITableView+Additions.swift */; };
+		FAA611835812432CE0994EA11A3A25A8 /* MSSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF540B1A449019EB79B05BB74F371C3 /* MSSessionState.swift */; };
+		FAB46C6D291E754BC6D36A78B4B5890C /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B17E34D37AFF9C45E1062EC1B49A579 /* UIColor+Additions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3C0B832D64984AD8D94BBA273D586A10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E466FA9FF53E7BE1DC86B5BE1FABB28;
+			remoteInfo = Four20;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02E37E2B76CBF108F7EBAAD3629BE21A /* NSLayoutConstraint+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Additions.swift"; sourceTree = "<group>"; };
+		06E01B87CAD0FC6DE380F010D44325E5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06FA6772E0CC3BF009020E612DC9929D /* Pods-Four20_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Four20_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		0CD71E83E4DF31654EA2568BD0AAFE74 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		14988FA62583E9E1E89F293D1D80EC51 /* Four20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Four20.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17FDA7500B3F20608ACCAC83B0660EDD /* Pods-Four20_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Four20_Example-dummy.m"; sourceTree = "<group>"; };
+		198DE06EDB1FEBECDF83AD7AB100288C /* Four20-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Four20-umbrella.h"; sourceTree = "<group>"; };
+		2B17E34D37AFF9C45E1062EC1B49A579 /* UIColor+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		2F9CC8EB935E47FD0554461E0C8C2370 /* Four20.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Four20.xcconfig; sourceTree = "<group>"; };
+		368F50620F8F47185CCA98092D57264E /* float4+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "float4+Additions.swift"; sourceTree = "<group>"; };
+		38C36F4D8845BC26E47938015E1B0EE9 /* Pods-Four20_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Four20_Example-umbrella.h"; sourceTree = "<group>"; };
+		394D1DD3BF866A613966F19F7AD61FC3 /* UIImage+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
+		3C42C3075A5191662DAA048E9A8BB633 /* Pods-Four20_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Four20_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		47ED755554998BCBFFDA50E81071D0ED /* UIButton+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
+		48A2CCAF15FD3E0B99203429FFE48474 /* UIWindow+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIWindow+Additions.swift"; sourceTree = "<group>"; };
+		51FCC50F132CB56390B34EFF477A2BAC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		67153C878C1D274CF7ACA61C49757251 /* matrix_float4x4+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "matrix_float4x4+Additions.swift"; sourceTree = "<group>"; };
+		6AA4480E7F1D3E70D4F819E9C4455CE0 /* UILabel+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UILabel+Additions.swift"; sourceTree = "<group>"; };
+		77509D0065C3B0FD67146436EAFC232B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7930DE3A255A67A9CF511D050230BC4C /* Pods-Four20_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Four20_Example.modulemap"; sourceTree = "<group>"; };
+		81A7222B5AE98832EC2A81BC2AC80599 /* UIGestureRecognizer+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Additions.swift"; sourceTree = "<group>"; };
+		8DC04EDA4A8C0A9B3C0708089C882643 /* Four20-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Four20-prefix.pch"; sourceTree = "<group>"; };
+		8E32598EE1874402337E59CDF1E17AD0 /* Array+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
+		9361D37D33504CD4C42D530080DBEBF3 /* Pods-Four20_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four20_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		971A7872174E34DC8EB4213A5572F310 /* SCNNode+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SCNNode+Additions.swift"; sourceTree = "<group>"; };
+		A19F2CC8096346FC29913A47E0FA2BB8 /* UIImageView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+Additions.swift"; sourceTree = "<group>"; };
+		A1D34DC1DD8348590EC3580A95767829 /* MKCoordinateSpan+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MKCoordinateSpan+Additions.swift"; sourceTree = "<group>"; };
+		A2091D6442D319919DB457236A985A78 /* Four20.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = Four20.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A27A0FAE1DAA0B9C2E18E37C358B91D2 /* Pods-Four20_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four20_Example.release.xcconfig"; sourceTree = "<group>"; };
+		A58133637F3BC3ACDA6CAAE7B03F7786 /* CGSize+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGSize+Additions.swift"; sourceTree = "<group>"; };
+		A90BA371B1A4F48942B38B105265FE3A /* Pods-Four20_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Four20_Example-resources.sh"; sourceTree = "<group>"; };
+		ACFFBD5A7808BF1D62DBB7A1A02B66FF /* SCNVector3+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Additions.swift"; sourceTree = "<group>"; };
+		AEF540B1A449019EB79B05BB74F371C3 /* MSSessionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MSSessionState.swift; sourceTree = "<group>"; };
+		B163FF36CA3A417B58CED2945D5BF162 /* UIControl+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIControl+Additions.swift"; sourceTree = "<group>"; };
+		B72F7F9E225F48A20005CC99 /* BinaryFloatingPoint+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BinaryFloatingPoint+Additions.swift"; sourceTree = "<group>"; };
+		B72F7FA0225F4E590005CC99 /* CGStruct2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGStruct2D.swift; sourceTree = "<group>"; };
+		B72F7FA2225F52210005CC99 /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
+		B72F7FA4225F539F0005CC99 /* Date+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
+		B72F7FA6225F54650005CC99 /* NSAttributedString+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Additions.swift"; sourceTree = "<group>"; };
+		B72F7FA8225F54720005CC99 /* Notification+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Additions.swift"; sourceTree = "<group>"; };
+		B72F7FAA225F548B0005CC99 /* URLSession+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Additions.swift"; sourceTree = "<group>"; };
+		B7AB36262248739200B35766 /* NSFileManager+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFileManager+Additions.swift"; sourceTree = "<group>"; };
+		B7AB36272248739200B35766 /* NSURL+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Additions.swift"; sourceTree = "<group>"; };
+		B7BE181A2233D2300026A3C2 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
+		B7BE181E2233D8E50026A3C2 /* CGFloat+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Additions.swift"; sourceTree = "<group>"; };
+		B7BE18202233DBAB0026A3C2 /* Double+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Additions.swift"; sourceTree = "<group>"; };
+		B7BE18222233DBEF0026A3C2 /* Float+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Additions.swift"; sourceTree = "<group>"; };
+		B7D1CC522236336D0033B9AB /* Array+LayoutConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+LayoutConstraints.swift"; sourceTree = "<group>"; };
+		B88D971D92D781E2C6C58DBA65653DD3 /* Dictionary+ARFaceAnchor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+ARFaceAnchor.swift"; sourceTree = "<group>"; };
+		C9C11403922C20DC837CFEA049A0B652 /* Four20.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Four20.modulemap; sourceTree = "<group>"; };
+		CB1A6437D6CFB2B7B1F0199E821E6610 /* ARWorldMappingStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ARWorldMappingStatus.swift; sourceTree = "<group>"; };
+		CEF12C5FE237C8541E96C0581ADB8DD0 /* Pods_Four20_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Four20_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DACADD4D0362505A488FA70C7F29E018 /* UIView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		E3CF910A01E13368B278EDED0EFA274D /* SCNGeometry+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SCNGeometry+Additions.swift"; sourceTree = "<group>"; };
+		EC267DA8B557D529D224FA16DF0E0971 /* UITableView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
+		F495CE33F0555FB3C97407E966B5CF42 /* NSObject+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSObject+Additions.swift"; sourceTree = "<group>"; };
+		F6F936D18CC7E78D324BA87BE7E58EAB /* Four20-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Four20-dummy.m"; sourceTree = "<group>"; };
+		F986BE717EF6F9FCB0F7833834CCDB8E /* Pods-Four20_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Four20_Example-frameworks.sh"; sourceTree = "<group>"; };
+		FA9C33B58B61FF621EE14A350C516352 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
+		FC879117F15B8166E3F61F1DEFA32274 /* ARKitTrackingState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ARKitTrackingState.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		503EE778852309C1FCF365E561F52835 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B08FD7FC7735C534C7AAC8FC02B15CAD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F396922F0E11188D89DCD832676AC864 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE9A041BEB849B3EE6EA20EA6EBED9BF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0619979126396E05F3A628C8339C0785 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2E2E706FD4369E7768567A274BBEC07 /* Four20 */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		101773DFADE8FAF0FAE8313662B9CBF2 /* MultipeerConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				AEF540B1A449019EB79B05BB74F371C3 /* MSSessionState.swift */,
+			);
+			name = MultipeerConnectivity;
+			path = Extensions/MultipeerConnectivity;
+			sourceTree = "<group>";
+		};
+		20EAC5FC8D6EC15BCCF084B0DAAB3E8B /* Pods-Four20_Example */ = {
+			isa = PBXGroup;
+			children = (
+				06E01B87CAD0FC6DE380F010D44325E5 /* Info.plist */,
+				7930DE3A255A67A9CF511D050230BC4C /* Pods-Four20_Example.modulemap */,
+				3C42C3075A5191662DAA048E9A8BB633 /* Pods-Four20_Example-acknowledgements.markdown */,
+				06FA6772E0CC3BF009020E612DC9929D /* Pods-Four20_Example-acknowledgements.plist */,
+				17FDA7500B3F20608ACCAC83B0660EDD /* Pods-Four20_Example-dummy.m */,
+				F986BE717EF6F9FCB0F7833834CCDB8E /* Pods-Four20_Example-frameworks.sh */,
+				A90BA371B1A4F48942B38B105265FE3A /* Pods-Four20_Example-resources.sh */,
+				38C36F4D8845BC26E47938015E1B0EE9 /* Pods-Four20_Example-umbrella.h */,
+				9361D37D33504CD4C42D530080DBEBF3 /* Pods-Four20_Example.debug.xcconfig */,
+				A27A0FAE1DAA0B9C2E18E37C358B91D2 /* Pods-Four20_Example.release.xcconfig */,
+			);
+			name = "Pods-Four20_Example";
+			path = "Target Support Files/Pods-Four20_Example";
+			sourceTree = "<group>";
+		};
+		2ACD345B1F6536AF7A2153A316E214AE /* ARKit */ = {
+			isa = PBXGroup;
+			children = (
+				B88D971D92D781E2C6C58DBA65653DD3 /* Dictionary+ARFaceAnchor.swift */,
+				FC879117F15B8166E3F61F1DEFA32274 /* ARKitTrackingState.swift */,
+				CB1A6437D6CFB2B7B1F0199E821E6610 /* ARWorldMappingStatus.swift */,
+			);
+			name = ARKit;
+			path = Extensions/ARKit;
+			sourceTree = "<group>";
+		};
+		3EA3A057A917D73FFAF3A47ADC76DB0D /* SceneKit */ = {
+			isa = PBXGroup;
+			children = (
+				368F50620F8F47185CCA98092D57264E /* float4+Additions.swift */,
+				67153C878C1D274CF7ACA61C49757251 /* matrix_float4x4+Additions.swift */,
+				E3CF910A01E13368B278EDED0EFA274D /* SCNGeometry+Additions.swift */,
+				971A7872174E34DC8EB4213A5572F310 /* SCNNode+Additions.swift */,
+				ACFFBD5A7808BF1D62DBB7A1A02B66FF /* SCNVector3+Additions.swift */,
+			);
+			name = SceneKit;
+			path = Extensions/SceneKit;
+			sourceTree = "<group>";
+		};
+		442ED5C583E3A646ACE614F534F7615F /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				A1D34DC1DD8348590EC3580A95767829 /* MKCoordinateSpan+Additions.swift */,
+			);
+			name = MapKit;
+			path = Extensions/MapKit;
+			sourceTree = "<group>";
+		};
+		49825B48719CFB1DE1346F53232DE994 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				A2091D6442D319919DB457236A985A78 /* Four20.podspec */,
+				77509D0065C3B0FD67146436EAFC232B /* LICENSE */,
+				0CD71E83E4DF31654EA2568BD0AAFE74 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		56F66DF74877AF91E7507AD1577B5FEC /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B72F7FA8225F54720005CC99 /* Notification+Additions.swift */,
+				B7D1CC522236336D0033B9AB /* Array+LayoutConstraints.swift */,
+				02E37E2B76CBF108F7EBAAD3629BE21A /* NSLayoutConstraint+Additions.swift */,
+				47ED755554998BCBFFDA50E81071D0ED /* UIButton+Additions.swift */,
+				2B17E34D37AFF9C45E1062EC1B49A579 /* UIColor+Additions.swift */,
+				B163FF36CA3A417B58CED2945D5BF162 /* UIControl+Additions.swift */,
+				81A7222B5AE98832EC2A81BC2AC80599 /* UIGestureRecognizer+Additions.swift */,
+				394D1DD3BF866A613966F19F7AD61FC3 /* UIImage+Additions.swift */,
+				A19F2CC8096346FC29913A47E0FA2BB8 /* UIImageView+Additions.swift */,
+				6AA4480E7F1D3E70D4F819E9C4455CE0 /* UILabel+Additions.swift */,
+				EC267DA8B557D529D224FA16DF0E0971 /* UITableView+Additions.swift */,
+				DACADD4D0362505A488FA70C7F29E018 /* UIView+Additions.swift */,
+				FA9C33B58B61FF621EE14A350C516352 /* UIViewController+Additions.swift */,
+				48A2CCAF15FD3E0B99203429FFE48474 /* UIWindow+Additions.swift */,
+			);
+			name = UIKit;
+			path = Extensions/UIKit;
+			sourceTree = "<group>";
+		};
+		601335D2A9CBCE0F7A8899204C974431 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				B72F7FA4225F539F0005CC99 /* Date+Additions.swift */,
+				B7BE181A2233D2300026A3C2 /* Atomic.swift */,
+				8E32598EE1874402337E59CDF1E17AD0 /* Array+Additions.swift */,
+				B7BE18202233DBAB0026A3C2 /* Double+Additions.swift */,
+				B7BE18222233DBEF0026A3C2 /* Float+Additions.swift */,
+				B72F7F9E225F48A20005CC99 /* BinaryFloatingPoint+Additions.swift */,
+				B72F7FA2225F52210005CC99 /* StringProtocol.swift */,
+			);
+			name = Swift;
+			path = Extensions/Swift;
+			sourceTree = "<group>";
+		};
+		7974F5B217235F1C2807047F0E95D1AC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				20EAC5FC8D6EC15BCCF084B0DAAB3E8B /* Pods-Four20_Example */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0619979126396E05F3A628C8339C0785 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				C71AAE7062AD813FEC805C06719F5D50 /* Products */,
+				7974F5B217235F1C2807047F0E95D1AC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A1C23EE3E9E2EFA342618CE6D5FCB6C7 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				A58133637F3BC3ACDA6CAAE7B03F7786 /* CGSize+Additions.swift */,
+				B7BE181E2233D8E50026A3C2 /* CGFloat+Additions.swift */,
+				B72F7FA0225F4E590005CC99 /* CGStruct2D.swift */,
+			);
+			name = CoreGraphics;
+			path = Extensions/CoreGraphics;
+			sourceTree = "<group>";
+		};
+		A2E2E706FD4369E7768567A274BBEC07 /* Four20 */ = {
+			isa = PBXGroup;
+			children = (
+				2ACD345B1F6536AF7A2153A316E214AE /* ARKit */,
+				A1C23EE3E9E2EFA342618CE6D5FCB6C7 /* CoreGraphics */,
+				E2FAF30F7413B47CD0CCCA4C23052E56 /* Foundation */,
+				442ED5C583E3A646ACE614F534F7615F /* MapKit */,
+				101773DFADE8FAF0FAE8313662B9CBF2 /* MultipeerConnectivity */,
+				49825B48719CFB1DE1346F53232DE994 /* Pod */,
+				3EA3A057A917D73FFAF3A47ADC76DB0D /* SceneKit */,
+				CFD7BECDA4C5E0615E0CD6A53250B6AF /* Support Files */,
+				601335D2A9CBCE0F7A8899204C974431 /* Swift */,
+				56F66DF74877AF91E7507AD1577B5FEC /* UIKit */,
+			);
+			name = Four20;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C71AAE7062AD813FEC805C06719F5D50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14988FA62583E9E1E89F293D1D80EC51 /* Four20.framework */,
+				CEF12C5FE237C8541E96C0581ADB8DD0 /* Pods_Four20_Example.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFD7BECDA4C5E0615E0CD6A53250B6AF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9C11403922C20DC837CFEA049A0B652 /* Four20.modulemap */,
+				2F9CC8EB935E47FD0554461E0C8C2370 /* Four20.xcconfig */,
+				F6F936D18CC7E78D324BA87BE7E58EAB /* Four20-dummy.m */,
+				8DC04EDA4A8C0A9B3C0708089C882643 /* Four20-prefix.pch */,
+				198DE06EDB1FEBECDF83AD7AB100288C /* Four20-umbrella.h */,
+				51FCC50F132CB56390B34EFF477A2BAC /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Four20";
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E2FAF30F7413B47CD0CCCA4C23052E56 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				B72F7FA6225F54650005CC99 /* NSAttributedString+Additions.swift */,
+				F495CE33F0555FB3C97407E966B5CF42 /* NSObject+Additions.swift */,
+				B7AB36262248739200B35766 /* NSFileManager+Additions.swift */,
+				B72F7FAA225F548B0005CC99 /* URLSession+Additions.swift */,
+				B7AB36272248739200B35766 /* NSURL+Additions.swift */,
+			);
+			name = Foundation;
+			path = Extensions/Foundation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0541F2CA45D02C8EA653B4481BA4F32A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				648820C6A0E26867F8DE8ED92F478414 /* Pods-Four20_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E33D3873AC29845952B2BBBB6ECA3990 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26A43481AE0CFAD1A517CCDF6AB6FC79 /* Four20-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2B208F5BDD195072EBF9D8F00A7BD068 /* Pods-Four20_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E98FF512BC648B7A2375F8011A6ACBF /* Build configuration list for PBXNativeTarget "Pods-Four20_Example" */;
+			buildPhases = (
+				AE6F3823C83EFFDDF48372604F3EC368 /* Sources */,
+				F396922F0E11188D89DCD832676AC864 /* Frameworks */,
+				0541F2CA45D02C8EA653B4481BA4F32A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E861451A2428767F461D1D8F51E1CB0F /* PBXTargetDependency */,
+			);
+			name = "Pods-Four20_Example";
+			productName = "Pods-Four20_Example";
+			productReference = CEF12C5FE237C8541E96C0581ADB8DD0 /* Pods_Four20_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8E466FA9FF53E7BE1DC86B5BE1FABB28 /* Four20 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 560AEA4D5E393FFA6D29D37FAAE84673 /* Build configuration list for PBXNativeTarget "Four20" */;
+			buildPhases = (
+				02335E056C431B3A613C479C93AE9531 /* Sources */,
+				503EE778852309C1FCF365E561F52835 /* Frameworks */,
+				E33D3873AC29845952B2BBBB6ECA3990 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Four20;
+			productName = Four20;
+			productReference = 14988FA62583E9E1E89F293D1D80EC51 /* Four20.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 1020;
+				TargetAttributes = {
+					8E466FA9FF53E7BE1DC86B5BE1FABB28 = {
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = C71AAE7062AD813FEC805C06719F5D50 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8E466FA9FF53E7BE1DC86B5BE1FABB28 /* Four20 */,
+				2B208F5BDD195072EBF9D8F00A7BD068 /* Pods-Four20_Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02335E056C431B3A613C479C93AE9531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C61D21F47EEFAAB64A3DEA47F92E0891 /* ARKitTrackingState.swift in Sources */,
+				598944F20D9AAF9B7FA432DE15790B02 /* Array+Additions.swift in Sources */,
+				A01BEEF938DF5986B5A659866F3EF2C3 /* ARWorldMappingStatus.swift in Sources */,
+				602E44A596C10331289FD20E50453A7A /* CGSize+Additions.swift in Sources */,
+				2A2A977F0BE0299B345D1BAB09AEC868 /* Dictionary+ARFaceAnchor.swift in Sources */,
+				B7AB36282248739200B35766 /* NSFileManager+Additions.swift in Sources */,
+				B72F7FAB225F548B0005CC99 /* URLSession+Additions.swift in Sources */,
+				69347D75800F7AD6EB1B744069847347 /* float4+Additions.swift in Sources */,
+				AF0C9A22FA4C59C5087A090E04376D90 /* Four20-dummy.m in Sources */,
+				81E6D7701FC70777F26C52F77DCD7A07 /* matrix_float4x4+Additions.swift in Sources */,
+				B72F7F9F225F48A20005CC99 /* BinaryFloatingPoint+Additions.swift in Sources */,
+				B72F7FA5225F53A00005CC99 /* Date+Additions.swift in Sources */,
+				B7BE18212233DBAB0026A3C2 /* Double+Additions.swift in Sources */,
+				DE527A5693F41EEE3DDA045744C69078 /* MKCoordinateSpan+Additions.swift in Sources */,
+				FAA611835812432CE0994EA11A3A25A8 /* MSSessionState.swift in Sources */,
+				84EC0F0CAAB2EBDB6657490960E09937 /* NSLayoutConstraint+Additions.swift in Sources */,
+				B72F7FA9225F54720005CC99 /* Notification+Additions.swift in Sources */,
+				9BBE8478FA0FBC55B8D6E6EC63AB6943 /* NSObject+Additions.swift in Sources */,
+				C9F552EF9E8F178FE892E723E3CF8269 /* SCNGeometry+Additions.swift in Sources */,
+				5AE622511F1DE631FC3D2CEDF53FB3D0 /* SCNNode+Additions.swift in Sources */,
+				038D5A2A9882AD78630E9E802258DD16 /* SCNVector3+Additions.swift in Sources */,
+				B72F7FA7225F54650005CC99 /* NSAttributedString+Additions.swift in Sources */,
+				B7BE18232233DBEF0026A3C2 /* Float+Additions.swift in Sources */,
+				B72F7FA1225F4E590005CC99 /* CGStruct2D.swift in Sources */,
+				B72F7FA3225F52210005CC99 /* StringProtocol.swift in Sources */,
+				E41453E394CB8D4E81CDEA6602BA11D1 /* UIButton+Additions.swift in Sources */,
+				FAB46C6D291E754BC6D36A78B4B5890C /* UIColor+Additions.swift in Sources */,
+				C0C3F2803BE691F5F46A8AA0ED8617BA /* UIControl+Additions.swift in Sources */,
+				B7D1CC532236336D0033B9AB /* Array+LayoutConstraints.swift in Sources */,
+				203CFA7A733271FD462EA378EE97EDEF /* UIGestureRecognizer+Additions.swift in Sources */,
+				B7BE181B2233D2300026A3C2 /* Atomic.swift in Sources */,
+				B7BE181F2233D8E50026A3C2 /* CGFloat+Additions.swift in Sources */,
+				18DB5683597BB694F6E701BD61C88897 /* UIImage+Additions.swift in Sources */,
+				D6799A88F43A285BF6BDAAB6E773579C /* UIImageView+Additions.swift in Sources */,
+				1A387FF9FB5193828879C066C6AF18D1 /* UILabel+Additions.swift in Sources */,
+				F88AC837177408A691733220DA61204B /* UITableView+Additions.swift in Sources */,
+				B7AB36292248739200B35766 /* NSURL+Additions.swift in Sources */,
+				C0CFD777D55BA89270C120B8399C14A8 /* UIView+Additions.swift in Sources */,
+				285A4E99E048605B16BADB6864E62DC8 /* UIViewController+Additions.swift in Sources */,
+				31907BBDE000BFF91458FB239118C583 /* UIWindow+Additions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE6F3823C83EFFDDF48372604F3EC368 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45697199A2E04BC5EAF233BA054341BA /* Pods-Four20_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E861451A2428767F461D1D8F51E1CB0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Four20;
+			target = 8E466FA9FF53E7BE1DC86B5BE1FABB28 /* Four20 */;
+			targetProxy = 3C0B832D64984AD8D94BBA273D586A10 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		23FD406F9B39FEAF09E3B7827D46CE49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		863D0367C0C4226618B3280D60E76DCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9361D37D33504CD4C42D530080DBEBF3 /* Pods-Four20_Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Four20_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Four20_Example/Pods-Four20_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Four20_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A53540D727FDF275B05A8BCC8FD396F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		BD5732F9E7A1FACA013462F65BB58DDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A27A0FAE1DAA0B9C2E18E37C358B91D2 /* Pods-Four20_Example.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Four20_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Four20_Example/Pods-Four20_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Four20_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C33784697AA2FFE8B4B77E7668CE889E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F9CC8EB935E47FD0554461E0C8C2370 /* Four20.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Four20/Four20-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Four20/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Four20/Four20.modulemap";
+				PRODUCT_NAME = Four20;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CFF89B40AF818E22DDFBE77866F04ACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F9CC8EB935E47FD0554461E0C8C2370 /* Four20.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Four20/Four20-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Four20/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Four20/Four20.modulemap";
+				PRODUCT_NAME = Four20;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A53540D727FDF275B05A8BCC8FD396F2 /* Debug */,
+				23FD406F9B39FEAF09E3B7827D46CE49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E98FF512BC648B7A2375F8011A6ACBF /* Build configuration list for PBXNativeTarget "Pods-Four20_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				863D0367C0C4226618B3280D60E76DCF /* Debug */,
+				BD5732F9E7A1FACA013462F65BB58DDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		560AEA4D5E393FFA6D29D37FAAE84673 /* Build configuration list for PBXNativeTarget "Four20" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C33784697AA2FFE8B4B77E7668CE889E /* Debug */,
+				CFF89B40AF818E22DDFBE77866F04ACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
