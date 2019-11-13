@@ -1,5 +1,5 @@
 framework module Four20 {
-  umbrella header "Four20-umbrella.h"
+  umbrella header "Four20-tvOS-umbrella.h"
 
   export *
   module * { export * }

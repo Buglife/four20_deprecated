@@ -19,4 +19,48 @@
 import Swift
 
 public extension Double {
+    var ft_1: String {
+        return ft_format(1)
+    }
+    
+    var ft_2: String {
+        return ft_format(2)
+    }
+    
+    func ft_format(_ fractionDigits: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = fractionDigits
+        let num = NSNumber(value: self)
+        return formatter.string(from: num) ?? "\(self)"
+    }
+    
+    var ft_toIntegerPercent: Int {
+        return Int(self * 100.0)
+    }
+    
+    var ft_degreesToRadians: Double {
+        return self * .pi / 180
+    }
+    
+    var ft_radiansToDegrees: Double {
+        return self * 180 / .pi
+    }
+}
+
+public extension Array where Element == Double {
+    var ft_median: Double? {
+        return self.sorted(by: <)[self.count / 2]
+    }
+    
+    var ft_average: Double? {
+        guard !isEmpty else { return nil }
+        let sum = Double(reduce(0, +))
+        return sum / Double(count)
+    }
+}
+
+public extension Array where Element == Double? {
+    var ft_average: Double? {
+        return compactMap { $0 }.ft_average
+    }
 }

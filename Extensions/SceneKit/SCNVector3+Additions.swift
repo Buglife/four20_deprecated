@@ -16,17 +16,87 @@
 //
 //
 
+import Foundation
 import SceneKit
+import CoreLocation
 
-public extension SCNVector3 {
-    init(_ vector: float4) {
+extension SCNVector3 {
+    init(_ vector: SIMD4<Float>) {
         self.init(x: vector.x / vector.w, y: vector.y / vector.w, z: vector.z / vector.w)
     }
 }
 
-public func * (left: SCNMatrix4, right: SCNVector3) -> SCNVector3 {
+extension SCNVector3: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
+        hasher.combine(z)
+    }
+}
+
+extension SCNVector3 {
+    func cgPoint(adjustScaleFactor: Bool = false) -> CGPoint {
+        if adjustScaleFactor {
+            let scale = UIScreen.main.scale
+            return CGPoint(x: CGFloat(x) / scale, y: CGFloat(y) / scale)
+        }
+        
+        return CGPoint(x: CGFloat(x), y: CGFloat(y))
+    }
+    
+    // WARNING: I haven't actually verified that this works,
+    //          it was pretty late
+    func ft_angleFrom(_ vectorB: SCNVector3) -> SCNFloat {
+        //cos(angle) = (A.B)/(|A||B|)
+        let cosineAngle = (ft_dotProduct(vectorB) / (ft_magnitude * vectorB.ft_magnitude))
+        return SCNFloat(acos(cosineAngle))
+    }
+    
+    func ft_dotProduct(_ vectorB: SCNVector3) -> SCNFloat {
+        return (x * vectorB.x) + (y * vectorB.y) + (z * vectorB.z)
+    }
+    
+    /// Calculate the magnitude of this vector
+    var ft_magnitude: SCNFloat {
+        get {
+            return sqrt(ft_dotProduct(self))
+        }
+    }
+}
+
+extension SCNVector3: Equatable {
+    static var zero: SCNVector3 {
+        return SCNVector3Zero
+    }
+    
+    
+    init(m: matrix_float4x4) {
+        self.init(m.columns.3.x, m.columns.3.y, m.columns.3.z)
+    }
+}
+
+public func == (lhs: SCNVector3, rhs: SCNVector3) -> Bool {
+    return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
+}
+
+
+public func min(_ l: SCNVector3, _ r: SCNVector3) -> SCNVector3 {
+    let ld3 = SIMD3<Double>(l)
+    let rd3 = SIMD3<Double>(r)
+    
+    return SCNVector3(min(ld3, rd3))
+}
+
+public func max(_ l: SCNVector3, _ r: SCNVector3) -> SCNVector3 {
+    let ld3 = SIMD3<Double>(l)
+    let rd3 = SIMD3<Double>(r)
+    
+    return SCNVector3(max(ld3, rd3))
+}
+
+func * (left: SCNMatrix4, right: SCNVector3) -> SCNVector3 {
     let matrix = float4x4(left)
-    let vector = float4(right)
+    let vector = SIMD4<Float>(right)
     let result = matrix * vector
     
     return SCNVector3(result)

@@ -19,6 +19,11 @@
 import UIKit
 
 public extension UIView {
+    var ft_isVisible: Bool {
+        get { !isHidden }
+        set { isHidden = !newValue }
+    }
+    
     func ft_addSubviews(_ subviews: [UIView]) {
         for subview in subviews {
             addSubview(subview)

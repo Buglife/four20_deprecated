@@ -60,4 +60,28 @@ public extension UIImage {
         let result = UIGraphicsGetImageFromCurrentImageContext()
         return result
     }
+    
+    func ft_rotated(byDegrees degrees: Double) -> UIImage? {
+        let radians = CGFloat(degrees * .pi) / 180.0 as CGFloat
+        let rotatedSize = self.size
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(rotatedSize, false, scale)
+        
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        
+        guard let cgImage = self.cgImage else { return nil }
+        guard let bitmap = UIGraphicsGetCurrentContext() else { return nil }
+        bitmap.translateBy(x: rotatedSize.width / 2, y: rotatedSize.height / 2)
+        bitmap.rotate(by: radians)
+        bitmap.scaleBy(x: 1.0, y: -1.0)
+        bitmap.draw(cgImage, in: CGRect.init(x: -self.size.width / 2, y: -self.size.height / 2 , width: self.size.width, height: self.size.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        return newImage!
+    }
+    
+    var ft_patternColor: UIColor {
+        return UIColor(patternImage: self)
+    }
 }

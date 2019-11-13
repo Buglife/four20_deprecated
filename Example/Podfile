@@ -3,3 +3,7 @@ use_frameworks!
 target 'Four20_Example' do
   pod 'Four20', :path => '../'
 end
+
+target 'Four20_TVExample' do
+  pod 'Four20', :path => '../'
+end

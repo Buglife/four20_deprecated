@@ -23,6 +23,7 @@ typealias StringAttributes = [NSAttributedString.Key : Any]
 protocol AttributedStringable {
     associatedtype T
     func ft_withAttribute(_ key: NSAttributedString.Key, _ value: Any) -> T
+    func ft_withAttributes(_ attributes: [NSAttributedString.Key : Any]) -> T
 }
 
 extension AttributedStringable {
@@ -32,6 +33,10 @@ extension AttributedStringable {
     
     func ft_font(_ font: UIFont) -> T {
         return ft_withAttribute(.font, font)
+    }
+    
+    func ft_stroke(width: CGFloat, color: UIColor) -> T {
+        return ft_withAttributes([.strokeWidth : width, .strokeColor: color])
     }
 }
 
@@ -46,6 +51,10 @@ extension String: AttributedStringable {
         let attrs: [NSAttributedString.Key : Any] = [key : value]
         return NSAttributedString(string: self, attributes: attrs)
     }
+    
+    func ft_withAttributes(_ attributes: [NSAttributedString.Key : Any]) -> NSAttributedString {
+        return NSAttributedString(string: self, attributes: attributes)
+    }
 }
 
 extension NSAttributedString: AttributedStringable {
@@ -55,6 +64,15 @@ extension NSAttributedString: AttributedStringable {
         var attrs = attributes(at: 0, effectiveRange: nil)
         attrs[key] = value
         return NSAttributedString(string: self.string, attributes: attrs)
+    }
+    
+    func ft_withAttributes(_ newAttributes: [NSAttributedString.Key : Any]) -> NSAttributedString {
+        let attrs = ft_startingAttributes.merging(newAttributes) { $1 }
+        return NSAttributedString(string: self.string, attributes: attrs)
+    }
+    
+    var ft_startingAttributes: [NSAttributedString.Key : Any] {
+        return attributes(at: 0, effectiveRange: nil)
     }
 }
 
@@ -67,5 +85,9 @@ extension Dictionary: AttributedStringable where Key == NSAttributedString.Key, 
         var attrs = self
         attrs[key] = value
         return attrs
+    }
+    
+    func ft_withAttributes(_ attributes: [NSAttributedString.Key : Any]) -> [NSAttributedString.Key : Any] {
+        return self.merging(attributes) { $1 }
     }
 }

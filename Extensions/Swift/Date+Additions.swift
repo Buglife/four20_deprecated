@@ -27,6 +27,13 @@ public extension Date {
         let reversed = right.ft_reversed
         return Calendar.current.date(byAdding: reversed, to: left)
     }
+    
+    var ft_debugStringInLocalTimezone: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        dateFormatter.dateFormat = "yyyy.MM.dd G 'at' HH:mm:ss zzz"
+        return dateFormatter.string(from: self)
+    }
 }
 
 public extension DateComponents {

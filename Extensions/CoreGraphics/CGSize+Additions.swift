@@ -19,6 +19,18 @@
 import UIKit
 
 public extension CGSize {
+    static func *(lhs: CGSize, rhs: CGVector) -> CGSize {
+        return CGSize(width: lhs.width * rhs.dx, height: lhs.height * rhs.dy)
+    }
+    
+    static func *(lhs: CGSize, rhs: CGFloat) -> CGSize {
+        return CGSize(width: lhs.width * rhs, height: lhs.height * rhs)
+    }
+    
+    static func /(lhs: CGSize, rhs: Double) -> CGSize {
+        return CGSize(width: lhs.width / CGFloat(rhs), height: lhs.height / CGFloat(rhs))
+    }
+    
     func ft_scaledToWidth(_ newWidth: CGFloat) -> CGSize {
         let newHeight = self.height * (newWidth / self.width)
         return CGSize(width: newWidth, height: newHeight)

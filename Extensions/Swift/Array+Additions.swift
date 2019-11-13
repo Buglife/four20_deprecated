@@ -16,3 +16,25 @@
 //
 //
 
+public extension Array {
+    func ft_flattened() -> [Any] {
+        var res = [Any]()
+        
+        for val in self {
+            if let arr = val as? [Any] {
+                res.append(contentsOf: arr.ft_flattened())
+            } else {
+                res.append(val)
+            }
+        }
+        
+        return res
+    }
+}
+
+public extension Array {
+    mutating func ft_removeFirstUntil(count: Int) {
+        let overflowCount = Swift.max(0, self.count - count)
+        self.removeFirst(overflowCount)
+    }
+}

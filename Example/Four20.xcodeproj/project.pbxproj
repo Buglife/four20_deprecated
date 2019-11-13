@@ -12,15 +12,23 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		B28684FCC3E5E313EDD71818 /* Pods_Four20_TVExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195BED3F1A401B6C0E6C92D /* Pods_Four20_TVExample.framework */; };
+		B733AFF9237BB04000068681 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733AFF8237BB04000068681 /* AppDelegate.swift */; };
+		B733AFFB237BB04000068681 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733AFFA237BB04000068681 /* ContentView.swift */; };
+		B733AFFD237BB04100068681 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B733AFFC237BB04100068681 /* Assets.xcassets */; };
+		B733B000237BB04100068681 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B733AFFF237BB04100068681 /* Preview Assets.xcassets */; };
+		B733B003237BB04100068681 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B733B001237BB04100068681 /* LaunchScreen.storyboard */; };
 		BBA781318EA95644871C94DE /* Pods_Four20_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DED0D9312A3832E224B99E0 /* Pods_Four20_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0004926F427A50BDB09E2D46 /* Pods-Four20_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_Example/Pods-Four20_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		0F1F8AD6D4D37D6FFF3EDDEB /* Pods_Four20_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Four20_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1195BED3F1A401B6C0E6C92D /* Pods_Four20_TVExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Four20_TVExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13EDCD3353EF6241C8737878 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		170A62B6F713674382323CD9 /* Four20.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Four20.podspec; path = ../Four20.podspec; sourceTree = "<group>"; };
 		18056C671B78BCD94D759399 /* Pods-Four20_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_Tests/Pods-Four20_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		20C87AE4174C39232AE201CB /* Pods-Four20_TVExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_TVExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_TVExample/Pods-Four20_TVExample.release.xcconfig"; sourceTree = "<group>"; };
 		54E2FBBE2E4FDD3232057751 /* Pods-Four20_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_Example/Pods-Four20_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5DED0D9312A3832E224B99E0 /* Pods_Four20_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Four20_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Four20_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Four20_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +38,14 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A71F1A1E2A498B1AB430870C /* Pods-Four20_TVExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_TVExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_TVExample/Pods-Four20_TVExample.debug.xcconfig"; sourceTree = "<group>"; };
+		B733AFF6237BB04000068681 /* Four20_TVExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Four20_TVExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B733AFF8237BB04000068681 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B733AFFA237BB04000068681 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B733AFFC237BB04100068681 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B733AFFF237BB04100068681 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B733B002237BB04100068681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B733B004237BB04100068681 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9F6A1673E8556BBF5613BB0 /* Pods-Four20_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_Tests/Pods-Four20_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BC630E256F447F384CB0153F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +59,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B733AFF3237BB04000068681 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B28684FCC3E5E313EDD71818 /* Pods_Four20_TVExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -51,6 +75,7 @@
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Four20 */,
+				B733AFF7237BB04000068681 /* Four20_TVExample */,
 				607FACD11AFB9204008FA782 /* Products */,
 				F4A1C53CB5768F580D2FE67A /* Pods */,
 				9A5E8524826A996CA62258D7 /* Frameworks */,
@@ -61,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* Four20_Example.app */,
+				B733AFF6237BB04000068681 /* Four20_TVExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,8 +128,30 @@
 			children = (
 				5DED0D9312A3832E224B99E0 /* Pods_Four20_Example.framework */,
 				0F1F8AD6D4D37D6FFF3EDDEB /* Pods_Four20_Tests.framework */,
+				1195BED3F1A401B6C0E6C92D /* Pods_Four20_TVExample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B733AFF7237BB04000068681 /* Four20_TVExample */ = {
+			isa = PBXGroup;
+			children = (
+				B733AFF8237BB04000068681 /* AppDelegate.swift */,
+				B733AFFA237BB04000068681 /* ContentView.swift */,
+				B733AFFC237BB04100068681 /* Assets.xcassets */,
+				B733B001237BB04100068681 /* LaunchScreen.storyboard */,
+				B733B004237BB04100068681 /* Info.plist */,
+				B733AFFE237BB04100068681 /* Preview Content */,
+			);
+			path = Four20_TVExample;
+			sourceTree = "<group>";
+		};
+		B733AFFE237BB04100068681 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B733AFFF237BB04100068681 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		F4A1C53CB5768F580D2FE67A /* Pods */ = {
@@ -113,6 +161,8 @@
 				54E2FBBE2E4FDD3232057751 /* Pods-Four20_Example.release.xcconfig */,
 				18056C671B78BCD94D759399 /* Pods-Four20_Tests.debug.xcconfig */,
 				B9F6A1673E8556BBF5613BB0 /* Pods-Four20_Tests.release.xcconfig */,
+				A71F1A1E2A498B1AB430870C /* Pods-Four20_TVExample.debug.xcconfig */,
+				20C87AE4174C39232AE201CB /* Pods-Four20_TVExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -129,7 +179,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				1AEC9E84772DF300579761F1 /* [CP] Embed Pods Frameworks */,
-				94438A1D3A7F2918A8F19BA9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,19 +189,43 @@
 			productReference = 607FACD01AFB9204008FA782 /* Four20_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B733AFF5237BB04000068681 /* Four20_TVExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B733B007237BB04100068681 /* Build configuration list for PBXNativeTarget "Four20_TVExample" */;
+			buildPhases = (
+				197C2417B3E9B6CB73DD2501 /* [CP] Check Pods Manifest.lock */,
+				B733AFF2237BB04000068681 /* Sources */,
+				B733AFF3237BB04000068681 /* Frameworks */,
+				B733AFF4237BB04000068681 /* Resources */,
+				C93A74397269BA78E2115021 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Four20_TVExample;
+			productName = Four20_TVExample;
+			productReference = B733AFF6237BB04000068681 /* Four20_TVExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 1020;
+					};
+					B733AFF5237BB04000068681 = {
+						CreatedOnToolsVersion = 11.2;
+						DevelopmentTeam = 3XNSCPZ9AZ;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -170,6 +243,7 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* Four20_Example */,
+				B733AFF5237BB04000068681 /* Four20_TVExample */,
 			);
 		};
 /* End PBXProject section */
@@ -185,17 +259,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B733AFF4237BB04000068681 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B733B003237BB04100068681 /* LaunchScreen.storyboard in Resources */,
+				B733B000237BB04100068681 /* Preview Assets.xcassets in Resources */,
+				B733AFFD237BB04100068681 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		197C2417B3E9B6CB73DD2501 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Four20_TVExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1AEC9E84772DF300579761F1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Four20_Example/Pods-Four20_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Four20/Four20.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Four20_Example/Pods-Four20_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Four20-iOS/Four20.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -203,22 +309,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Four20_Example/Pods-Four20_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Four20_Example/Pods-Four20_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		94438A1D3A7F2918A8F19BA9 /* [CP] Copy Pods Resources */ = {
+		C93A74397269BA78E2115021 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Four20_TVExample/Pods-Four20_TVExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Four20-tvOS/Four20.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Four20.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Four20_Example/Pods-Four20_Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Four20_TVExample/Pods-Four20_TVExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E06151EE0FBF52B39A3F6C5E /* [CP] Check Pods Manifest.lock */ = {
@@ -251,6 +360,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B733AFF2237BB04000068681 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B733AFFB237BB04000068681 /* ContentView.swift in Sources */,
+				B733AFF9237BB04000068681 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -268,6 +386,14 @@
 				607FACDF1AFB9204008FA782 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		B733B001237BB04100068681 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B733B002237BB04100068681 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -412,6 +538,65 @@
 			};
 			name = Release;
 		};
+		B733B005237BB04100068681 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A71F1A1E2A498B1AB430870C /* Pods-Four20_TVExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"Four20_TVExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 3XNSCPZ9AZ;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Four20_TVExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.observantai..Four20-TVExample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
+			};
+			name = Debug;
+		};
+		B733B006237BB04100068681 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20C87AE4174C39232AE201CB /* Pods-Four20_TVExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Four20_TVExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 3XNSCPZ9AZ;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Four20_TVExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.observantai..Four20-TVExample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -429,6 +614,15 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B733B007237BB04100068681 /* Build configuration list for PBXNativeTarget "Four20_TVExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B733B005237BB04100068681 /* Debug */,
+				B733B006237BB04100068681 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

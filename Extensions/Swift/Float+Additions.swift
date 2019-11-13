@@ -19,4 +19,50 @@
 import Swift
 
 public extension Float {
+    var ft_1: String {
+        return ft_format(1)
+    }
+    
+    var ft_2: String {
+        return ft_format(2)
+    }
+    
+    func ft_format(_ fractionDigits: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = fractionDigits
+        let num = NSNumber(value: self)
+        return formatter.string(from: num) ?? "\(self)"
+    }
+    
+    var ft_metersToInches: Float {
+        return self * 39.37
+    }
+    
+    var ft_inchesToMeters: Float {
+        return self / 39.37
+    }
+    
+    var ft_degreesToRadians: Float {
+        return self * .pi / 180
+    }
+    
+    var ft_radiansToDegrees: Float {
+        return self * 180 / .pi
+    }
+}
+
+public extension Array where Element == Float {
+    var ft_average: Float? {
+        guard !isEmpty else { return nil }
+        let sum = reduce(0, +)
+        return sum / Float(count)
+    }
+    
+    var ft_standardDeviation: Float? {
+        let length = Float(self.count)
+        guard length > 0 else { return nil }
+        let avg = self.reduce(0, {$0 + $1}) / length
+        let sumofSquaredAvgDiff = self.map { pow($0 - avg, 2.0) }.reduce(0, {$0 + $1})
+        return sqrt(sumofSquaredAvgDiff / length)
+    }
 }

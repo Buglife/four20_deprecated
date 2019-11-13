@@ -19,9 +19,11 @@
 import UIKit
 
 public extension UIViewController {
-    func ft_presentAlert(title: String, message: String? = nil) {
+    func ft_presentAlert(title: String, message: String? = nil, completion: (() -> ())? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .cancel) { _ in
+            completion?()
+        }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }

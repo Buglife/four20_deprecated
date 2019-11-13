@@ -31,4 +31,17 @@ public extension MCSessionState {
             return "Unknown"
         }
     }
+    
+    var ft_emoji: String {
+        switch self {
+        case .connected:
+            return "✅"
+        case .connecting:
+            return "📡"
+        case .notConnected:
+            return "🚫"
+        default:
+            return "⁉️"
+        }
+    }
 }
