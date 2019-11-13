@@ -5,7 +5,7 @@
 
 import UIKit
 
-extension Result where Success == Data {
+public extension Result where Success == Data {
     typealias Completion = (Result<URLSession.HeadersAndJSONObject, URLSession.Error>) -> ()
     
     /// Convenience method for mapping a Result<Data, _> type to a network request,

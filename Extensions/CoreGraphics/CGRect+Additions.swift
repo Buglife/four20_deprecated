@@ -5,7 +5,7 @@
 
 import UIKit
 
-extension CGRect {
+public extension CGRect {
     static func *(lhs: CGRect, rhs: CGSize) -> CGRect {
         let x = lhs.origin.x * rhs.width
         let y = lhs.origin.y * rhs.height

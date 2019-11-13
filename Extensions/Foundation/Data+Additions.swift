@@ -3,7 +3,7 @@
 //  Copyright © 2019 Observant. All rights reserved.
 //
 
-extension Data {
+public extension Data {
     enum Error: Swift.Error {
         case write(Swift.Error)
         case contentsOfURL(Swift.Error)

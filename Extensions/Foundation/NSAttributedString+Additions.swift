@@ -18,15 +18,15 @@
 
 import UIKit
 
-typealias StringAttributes = [NSAttributedString.Key : Any]
+public typealias StringAttributes = [NSAttributedString.Key : Any]
 
-protocol AttributedStringable {
+public protocol AttributedStringable {
     associatedtype T
     func ft_withAttribute(_ key: NSAttributedString.Key, _ value: Any) -> T
     func ft_withAttributes(_ attributes: [NSAttributedString.Key : Any]) -> T
 }
 
-extension AttributedStringable {
+public extension AttributedStringable {
     func ft_color(_ color: UIColor) -> T {
         return ft_withAttribute(.foregroundColor, color)
     }
@@ -41,18 +41,18 @@ extension AttributedStringable {
 }
 
 extension String: AttributedStringable {
-    var ft_attributed: NSAttributedString {
+    public var ft_attributed: NSAttributedString {
         return NSAttributedString(string: self)
     }
     
     // MARK: - AttributedStringable
     
-    func ft_withAttribute(_ key: NSAttributedString.Key, _ value: Any) -> NSAttributedString {
+    public func ft_withAttribute(_ key: NSAttributedString.Key, _ value: Any) -> NSAttributedString {
         let attrs: [NSAttributedString.Key : Any] = [key : value]
         return NSAttributedString(string: self, attributes: attrs)
     }
     
-    func ft_withAttributes(_ attributes: [NSAttributedString.Key : Any]) -> NSAttributedString {
+    public func ft_withAttributes(_ attributes: [NSAttributedString.Key : Any]) -> NSAttributedString {
         return NSAttributedString(string: self, attributes: attributes)
     }
 }
@@ -60,18 +60,18 @@ extension String: AttributedStringable {
 extension NSAttributedString: AttributedStringable {
     // MARK: - AttributedStringable
     
-    func ft_withAttribute(_ key: NSAttributedString.Key, _ value: Any) -> NSAttributedString {
+    public func ft_withAttribute(_ key: NSAttributedString.Key, _ value: Any) -> NSAttributedString {
         var attrs = attributes(at: 0, effectiveRange: nil)
         attrs[key] = value
         return NSAttributedString(string: self.string, attributes: attrs)
     }
     
-    func ft_withAttributes(_ newAttributes: [NSAttributedString.Key : Any]) -> NSAttributedString {
+    public func ft_withAttributes(_ newAttributes: [NSAttributedString.Key : Any]) -> NSAttributedString {
         let attrs = ft_startingAttributes.merging(newAttributes) { $1 }
         return NSAttributedString(string: self.string, attributes: attrs)
     }
     
-    var ft_startingAttributes: [NSAttributedString.Key : Any] {
+    public var ft_startingAttributes: [NSAttributedString.Key : Any] {
         return attributes(at: 0, effectiveRange: nil)
     }
 }
@@ -81,13 +81,13 @@ extension Dictionary: AttributedStringable where Key == NSAttributedString.Key, 
     
     // MARK: - AttributedStringable
     
-    func ft_withAttribute(_ key: NSAttributedString.Key, _ value: Any) -> [NSAttributedString.Key : Any] {
+    public func ft_withAttribute(_ key: NSAttributedString.Key, _ value: Any) -> [NSAttributedString.Key : Any] {
         var attrs = self
         attrs[key] = value
         return attrs
     }
     
-    func ft_withAttributes(_ attributes: [NSAttributedString.Key : Any]) -> [NSAttributedString.Key : Any] {
+    public func ft_withAttributes(_ attributes: [NSAttributedString.Key : Any]) -> [NSAttributedString.Key : Any] {
         return self.merging(attributes) { $1 }
     }
 }

@@ -21,38 +21,40 @@ import UIKit
 /*
  * Provides common functions across CGPoint, CGSize and CGVector
  */
-protocol CGStruct2D {
+public protocol CGStruct2D {
     var ft_x: CGFloat { get }
     var ft_y: CGFloat { get }
     init(ft_x: CGFloat, ft_y: CGFloat)
 }
 
 extension CGPoint: CGStruct2D {
-    var ft_x: CGFloat { get { return x } }
-    var ft_y: CGFloat { get { return y } }
+    public var ft_x: CGFloat { get { return x } }
+    public var ft_y: CGFloat { get { return y } }
     
-    init(ft_x: CGFloat, ft_y: CGFloat) {
+    public init(ft_x: CGFloat, ft_y: CGFloat) {
         self.init(x: ft_x, y: ft_y)
     }
 }
+
 extension CGSize: CGStruct2D {
-    var ft_x: CGFloat { get { return width } }
-    var ft_y: CGFloat { get { return height } }
+    public var ft_x: CGFloat { get { return width } }
+    public var ft_y: CGFloat { get { return height } }
     
-    init(ft_x: CGFloat, ft_y: CGFloat) {
+    public init(ft_x: CGFloat, ft_y: CGFloat) {
         self.init(width: ft_x, height: ft_y)
     }
 }
+
 extension CGVector: CGStruct2D {
-    var ft_x: CGFloat { get { return dx } }
-    var ft_y: CGFloat { get { return dy } }
+    public var ft_x: CGFloat { get { return dx } }
+    public var ft_y: CGFloat { get { return dy } }
     
-    init(ft_x: CGFloat, ft_y: CGFloat) {
+    public init(ft_x: CGFloat, ft_y: CGFloat) {
         self.init(dx: ft_x, dy: ft_y)
     }
 }
 
-extension CGStruct2D {
+public extension CGStruct2D {
     static func *<T: CGStruct2D>(lhs: T, rhs: CGStruct2D) -> T {
         return T(ft_x: lhs.ft_x * rhs.ft_x, ft_y: lhs.ft_y * rhs.ft_y)
     }
@@ -67,12 +69,12 @@ extension CGStruct2D {
 }
 
 // Multiplies any [CGPoint, CGSize, CGVector] by any [Float, Double, CGFloat]
-func *<T: CGStruct2D, U: BinaryFloatingPoint>(lhs: T, rhs: U) -> T {
+public func *<T: CGStruct2D, U: BinaryFloatingPoint>(lhs: T, rhs: U) -> T {
     let frhs = CGFloat(rhs)
     return T(ft_x: lhs.ft_x * frhs, ft_y: lhs.ft_y * frhs)
 }
 
-func /<T: CGStruct2D, U: BinaryFloatingPoint>(lhs: T, rhs: U) -> T {
+public func /<T: CGStruct2D, U: BinaryFloatingPoint>(lhs: T, rhs: U) -> T {
     let frhs = CGFloat(rhs)
     return T(ft_x: lhs.ft_x / frhs, ft_y: lhs.ft_y / frhs)
 }

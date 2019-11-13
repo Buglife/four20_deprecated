@@ -5,7 +5,7 @@
 
 import UIKit
 
-extension CGAffineTransform {
+public extension CGAffineTransform {
     /// Returns the rotation in radians
     var ft_rotation: CGFloat { atan2(b, a) }
 }

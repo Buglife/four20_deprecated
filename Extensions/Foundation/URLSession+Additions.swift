@@ -18,10 +18,10 @@
 
 import Foundation
 
-typealias JSONDictionary = [String : Any]
-typealias JSONArray = [JSONDictionary]
+public typealias JSONDictionary = [String : Any]
+public typealias JSONArray = [JSONDictionary]
 
-extension URLSession {
+public extension URLSession {
     enum Method: String {
         case get = "GET"
         case post = "POST"
@@ -38,8 +38,8 @@ extension URLSession {
 
         // For some reason, for .localizedDescription() to work in an interpolated string,
         // we need to adopt the LocalizedError protocol and implement these:
-        var errorDescription: String? { localizedDescription }
-        var failureReason: String? { localizedDescription }
+        public var errorDescription: String? { localizedDescription }
+        public var failureReason: String? { localizedDescription }
         
         var localizedDescription: String {
             switch self {
@@ -243,7 +243,7 @@ extension URLResponse {
     }
 }
 
-extension URLSession.Error {
+public extension URLSession.Error {
     var isUnauthorized: Bool {
         switch self {
         case .unauthorized: return true
@@ -252,14 +252,14 @@ extension URLSession.Error {
     }
 }
 
-extension Result where Failure == URLSession.Error {
+public extension Result where Failure == URLSession.Error {
     var ft_isUnauthorized: Bool {
         guard let error = self.failure else { return false }
         return error.isUnauthorized
     }
 }
 
-extension Result {
+public extension Result {
     var failure: Failure? {
         switch self {
         case .failure(let f): return f

@@ -3,13 +3,13 @@
 //  Copyright © 2019 Observant. All rights reserved.
 //
 
-enum JSONError: Error {
+public enum JSONError: Error {
     case encodingError(EncodingError)
     case decodingError(DecodingError)
     case miscellaneous(Swift.Error)
 }
 
-extension JSONDictionary {
+public extension JSONDictionary {
     var ft_dataResult: Result<Data, JSONError> {
         do {
             let data = try JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
@@ -32,7 +32,7 @@ extension JSONDictionary {
     }
 }
 
-extension JSONEncoder {
+public extension JSONEncoder {
     func ft_encode<T: Encodable>(_ value: T) -> Result<Data, JSONError> {
         do {
             let result = try encode(value)
@@ -47,7 +47,7 @@ extension JSONEncoder {
     }
 }
 
-extension JSONDecoder {
+public extension JSONDecoder {
     func ft_decode<T: Decodable>(_ data: Data) -> Result<T, JSONError> {
         do {
             let result = try decode(T.self, from: data)
@@ -62,7 +62,7 @@ extension JSONDecoder {
     }
 }
 
-extension Data {
+public extension Data {
     func ft_decodedJSON<T: Decodable>() -> Result<T, JSONError> {
         let decoder = JSONDecoder()
         return decoder.ft_decode(self)

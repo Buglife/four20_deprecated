@@ -6,7 +6,7 @@
 import CoreVideo
 import UIKit
 
-extension CVPixelBuffer {
+public extension CVPixelBuffer {
     func ft_imageWithContext(_ ciContext: CIContext) -> UIImage? {
         let ciImage = CIImage(cvPixelBuffer: self)
         guard let cgImage = ciContext.createCGImage(ciImage, from: CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(self), height: CVPixelBufferGetHeight(self))) else {

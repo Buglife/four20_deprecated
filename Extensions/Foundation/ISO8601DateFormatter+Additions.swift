@@ -2,7 +2,7 @@
 //  ISO8601DateFormatter+Additions.swift
 //
 
-extension ISO8601DateFormatter {
+public extension ISO8601DateFormatter {
     static func ft_dateFormatterForRailsAPI() -> ISO8601DateFormatter {
         let isoDateFormatter = ISO8601DateFormatter()
         isoDateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
@@ -10,7 +10,7 @@ extension ISO8601DateFormatter {
     }
 }
 
-extension DateFormatter {
+public extension DateFormatter {
     static func ft_iso8601Full() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"

@@ -5,21 +5,21 @@
 
 import CoreLocation
 
-typealias SpeedMPH = Double
+public typealias SpeedMPH = Double
 
-extension CLLocation {
+public extension CLLocation {
     var speedMPH: SpeedMPH {
         return speed.ft_speedToMPH
     }
 }
 
-extension Double {
+public extension Double {
     var ft_speedToMPH: SpeedMPH {
         return self * 2.23694
     }
 }
 
-extension SpeedMPH {
+public extension SpeedMPH {
     var ft_speedToMetersPerSecond: CLLocationSpeed {
         return self / 2.23694
     }

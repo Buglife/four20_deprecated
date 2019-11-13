@@ -18,6 +18,7 @@
 
 import UIKit
 
+@propertyWrapper
 public class Atomic<Value> {
     
     // MARK: Type definitions
@@ -40,8 +41,12 @@ public class Atomic<Value> {
     
     // Mark: Initializers
     
-    init(_ value: Value) {
+    public init(_ value: Value) {
         self.unsafeValue = value
+    }
+    
+    public init(wrappedValue: Value) {
+        self.unsafeValue = wrappedValue
     }
     
     // MARK: Accessors
@@ -49,8 +54,13 @@ public class Atomic<Value> {
     /**
      * Synchronously gets or sets the current value.
      */
-    var value: Value {
-        get { return _syncGetValue() }
+    public var value: Value {
+        get { wrappedValue }
+        set { wrappedValue = newValue }
+    }
+    
+    public var wrappedValue: Value {
+        get { _syncGetValue() }
         set { _syncSetValue(newValue) }
     }
     

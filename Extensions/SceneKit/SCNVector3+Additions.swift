@@ -20,7 +20,7 @@ import Foundation
 import SceneKit
 import CoreLocation
 
-extension SCNVector3 {
+public extension SCNVector3 {
     init(_ vector: SIMD4<Float>) {
         self.init(x: vector.x / vector.w, y: vector.y / vector.w, z: vector.z / vector.w)
     }
@@ -34,7 +34,7 @@ extension SCNVector3: Hashable {
     }
 }
 
-extension SCNVector3 {
+public extension SCNVector3 {
     func cgPoint(adjustScaleFactor: Bool = false) -> CGPoint {
         if adjustScaleFactor {
             let scale = UIScreen.main.scale
@@ -65,7 +65,7 @@ extension SCNVector3 {
 }
 
 extension SCNVector3: Equatable {
-    static var zero: SCNVector3 {
+    public static var zero: SCNVector3 {
         return SCNVector3Zero
     }
     
@@ -94,7 +94,7 @@ public func max(_ l: SCNVector3, _ r: SCNVector3) -> SCNVector3 {
     return SCNVector3(max(ld3, rd3))
 }
 
-func * (left: SCNMatrix4, right: SCNVector3) -> SCNVector3 {
+public func * (left: SCNMatrix4, right: SCNVector3) -> SCNVector3 {
     let matrix = float4x4(left)
     let vector = SIMD4<Float>(right)
     let result = matrix * vector

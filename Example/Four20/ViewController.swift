@@ -21,7 +21,12 @@ import Four20
 
 class ViewController: UIViewController {
     
+    @Atomic private var myInteger = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myInteger = 5
+        print("myInteger = \(myInteger)")
     }
 }
