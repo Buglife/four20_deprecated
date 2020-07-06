@@ -10,7 +10,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/Buglife/four20.git', :tag => s.version.to_s }
   s.ios.deployment_target = '12.0'
   s.tvos.deployment_target = '13.0'
-  s.source_files     = 'Extensions/**/*'
-  s.ios.source_files     = 'iOS/**/*'
+  s.osx.deployment_target = '10.15'
+  s.source_files     = 'Source/Shared/**/*'
+  s.ios.source_files     = 'Source/iOS/**/*'
   s.swift_version    = '5.0'
 end
