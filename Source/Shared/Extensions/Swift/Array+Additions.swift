@@ -30,6 +30,11 @@ public extension Array {
         
         return res
     }
+    
+    func ft_subarryWithIndexes(_ indexes: [Int]) -> [Element]? {
+        guard let maxIndex = indexes.max(), self.count > maxIndex else { return nil }
+        return indexes.map { self[$0] }
+    }
 }
 
 public extension Array {

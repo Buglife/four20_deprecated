@@ -4,6 +4,9 @@
 //
 
 public extension DispatchQueue {
+    
+    static var ft_utility: DispatchQueue { .global(qos: .utility) }
+    
     func ft_barrierAsync(work: @escaping @convention(block) () -> Void) {
         async(flags: .barrier, execute: work)
     }

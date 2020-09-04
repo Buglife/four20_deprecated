@@ -19,13 +19,10 @@
 import Swift
 
 public extension Float {
-    var ft_1: String {
-        return ft_format(1)
-    }
-    
-    var ft_2: String {
-        return ft_format(2)
-    }
+    var ft_0: String { ft_format(0) }
+    var ft_1: String { ft_format(1) }
+    var ft_2: String { ft_format(2) }
+    var ft_3: String { ft_format(3) }
     
     func ft_format(_ fractionDigits: Int) -> String {
         let formatter = NumberFormatter()
@@ -34,24 +31,28 @@ public extension Float {
         return formatter.string(from: num) ?? "\(self)"
     }
     
-    var ft_metersToInches: Float {
-        return self * 39.37
-    }
+    var ft_metersToInches: Float { self * 39.37 }
+    var ft_inchesToMeters: Float { self / 39.37 }
+    var ft_degreesToRadians: Float { self * .pi / 180 }
+    var ft_radiansToDegrees: Float { self * 180 / .pi }
     
-    var ft_inchesToMeters: Float {
-        return self / 39.37
+    func ft_percentString(_ fractionDigits: Int = 0) -> String {
+        (self * 100.0).ft_format(fractionDigits) + "%"
     }
-    
-    var ft_degreesToRadians: Float {
-        return self * .pi / 180
-    }
-    
-    var ft_radiansToDegrees: Float {
-        return self * 180 / .pi
+}
+
+public extension Optional where Wrapped == Float {
+    static func /(left: Float?, right: Float?) -> Float? {
+        guard let left = left, let right = right else { return nil }
+        return left / right
     }
 }
 
 public extension Array where Element == Float {
+    var ft_median: Float? {
+        return self.sorted(by: <)[self.count / 2]
+    }
+    
     var ft_average: Float? {
         guard !isEmpty else { return nil }
         let sum = reduce(0, +)
@@ -64,5 +65,11 @@ public extension Array where Element == Float {
         let avg = self.reduce(0, {$0 + $1}) / length
         let sumofSquaredAvgDiff = self.map { pow($0 - avg, 2.0) }.reduce(0, {$0 + $1})
         return sqrt(sumofSquaredAvgDiff / length)
+    }
+}
+
+public extension Array where Element == Float? {
+    var ft_average: Float? {
+        return compactMap { $0 }.ft_average
     }
 }

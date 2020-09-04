@@ -19,13 +19,10 @@
 import Swift
 
 public extension Double {
-    var ft_1: String {
-        return ft_format(1)
-    }
-    
-    var ft_2: String {
-        return ft_format(2)
-    }
+    var ft_0: String { ft_format(0) }
+    var ft_1: String { ft_format(1) }
+    var ft_2: String { ft_format(2) }
+    var ft_3: String { ft_format(3) }
     
     func ft_format(_ fractionDigits: Int) -> String {
         let formatter = NumberFormatter()
@@ -34,16 +31,18 @@ public extension Double {
         return formatter.string(from: num) ?? "\(self)"
     }
     
-    var ft_toIntegerPercent: Int {
-        return Int(self * 100.0)
-    }
+    var ft_degreesToRadians: Double { self * .pi / 180 }
+    var ft_radiansToDegrees: Double { self * 180 / .pi }
     
-    var ft_degreesToRadians: Double {
-        return self * .pi / 180
+    func ft_percentString(_ fractionDigits: Int = 0) -> String {
+        (self * 100.0).ft_format(fractionDigits) + "%"
     }
-    
-    var ft_radiansToDegrees: Double {
-        return self * 180 / .pi
+}
+
+public extension Optional where Wrapped == Double {
+    static func /(left: Double?, right: Double?) -> Double? {
+        guard let left = left, let right = right else { return nil }
+        return left / right
     }
 }
 
@@ -56,6 +55,14 @@ public extension Array where Element == Double {
         guard !isEmpty else { return nil }
         let sum = Double(reduce(0, +))
         return sum / Double(count)
+    }
+    
+    var ft_standardDeviation: Double? {
+        let length = Double(self.count)
+        guard length > 0 else { return nil }
+        let avg = self.reduce(0, {$0 + $1}) / length
+        let sumofSquaredAvgDiff = self.map { pow($0 - avg, 2.0) }.reduce(0, {$0 + $1})
+        return sqrt(sumofSquaredAvgDiff / length)
     }
 }
 
