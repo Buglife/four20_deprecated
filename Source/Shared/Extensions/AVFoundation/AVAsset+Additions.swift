@@ -7,12 +7,12 @@ import CoreMedia
 
 public extension AVAsset {
     
-    public enum FrameExtractionError: Swift.Error {
+    enum FrameExtractionError: Swift.Error {
         case assetReader(Swift.Error)
         case missingVideoTrack
     }
     
-    public var ft_frames: Result<[CMSampleBuffer], FrameExtractionError> {
+    var ft_frames: Result<[CMSampleBuffer], FrameExtractionError> {
         let assetReader: AVAssetReader
         
         do {

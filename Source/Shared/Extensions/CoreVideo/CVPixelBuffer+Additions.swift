@@ -7,17 +7,17 @@ import CoreVideo
 
 #if !os(macOS)
 import UIKit
+#endif
 
 public extension CVPixelBuffer {
-    func ft_imageWithContext(_ ciContext: CIContext) -> UIImage? {
+    func ft_imageWithContext(_ ciContext: CIContext) -> OBSRImage? {
         let ciImage = CIImage(cvPixelBuffer: self)
         guard let cgImage = ciContext.createCGImage(ciImage, from: CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(self), height: CVPixelBufferGetHeight(self))) else {
             return nil
         }
-        return UIImage(cgImage: cgImage)
+        return OBSRImage(ft_cgImage: cgImage)
     }
 }
-#endif
 
 public extension CVPixelBuffer {
     var ft_pixelFormatType: OSType { CVPixelBufferGetPixelFormatType(self) }
@@ -26,7 +26,7 @@ public extension CVPixelBuffer {
         CGSize(width: CVPixelBufferGetWidth(self), height: CVPixelBufferGetHeight(self))
     }
     
-    public enum BGRAConversionError: Swift.Error {
+    enum BGRAConversionError: Swift.Error {
         case unexpectedPixelFormat
         case drawing(Swift.Error)
         case yImageNil
@@ -35,7 +35,7 @@ public extension CVPixelBuffer {
         case argbConversion
     }
     
-    public func ft_toBGRA() -> Result<CVPixelBuffer, BGRAConversionError> {
+    func ft_toBGRA() -> Result<CVPixelBuffer, BGRAConversionError> {
         let pixelBuffer = self
         
         /// Check format

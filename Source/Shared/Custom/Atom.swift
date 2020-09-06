@@ -6,22 +6,22 @@
 import Foundation
 
 @propertyWrapper
-class Atom<Value> {
-    typealias GetValueHandler = (Value) -> ()
+public class Atom<Value> {
+    public typealias GetValueHandler = (Value) -> ()
     
     fileprivate var unsafeValue: Value
     private let readWriteQueue = DispatchQueue(label: "com.observantai.Atom.readWriteQueue", attributes: .concurrent)
     
-    init(wrappedValue value: Value) {
+    public init(wrappedValue value: Value) {
         self.unsafeValue = value
     }
     
-    var wrappedValue: Value {
+    public var wrappedValue: Value {
         get { _syncGetValue() }
         set { _syncSetValue(newValue) }
     }
     
-    func asyncGetValue(to queue: DispatchQueue = .main, _ getValueHandler: @escaping GetValueHandler) {
+    public func asyncGetValue(to queue: DispatchQueue = .main, _ getValueHandler: @escaping GetValueHandler) {
         readWriteQueue.async { [weak self] in
             guard let strongSelf = self else { return }
             let val = strongSelf.unsafeValue
@@ -31,21 +31,21 @@ class Atom<Value> {
         }
     }
     
-    func asyncSetValue(_ newValue: Value) {
+    public func asyncSetValue(_ newValue: Value) {
         readWriteQueue.async(flags: .barrier) { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.unsafeValue = newValue
         }
     }
     
-    func syncMutate(work: @escaping (inout Value) -> ()) {
+    public func syncMutate(work: @escaping (inout Value) -> ()) {
         readWriteQueue.ft_barrierSync { [weak self] in
             guard let self = self else { return }
             work(&self.unsafeValue)
         }
     }
     
-    func asyncMutate(work: @escaping (inout Value) -> ()) {
+    public func asyncMutate(work: @escaping (inout Value) -> ()) {
         readWriteQueue.ft_barrierAsync { [weak self] in
             guard let self = self else { return }
             work(&self.unsafeValue)
@@ -80,7 +80,7 @@ class Atom<Value> {
     
     // MARK: - Other stuff
     
-    func syncGetAndSet(_ newValue: Value) -> Value {
+    public func syncGetAndSet(_ newValue: Value) -> Value {
         return readWriteQueue.ft_barrierSync {
             let oldValue = self.unsafeValue
             self.unsafeValue = newValue

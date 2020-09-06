@@ -68,7 +68,6 @@ public extension Array where Element == Double {
     }
     
     func ft_indexOfNearest(to target: Double) -> Int? {
-        var optElement: Double?
         var optNearestIndex: Int?
         
         for (index, element) in enumerated() {
