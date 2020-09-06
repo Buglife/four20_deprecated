@@ -28,6 +28,10 @@ public extension Date {
         return Calendar.current.date(byAdding: reversed, to: left)
     }
     
+    static func -(left: Date, right: Date) -> TimeInterval {
+        left.timeIntervalSince1970 - right.timeIntervalSince1970
+    }
+    
     var ft_debugStringInLocalTimezone: String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent

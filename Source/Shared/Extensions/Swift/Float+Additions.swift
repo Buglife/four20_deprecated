@@ -39,6 +39,8 @@ public extension Float {
     func ft_percentString(_ fractionDigits: Int = 0) -> String {
         (self * 100.0).ft_format(fractionDigits) + "%"
     }
+    
+    var ft_abs: Float { abs(self) }
 }
 
 public extension Optional where Wrapped == Float {

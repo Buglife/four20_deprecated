@@ -37,6 +37,8 @@ public extension Double {
     func ft_percentString(_ fractionDigits: Int = 0) -> String {
         (self * 100.0).ft_format(fractionDigits) + "%"
     }
+    
+    var ft_abs: Double { abs(self) }
 }
 
 public extension Optional where Wrapped == Double {
@@ -63,6 +65,28 @@ public extension Array where Element == Double {
         let avg = self.reduce(0, {$0 + $1}) / length
         let sumofSquaredAvgDiff = self.map { pow($0 - avg, 2.0) }.reduce(0, {$0 + $1})
         return sqrt(sumofSquaredAvgDiff / length)
+    }
+    
+    func ft_indexOfNearest(to target: Double) -> Int? {
+        var optElement: Double?
+        var optNearestIndex: Int?
+        
+        for (index, element) in enumerated() {
+            guard let nearestIndex = optNearestIndex else {
+                optNearestIndex = index
+                continue
+            }
+            
+            let nearestElement = self[nearestIndex]
+            let nearestDelta = abs(nearestElement - target)
+            let currentDelta = abs(element - target)
+            
+            if currentDelta < nearestDelta {
+                optNearestIndex = index
+            }
+        }
+        
+        return optNearestIndex
     }
 }
 

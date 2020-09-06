@@ -6,11 +6,16 @@
 import CoreMedia
 
 public extension CMTime {
+    var ft_denominator: Int32? {
+        guard value != 0 else { return nil }
+        return timescale / Int32(value)
+    }
+    
     var ft_debugDescription: String {
-        if self.value == 0 {
+        guard let denominator = ft_denominator else {
             return "\(self.value) / \(self.timescale)"
         }
-        let denominator = self.timescale / Int32(self.value)
+        
         return "1 / \(denominator)"
     }
 }

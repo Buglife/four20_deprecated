@@ -20,41 +20,75 @@ public extension CVPixelBuffer {
 #endif
 
 public extension CVPixelBuffer {
-    public func toBGRA() throws -> CVPixelBuffer? {
+    var ft_pixelFormatType: OSType { CVPixelBufferGetPixelFormatType(self) }
+    
+    var ft_size: CGSize {
+        CGSize(width: CVPixelBufferGetWidth(self), height: CVPixelBufferGetHeight(self))
+    }
+    
+    public enum BGRAConversionError: Swift.Error {
+        case unexpectedPixelFormat
+        case drawing(Swift.Error)
+        case yImageNil
+        case cbcrImageNil
+        case outputAllocation
+        case argbConversion
+    }
+    
+    public func ft_toBGRA() -> Result<CVPixelBuffer, BGRAConversionError> {
         let pixelBuffer = self
         
         /// Check format
         let pixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer)
+        
+        guard pixelFormat != kCVPixelFormatType_32BGRA else {
+            return .success(self)
+        }
+        
         guard pixelFormat == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange || pixelFormat == kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange else {
             print("unexpected pixel format: \(pixelFormat)")
-            return pixelBuffer
+            return .failure(.unexpectedPixelFormat)
             
         }
         
         /// Split plane
-        let yImage = pixelBuffer.with({ VImage(ft_pixelBuffer: $0, plane: 0) })!
-        let cbcrImage = pixelBuffer.with({ VImage(ft_pixelBuffer: $0, plane: 1) })!
+        guard let yImage = pixelBuffer.with({ VImage(ft_pixelBuffer: $0, plane: 0) }) else {
+            return .failure(.yImageNil)
+        }
+        
+        guard let cbcrImage = pixelBuffer.with({ VImage(ft_pixelBuffer: $0, plane: 1) }) else {
+            return .failure(.cbcrImageNil)
+        }
         
         /// Create output pixelBuffer
-        let outPixelBuffer = CVPixelBuffer.make(width: yImage.width, height: yImage.height, format: kCVPixelFormatType_32BGRA)!
+        guard let outPixelBuffer = CVPixelBuffer.make(width: yImage.width, height: yImage.height, format: kCVPixelFormatType_32BGRA) else {
+            return .failure(.outputAllocation)
+        }
         
         /// Convert yuv to argb
-        var argbImage = outPixelBuffer.with({ VImage(ft_pixelBuffer: $0) })!
-        try argbImage.draw(yBuffer: yImage.buffer, cbcrBuffer: cbcrImage.buffer)
+        guard var argbImage = outPixelBuffer.with({ VImage(ft_pixelBuffer: $0) }) else {
+            return .failure(.argbConversion)
+        }
+        
+        do {
+            try argbImage.draw(yBuffer: yImage.buffer, cbcrBuffer: cbcrImage.buffer)
+        } catch {
+            return .failure(.drawing(error))
+        }
+        
         /// Convert argb to bgra
         argbImage.permute(channelMap: [3, 2, 1, 0])
-        
-        return outPixelBuffer
+        return .success(outPixelBuffer)
     }
     
-    func with<T>(_ closure: ((_ pixelBuffer: CVPixelBuffer) -> T)) -> T {
+    private func with<T>(_ closure: ((_ pixelBuffer: CVPixelBuffer) -> T)) -> T {
         CVPixelBufferLockBaseAddress(self, .readOnly)
         let result = closure(self)
         CVPixelBufferUnlockBaseAddress(self, .readOnly)
         return result
     }
     
-    static func make(width: Int, height: Int, format: OSType) -> CVPixelBuffer? {
+    private static func make(width: Int, height: Int, format: OSType) -> CVPixelBuffer? {
         var pixelBuffer: CVPixelBuffer? = nil
         CVPixelBufferCreate(kCFAllocatorDefault,
                             width,
