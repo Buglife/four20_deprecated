@@ -30,6 +30,13 @@ public extension UIView {
         }
     }
     
+    /// sets `translatesAutoResizingMaskIntoConstraints` to `false` for each of the subviews,
+    /// then adds them to the receiver's view hierarchy
+    func ft_addSubviewsForAutoLayout(_ subviews: [UIView]) {
+        subviews.ft_disableTranslatesAutoresizingMaskIntoConstraints()
+        ft_addSubviews(subviews)
+    }
+    
     func ft_constraintsToCenterInView(_ view: UIView) -> [NSLayoutConstraint] {
         return [
             centerXAnchor.constraint(equalTo: view.centerXAnchor),

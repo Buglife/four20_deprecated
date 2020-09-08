@@ -2,7 +2,7 @@
 //  DefaultLogger.swift
 //
 
-final class DefaultLogger: Logger {
+public final class DefaultLogger: Logger {
     enum Level {
         case debug
         case info
@@ -13,30 +13,31 @@ final class DefaultLogger: Logger {
             switch self {
             case .debug: return " "
             case .info: return "ℹ️"
-            case .warning: return "🚨"
-            case .error: return "⚠️"
+            case .warning: return "⚠️"
+            case .error: return "☠️"
             }
         }
     }
     
-    func logDebug(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+    public func logDebug(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         _log(.debug, message(), file: file, function: function, line: line)
     }
     
-    func logInfo(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+    public func logInfo(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         _log(.info, message(), file: file, function: function, line: line)
     }
     
-    func logWarning(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+    public func logWarning(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         _log(.warning, message(), file: file, function: function, line: line)
     }
     
-    func logError(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+    public func logError(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         _log(.error, message(), file: file, function: function, line: line)
     }
     
     private func _log(_ level: Level, _ message: String, file: StaticString, function: StaticString, line: UInt) {
-        let fileNameAndLine = "\(level.emoji) [\(file):\(line)]"
-        print("[420]\(fileNameAndLine) \(message)")
+        let filename = URL(fileURLWithPath: "\(file)").lastPathComponent
+        let filenameAndLine = "\(level.emoji) [\(filename):\(line)]"
+        print("[420]\(filenameAndLine) \(message)")
     }
 }

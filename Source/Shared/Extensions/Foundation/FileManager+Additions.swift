@@ -14,6 +14,7 @@ public extension FileManager {
         case contentsOfDirectory(Swift.Error)
         case dataWithContentsOfURL(Swift.Error)
         case removeItem(Swift.Error)
+        case other(Swift.Error)
     }
     
     enum SortProperty: String {
@@ -114,6 +115,17 @@ public extension FileManager {
             return .success(())
         } catch {
             return .failure(.removeItem(error))
+        }
+    }
+    
+    // MARK: - Everything else
+    
+    func ft_url(for searchPathDirectory: SearchPathDirectory, in searchPathDomainMask: SearchPathDomainMask, appropriateFor: URL?, create: Bool) -> Result<URL, Error> {
+        do {
+            let result = try url(for: searchPathDirectory, in: searchPathDomainMask, appropriateFor: appropriateFor, create: create)
+            return .success(result)
+        } catch {
+            return .failure(.other(error))
         }
     }
 }
