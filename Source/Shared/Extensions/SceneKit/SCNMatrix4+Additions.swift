@@ -9,9 +9,9 @@ public extension SCNMatrix4 {
         case y
         case z
         
-        static let pitch = RotationAxis.x
-        static let roll = RotationAxis.y
-        static let yaw = RotationAxis.z
+        public static let pitch = RotationAxis.x
+        public static let roll = RotationAxis.y
+        public static let yaw = RotationAxis.z
         
         // MARK: Mnemonics
         
@@ -19,8 +19,8 @@ public extension SCNMatrix4 {
          * When you "row" a boat, you're rotating around the x axis
          */
         
-        static let row = RotationAxis.x
-        static let parallelToGravity = RotationAxis.y
+        public static let row = RotationAxis.x
+        public static let parallelToGravity = RotationAxis.y
     }
     
     // MARK: Shorthand

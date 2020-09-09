@@ -23,6 +23,6 @@ public class AssertionHandler {
     }
     
     func assertionFailure(_ message: @autoclosure () -> String = String(), underlyingError: Swift.Error? = nil, file: StaticString = #file, line: UInt = #line) {
-        Swift.assertionFailure(message())
+        Swift.assertionFailure(message(), file: file, line: line)
     }
 }

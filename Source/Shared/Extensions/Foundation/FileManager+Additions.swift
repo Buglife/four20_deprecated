@@ -128,4 +128,13 @@ public extension FileManager {
             return .failure(.other(error))
         }
     }
+    
+    func ft_moveItem(at: URL, to: URL) -> Result<Void, Error> {
+        do {
+            try moveItem(at: at, to: to)
+            return .ft_success
+        } catch {
+            return .failure(.other(error))
+        }
+    }
 }

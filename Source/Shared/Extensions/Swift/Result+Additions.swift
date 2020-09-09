@@ -4,6 +4,19 @@
 //
 
 public extension Result {
+    var failure: Failure? {
+        switch self {
+        case .failure(let f): return f
+        default: return nil
+        }
+    }
+    var success: Success? {
+        switch self {
+        case .success(let s): return s
+        default: return nil
+        }
+    }
+    
     var isSuccessful: Bool {
         switch self {
         case .success(_): return true
@@ -12,6 +25,10 @@ public extension Result {
     }
     
     var isFailure: Bool { !isSuccessful }
+}
+
+extension Result where Success == Void {
+    public static var ft_success: Self { .success(()) }
 }
 
 /// sorry folks you're gonna have to just copy+pasta this into your application code because

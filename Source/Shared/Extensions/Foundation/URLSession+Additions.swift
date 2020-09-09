@@ -3,8 +3,6 @@
 //  Copyright © 2019 Observant. All rights reserved.
 //
 
-private let kSemaphoreWait = DispatchTime.distantFuture
-
 public extension URLSession {
     
     // MARK: - Types
@@ -28,7 +26,6 @@ public extension URLSession {
         case jsonEncoding(JSONError) // JSONEncoder errors
         case jsonSerialization(Swift.Error) // JSONSerialization errors
         case jsonTypeMismatch // we expected something else
-        case invalidJson
         case semaphoreNeverSignaled // internal programming error
         case customMessage(String)
         case miscellaneous(Swift.Error)
@@ -38,7 +35,7 @@ public extension URLSession {
         public var errorDescription: String? { localizedDescription }
         public var failureReason: String? { localizedDescription }
         
-        var localizedDescription: String {
+        public var localizedDescription: String {
             switch self {
             case .unknown: return "Unknown error"
             case .unauthorized: return "Unauthorized"
@@ -50,8 +47,6 @@ public extension URLSession {
                 return "JSON serialization error: \(error.localizedDescription)"
             case .jsonTypeMismatch:
                 return "JSON type mismatch"
-            case .invalidJson:
-                return "Invalid JSON"
             case .semaphoreNeverSignaled:
                 return "Semaphore never signaled"
             case .customMessage(let message):
@@ -79,46 +74,55 @@ public extension URLSession {
         }
     }
     
-    // MARK: - Public methods
+    func ft_postTask<T : Encodable>(with url: URL, body: T, timeoutInterval: TimeInterval? = nil, completion: @escaping (Result<HeadersAndJSONObject, Error>) -> ()) -> URLSessionTask? {
+        return ft_jsonTask(with: url, method: .post, encodableBody: body, timeoutInterval: timeoutInterval, completion: completion)
+    }
     
-    // MARK: POST
+    func ft_syncJSONTask<T : Encodable>(with url: URL, method: Method = .get, headers: Headers? = nil, encodableBody: T, timeoutInterval: TimeInterval? = nil) -> Result<HeadersAndJSONObject, Error> {
+        ft_assertBackgroundThread()
+        let semaphore = DispatchSemaphore(value: 0)
+        var result: Result<HeadersAndJSONObject, Error> = .failure(.semaphoreNeverSignaled)
+        
+        let task = ft_jsonTask(with: url, method: method, headers: headers, encodableBody: encodableBody, timeoutInterval: timeoutInterval) { internalResult in
+            result = internalResult
+            semaphore.signal()
+        }
+        
+        task?.resume()
+        _ = semaphore.wait(timeout: .distantFuture)
+        return result
+    }
     
-    func ft_postTask<T : Encodable>(with url: URL, body: T, completion: @escaping (Result<HeadersAndJSONObject, Error>) -> ()) -> URLSessionTask? {
-        return ft_jsonTask(with: url, method: .post, encodableBody: body, completion: completion)
+    func ft_jsonTask<T : Encodable>(with url: URL, method: Method = .get, headers: [String : String]? = nil, encodableBody: T, timeoutInterval: TimeInterval? = nil, completion: @escaping (Result<HeadersAndJSONObject, Error>) -> ()) -> URLSessionTask? {
+        let encoder = JSONEncoder.ft_safeRailsEncoder()
+        
+        switch encoder.ft_encode(encodableBody) {
+        case .failure(let error):
+            completion(.failure(.jsonEncoding(error)))
+            return nil
+        case .success(let data):
+            return ft_jsonTask(with: url, method: method, body: data, timeoutInterval: timeoutInterval, completion: completion)
+        }
     }
     
     func ft_postTask(with url: URL, bodyJSON: JSONDictionary, completion: @escaping (Result<HeadersAndJSONObject, Error>) -> ()) -> URLSessionTask? {
         let data: Data
         
         guard JSONSerialization.isValidJSONObject(bodyJSON) else {
-            completion(.failure(.invalidJson))
+            ft_assertionFailure("Error before encoding JSON: bodyJSON probably contains infinities, or NaNs")
+            completion(.failure(.jsonTypeMismatch))
             return nil
         }
         do {
             data = try JSONSerialization.data(withJSONObject: bodyJSON, options: [])
         } catch {
+            ft_assertionFailure("⚠️ Error encoding JSON: \(error)")
             completion(.failure(.jsonSerialization(error)))
             return nil
         }
         
         return ft_jsonTask(with: url, method: .post, body: data, completion: completion)
     }
-    
-    func ft_syncPost(with url: URL, bodyJSON: JSONDictionary) -> Result<HeadersAndJSONObject, Error> {
-        let semaphore = DispatchSemaphore(value: 0)
-        var result: Result<HeadersAndJSONObject, Error> = .failure(.semaphoreNeverSignaled)
-        
-        let task = ft_postTask(with: url, bodyJSON: bodyJSON) { internalResult in
-            result = internalResult
-            semaphore.signal()
-        }
-        
-        task?.resume()
-        _ = semaphore.wait(timeout: kSemaphoreWait)
-        return result
-    }
-    
-    // MARK: Download
     
     func ft_downloadTask(with url: URL, completion: @escaping (Result<URL, Error>) -> ()) -> URLSessionDownloadTask {
         return downloadTask(with: url) { location, response, error in
@@ -127,23 +131,9 @@ public extension URLSession {
             } else if let error = error {
                 completion(.failure(.urlSession(error)))
             } else {
-                completion(.failure(.unknown))
+                ft_assertionFailure()
                 return
             }
-        }
-    }
-    
-    // MARK: JSON
-    
-    func ft_jsonTask<T : Encodable>(with url: URL, method: Method = .get, headers: [String : String]? = nil, encodableBody: T, completion: @escaping (Result<HeadersAndJSONObject, Error>) -> ()) -> URLSessionTask? {
-        let encoder = JSONEncoder.ft_safeRailsEncoder()
-        
-        switch encoder.ft_encode(encodableBody) {
-        case .failure(let error):
-            completion(.failure(.jsonEncoding(error)))
-            return nil
-        case .success(let data):
-            return ft_jsonTask(with: url, method: method, body: data, completion: completion)
         }
     }
     
@@ -181,6 +171,7 @@ public extension URLSession {
     }
     
     func ft_syncGetJSONDictionary(with url: URL, method: Method = .get, headers: Headers? = nil, body: Data? = nil) -> JSONDictionaryResult {
+        ft_assertBackgroundThread()
         let semaphore = DispatchSemaphore(value: 0)
         var result: JSONDictionaryResult = .failure(.semaphoreNeverSignaled)
         
@@ -190,18 +181,22 @@ public extension URLSession {
         }
         
         task.resume()
-        _ = semaphore.wait(timeout: kSemaphoreWait)
+        _ = semaphore.wait(timeout: .distantFuture)
         return result
     }
     
     // MARK: - Fetching JSON
     
     // For when you need the completion handler to return headers, and the json dictionary or array
-    func ft_jsonTask(with url: URL, method: Method = .get, headers: Headers? = nil, body: Data? = nil, completion: @escaping (Result<HeadersAndJSONObject, Error>) -> ()) -> URLSessionTask {
+    func ft_jsonTask(with url: URL, method: Method = .get, headers: Headers? = nil, body: Data? = nil, timeoutInterval: TimeInterval? = nil, completion: @escaping (Result<HeadersAndJSONObject, Error>) -> ()) -> URLSessionTask {
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = method.rawValue
         request.httpBody = body
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if let timeoutInterval = timeoutInterval {
+            request.timeoutInterval = timeoutInterval
+        }
         
         headers?.forEach { header in
             let (key, value) = header
@@ -261,6 +256,21 @@ public extension URLSession {
         }
         
         return task
+    }
+    
+    func ft_syncGetData(with request: URLRequest) -> Result<Data, Error> {
+        ft_assertBackgroundThread()
+        let semaphore = DispatchSemaphore(value: 0)
+        var result: Result<Data, Error> = .failure(.semaphoreNeverSignaled)
+        
+        let task = ft_dataTask(with: request) { internalResult in
+            result = internalResult
+            semaphore.signal()
+        }
+        
+        task.resume()
+        _ = semaphore.wait(timeout: .distantFuture)
+        return result
     }
     
     func ft_dataTask(with request: URLRequest, completionHandler: @escaping (Result<Data, Error>) -> ()) -> URLSessionDataTask {
@@ -326,30 +336,15 @@ public extension URLSession.Error {
     }
 }
 
-public extension Result where Failure == URLSession.Error {
-    var ft_isUnauthorized: Bool {
+extension Result where Failure == URLSession.Error {
+    public var ft_isUnauthorized: Bool {
         guard let error = self.failure else { return false }
         return error.isUnauthorized
     }
 }
 
-public extension Result {
-    var failure: Failure? {
-        switch self {
-        case .failure(let f): return f
-        default: return nil
-        }
-    }
-    var success: Success? {
-        switch self {
-        case .success(let s): return s
-        default: return nil
-        }
-    }
-}
-
-public extension URLSession.Error {
-    var isLocalRailsConnectionError: Bool {
+extension URLSession.Error {
+    public var isLocalRailsConnectionError: Bool {
         guard case let URLSession.Error.urlSession(error) = self else {
             return false
         }

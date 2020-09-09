@@ -27,4 +27,19 @@ public extension Data {
             return .failure(.contentsOfURL(error))
         }
     }
+    
+    var ft_prettyPrintedJSON: Data? {
+        guard let obj = try? JSONSerialization.jsonObject(with: self, options: .init()) else {
+            return nil
+        }
+        guard let data = try? JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted) else {
+            return nil
+        }
+        return data
+    }
+    
+    var ft_prettyPrintedJSONString: String? {
+        guard let json = ft_prettyPrintedJSON else { return nil }
+        return String(data: json, encoding: .utf8)
+    }
 }

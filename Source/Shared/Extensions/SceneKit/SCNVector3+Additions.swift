@@ -54,7 +54,7 @@ extension SCNVector3: Equatable {
     }
     
     
-    init(m: matrix_float4x4) {
+    public init(ft_m m: matrix_float4x4) {
         self.init(m.columns.3.x, m.columns.3.y, m.columns.3.z)
     }
 }

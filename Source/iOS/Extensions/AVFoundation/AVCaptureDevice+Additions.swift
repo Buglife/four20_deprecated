@@ -83,7 +83,7 @@ extension AVCaptureDevice.FlashlightError: CustomDebugStringConvertible {
     }
 }
 
-extension AVCaptureDevice.ExposureMode {
+public extension AVCaptureDevice.ExposureMode {
     var ft_description: String {
         switch self {
         case .autoExpose:

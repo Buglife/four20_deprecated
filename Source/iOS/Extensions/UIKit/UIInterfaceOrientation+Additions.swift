@@ -5,7 +5,7 @@
 
 import UIKit
 
-extension UIInterfaceOrientation {
+public extension UIInterfaceOrientation {
     var ft_description: String {
         switch self {
         case .portrait: return "Portrait"

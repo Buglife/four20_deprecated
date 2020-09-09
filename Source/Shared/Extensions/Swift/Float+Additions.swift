@@ -41,6 +41,7 @@ public extension Float {
     }
     
     var ft_abs: Float { abs(self) }
+    var ft_double: Double { Double(self) }
 }
 
 public extension Optional where Wrapped == Float {

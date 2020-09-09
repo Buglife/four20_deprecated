@@ -77,7 +77,7 @@ extension NSAttributedString: AttributedStringable {
 }
 
 extension Dictionary: AttributedStringable where Key == NSAttributedString.Key, Value == Any {
-    static let ft_empty: [NSAttributedString.Key : Any] = [:]
+    public static let ft_empty: [NSAttributedString.Key : Any] = [:]
     
     // MARK: - AttributedStringable
     
