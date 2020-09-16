@@ -3,7 +3,7 @@
 //
 
 public func ft_assertionFailure(_ message: @autoclosure () -> String = String(), underlyingError: Swift.Error? = nil, file: StaticString = #file, line: UInt = #line) {
-    AssertionHandler.shared.assertionFailure(message(), underlyingError: underlyingError)
+    AssertionHandler.shared.assertionFailure(message(), underlyingError: underlyingError, file: file, line: line)
 }
 
 public func ft_assertMainThread(file: StaticString = #file, line: UInt = #line) {

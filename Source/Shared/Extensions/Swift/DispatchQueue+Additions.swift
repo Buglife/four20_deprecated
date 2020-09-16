@@ -18,4 +18,12 @@ public extension DispatchQueue {
     func ft_barrierSync<T>(work: () -> T) -> T {
         return sync(flags: .barrier, execute: work)
     }
+    
+    func ft_barrier(async shouldBeAsync: Bool, work: @escaping @convention(block) () -> Void) {
+        if shouldBeAsync {
+            ft_barrierAsync(work: work)
+        } else {
+            ft_barrierSync(work: work)
+        }
+    }
 }
