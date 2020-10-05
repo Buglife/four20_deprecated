@@ -170,8 +170,10 @@ public final class AtomicArray<Element>: ExpressibleByArrayLiteral {
 /// Support for initializing empty array Atomics without
 /// providing any initialization parameters.
 public protocol AtomicArray_ArrayType: ExpressibleByArrayLiteral {
-    associatedtype ElementType
-    var ft_atomicArray_asArray: Array<ElementType> { get }
+    /// this associated type name needs to be different from the one defined in `Atom_ArrayType`,
+    /// otherwise we get a compiler error in release builds (not sure why it doesn't happen in debug builds)
+    associatedtype AtomicArray_ElementType
+    var ft_atomicArray_asArray: Array<AtomicArray_ElementType> { get }
 }
 extension Array: AtomicArray_ArrayType {
     public var ft_atomicArray_asArray: Array<Element> { return self }
