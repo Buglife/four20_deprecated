@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A253BB226AF9237D0BB687F /* Pods_Four20_macOSExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D80B1FBD4690C243EE253D1 /* Pods_Four20_macOSExample.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		B28684FCC3E5E313EDD71818 /* Pods_Four20_TVExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195BED3F1A401B6C0E6C92D /* Pods_Four20_TVExample.framework */; };
+		B700F9F0253D4F3A001D6001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B700F9EF253D4F3A001D6001 /* AppDelegate.swift */; };
+		B700F9F2253D4F3A001D6001 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B700F9F1253D4F3A001D6001 /* ViewController.swift */; };
+		B700F9F4253D4F3B001D6001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B700F9F3253D4F3B001D6001 /* Assets.xcassets */; };
+		B700F9F7253D4F3B001D6001 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B700F9F5253D4F3B001D6001 /* Main.storyboard */; };
 		B733AFF9237BB04000068681 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733AFF8237BB04000068681 /* AppDelegate.swift */; };
 		B733AFFB237BB04000068681 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733AFFA237BB04000068681 /* ContentView.swift */; };
 		B733AFFD237BB04100068681 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B733AFFC237BB04100068681 /* Assets.xcassets */; };
@@ -30,6 +35,7 @@
 		18056C671B78BCD94D759399 /* Pods-Four20_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_Tests/Pods-Four20_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		20C87AE4174C39232AE201CB /* Pods-Four20_TVExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_TVExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_TVExample/Pods-Four20_TVExample.release.xcconfig"; sourceTree = "<group>"; };
 		54E2FBBE2E4FDD3232057751 /* Pods-Four20_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_Example/Pods-Four20_Example.release.xcconfig"; sourceTree = "<group>"; };
+		55DC2305A3D4A12C9EF558F2 /* Pods-Four20_macOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_macOSExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_macOSExample/Pods-Four20_macOSExample.release.xcconfig"; sourceTree = "<group>"; };
 		5DED0D9312A3832E224B99E0 /* Pods_Four20_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Four20_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Four20_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Four20_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,7 +44,15 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9D80B1FBD4690C243EE253D1 /* Pods_Four20_macOSExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Four20_macOSExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A71F1A1E2A498B1AB430870C /* Pods-Four20_TVExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_TVExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_TVExample/Pods-Four20_TVExample.debug.xcconfig"; sourceTree = "<group>"; };
+		B700F9ED253D4F3A001D6001 /* Four20_macOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Four20_macOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B700F9EF253D4F3A001D6001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B700F9F1253D4F3A001D6001 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B700F9F3253D4F3B001D6001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B700F9F6253D4F3B001D6001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B700F9F8253D4F3B001D6001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B700F9F9253D4F3B001D6001 /* Four20_macOSExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Four20_macOSExample.entitlements; sourceTree = "<group>"; };
 		B733AFF6237BB04000068681 /* Four20_TVExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Four20_TVExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B733AFF8237BB04000068681 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B733AFFA237BB04000068681 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +62,7 @@
 		B733B004237BB04100068681 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9F6A1673E8556BBF5613BB0 /* Pods-Four20_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_Tests/Pods-Four20_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BC630E256F447F384CB0153F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		C650FC9C4A37676809BBF777 /* Pods-Four20_macOSExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Four20_macOSExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Four20_macOSExample/Pods-Four20_macOSExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA781318EA95644871C94DE /* Pods_Four20_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B700F9EA253D4F3A001D6001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A253BB226AF9237D0BB687F /* Pods_Four20_macOSExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +99,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Four20 */,
 				B733AFF7237BB04000068681 /* Four20_TVExample */,
+				B700F9EE253D4F3A001D6001 /* Four20_macOSExample */,
 				607FACD11AFB9204008FA782 /* Products */,
 				F4A1C53CB5768F580D2FE67A /* Pods */,
 				9A5E8524826A996CA62258D7 /* Frameworks */,
@@ -87,6 +111,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* Four20_Example.app */,
 				B733AFF6237BB04000068681 /* Four20_TVExample.app */,
+				B700F9ED253D4F3A001D6001 /* Four20_macOSExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,8 +154,22 @@
 				5DED0D9312A3832E224B99E0 /* Pods_Four20_Example.framework */,
 				0F1F8AD6D4D37D6FFF3EDDEB /* Pods_Four20_Tests.framework */,
 				1195BED3F1A401B6C0E6C92D /* Pods_Four20_TVExample.framework */,
+				9D80B1FBD4690C243EE253D1 /* Pods_Four20_macOSExample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B700F9EE253D4F3A001D6001 /* Four20_macOSExample */ = {
+			isa = PBXGroup;
+			children = (
+				B700F9EF253D4F3A001D6001 /* AppDelegate.swift */,
+				B700F9F1253D4F3A001D6001 /* ViewController.swift */,
+				B700F9F3253D4F3B001D6001 /* Assets.xcassets */,
+				B700F9F5253D4F3B001D6001 /* Main.storyboard */,
+				B700F9F8253D4F3B001D6001 /* Info.plist */,
+				B700F9F9253D4F3B001D6001 /* Four20_macOSExample.entitlements */,
+			);
+			path = Four20_macOSExample;
 			sourceTree = "<group>";
 		};
 		B733AFF7237BB04000068681 /* Four20_TVExample */ = {
@@ -163,6 +202,8 @@
 				B9F6A1673E8556BBF5613BB0 /* Pods-Four20_Tests.release.xcconfig */,
 				A71F1A1E2A498B1AB430870C /* Pods-Four20_TVExample.debug.xcconfig */,
 				20C87AE4174C39232AE201CB /* Pods-Four20_TVExample.release.xcconfig */,
+				C650FC9C4A37676809BBF777 /* Pods-Four20_macOSExample.debug.xcconfig */,
+				55DC2305A3D4A12C9EF558F2 /* Pods-Four20_macOSExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -187,6 +228,25 @@
 			name = Four20_Example;
 			productName = Four20;
 			productReference = 607FACD01AFB9204008FA782 /* Four20_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B700F9EC253D4F3A001D6001 /* Four20_macOSExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B700F9FC253D4F3B001D6001 /* Build configuration list for PBXNativeTarget "Four20_macOSExample" */;
+			buildPhases = (
+				2CC07AB69168D255894F5AF3 /* [CP] Check Pods Manifest.lock */,
+				B700F9E9253D4F3A001D6001 /* Sources */,
+				B700F9EA253D4F3A001D6001 /* Frameworks */,
+				B700F9EB253D4F3A001D6001 /* Resources */,
+				5B2CD6BDE18EE5167913A46C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Four20_macOSExample;
+			productName = Four20_macOSExample;
+			productReference = B700F9ED253D4F3A001D6001 /* Four20_macOSExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B733AFF5237BB04000068681 /* Four20_TVExample */ = {
@@ -214,13 +274,18 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1120;
+				LastSwiftUpdateCheck = 1170;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 1020;
+					};
+					B700F9EC253D4F3A001D6001 = {
+						CreatedOnToolsVersion = 11.7;
+						DevelopmentTeam = 3XNSCPZ9AZ;
+						ProvisioningStyle = Automatic;
 					};
 					B733AFF5237BB04000068681 = {
 						CreatedOnToolsVersion = 11.2;
@@ -244,6 +309,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* Four20_Example */,
 				B733AFF5237BB04000068681 /* Four20_TVExample */,
+				B700F9EC253D4F3A001D6001 /* Four20_macOSExample */,
 			);
 		};
 /* End PBXProject section */
@@ -256,6 +322,15 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B700F9EB253D4F3A001D6001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B700F9F4253D4F3B001D6001 /* Assets.xcassets in Resources */,
+				B700F9F7253D4F3B001D6001 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +387,46 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Four20_Example/Pods-Four20_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2CC07AB69168D255894F5AF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Four20_macOSExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B2CD6BDE18EE5167913A46C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Four20_macOSExample/Pods-Four20_macOSExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Four20-macOS/Four20.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Four20.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Four20_macOSExample/Pods-Four20_macOSExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C93A74397269BA78E2115021 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,6 +475,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B700F9E9253D4F3A001D6001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B700F9F2253D4F3A001D6001 /* ViewController.swift in Sources */,
+				B700F9F0253D4F3A001D6001 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B733AFF2237BB04000068681 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,6 +510,14 @@
 				607FACDF1AFB9204008FA782 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		B700F9F5253D4F3B001D6001 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B700F9F6253D4F3B001D6001 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		B733B001237BB04100068681 /* LaunchScreen.storyboard */ = {
@@ -538,6 +670,65 @@
 			};
 			name = Release;
 		};
+		B700F9FA253D4F3B001D6001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C650FC9C4A37676809BBF777 /* Pods-Four20_macOSExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Four20_macOSExample/Four20_macOSExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 3XNSCPZ9AZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Four20_macOSExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.observantai.Four20-macOSExample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B700F9FB253D4F3B001D6001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55DC2305A3D4A12C9EF558F2 /* Pods-Four20_macOSExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Four20_macOSExample/Four20_macOSExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3XNSCPZ9AZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Four20_macOSExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.observantai.Four20-macOSExample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		B733B005237BB04100068681 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A71F1A1E2A498B1AB430870C /* Pods-Four20_TVExample.debug.xcconfig */;
@@ -614,6 +805,15 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B700F9FC253D4F3B001D6001 /* Build configuration list for PBXNativeTarget "Four20_macOSExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B700F9FA253D4F3B001D6001 /* Debug */,
+				B700F9FB253D4F3B001D6001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

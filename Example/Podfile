@@ -7,3 +7,7 @@ end
 target 'Four20_TVExample' do
   pod 'Four20', :path => '../'
 end
+
+target 'Four20_macOSExample' do
+  pod 'Four20', :path => '../'
+end

@@ -3,7 +3,7 @@
 //  Copyright © 2020 Observant. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// While `Atom` can accomplish this via its `asyncMutate` method, this makes managing an atomic array much easier
 public final class AtomicArray<Element>: ExpressibleByArrayLiteral {
