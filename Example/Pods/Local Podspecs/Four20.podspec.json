@@ -1,6 +1,6 @@
 {
   "name": "Four20",
-  "version": "0.2.0",
+  "version": "0.3.10",
   "summary": "A grab-bag of Swift extensions.",
   "description": "A grab-bag of Swift extensions for rapid prototyping.",
   "homepage": "https://github.com/Buglife/four20",
@@ -13,15 +13,16 @@
   },
   "source": {
     "git": "https://github.com/Buglife/four20.git",
-    "tag": "0.2.0"
+    "tag": "0.3.10"
   },
   "platforms": {
     "ios": "12.0",
-    "tvos": "13.0"
+    "tvos": "13.0",
+    "osx": "10.15"
   },
-  "source_files": "Extensions/**/*",
+  "source_files": "Source/Shared/**/*",
   "ios": {
-    "source_files": "iOS/**/*"
+    "source_files": "Source/iOS/**/*"
   },
   "swift_versions": "5.0",
   "swift_version": "5.0"

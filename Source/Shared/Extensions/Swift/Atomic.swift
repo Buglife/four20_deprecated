@@ -16,6 +16,8 @@
 //
 //
 
+import Foundation
+
 @propertyWrapper
 public class Atomic<Value> {
     

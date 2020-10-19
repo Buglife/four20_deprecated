@@ -179,5 +179,5 @@ extension Array: AtomicArray_ArrayType {
     public var ft_atomicArray_asArray: Array<Element> { return self }
 }
 public extension Atomic where Value: AtomicArray_ArrayType {
-    public convenience init() { self.init([]) }
+    convenience init() { self.init([]) }
 }

@@ -3,6 +3,8 @@
 //  Copyright © 2020 Observant. All rights reserved.
 //
 
+import Foundation
+
 public struct AtomicQueue<Element>: ExpressibleByArrayLiteral {
     
     // MARK: - iVars

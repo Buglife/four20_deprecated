@@ -25,7 +25,7 @@ public extension UIDeviceOrientation {
         }
     }
     
-    public var ft_description: String {
+    var ft_description: String {
         switch self {
         case .portrait: return "Portrait"
         case .portraitUpsideDown: return "Portrait upside down"
