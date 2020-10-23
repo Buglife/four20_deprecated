@@ -1,5 +1,5 @@
 PODS:
-  - Four20 (0.3.11)
+  - Four20 (0.3.12)
 
 DEPENDENCIES:
   - Four20 (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Four20: 46feaabf27836f34443df4082f6a91005d1fc7ca
+  Four20: 0ec46695c125e3e8928f8a3d45dfc542e15c9fe9
 
 PODFILE CHECKSUM: 8bbfcf397a2f2f3210edcc420762e3648328eef5
 
