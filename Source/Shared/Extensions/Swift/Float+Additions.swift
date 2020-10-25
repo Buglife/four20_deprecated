@@ -42,6 +42,16 @@ public extension Float {
     
     var ft_abs: Float { abs(self) }
     var ft_double: Double { Double(self) }
+    var ft_CGFloat: CGFloat { CGFloat(self) }
+    
+    func ft_within(_ delta: Float, of otherValue: Float) -> Bool {
+        let actualDelta = abs(self - otherValue)
+        return actualDelta < delta
+    }
+    
+    var ft_filteringNaN: Float? {
+        isNaN ? nil : self
+    }
 }
 
 public extension Optional where Wrapped == Float {

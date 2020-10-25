@@ -39,6 +39,13 @@ public extension Double {
     }
     
     var ft_abs: Double { abs(self) }
+    var ft_float: Float { Float(self) }
+    var ft_CGFloat: CGFloat { CGFloat(self) }
+    
+    func ft_within(_ delta: Double, of otherValue: Double) -> Bool {
+        let actualDelta = abs(self - otherValue)
+        return actualDelta < delta
+    }
 }
 
 public extension Optional where Wrapped == Double {
