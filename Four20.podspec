@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Four20'
-  s.version          = '0.3.14'
+  s.version          = '0.3.15'
   s.summary          = 'A grab-bag of Swift extensions.'
   s.description      = 'A grab-bag of Swift extensions for rapid prototyping.'
 
