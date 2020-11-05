@@ -74,22 +74,23 @@ public extension FileManager {
     
     // MARK: - Create directory
     
-    func ft_createDirectoryIfNeeded(at directory: URL) -> Result<Void, Error> {
+    // returns true if the directory was created, false if it already existed, error if it failed
+    func ft_createDirectoryIfNeeded(at directory: URL) -> Result<Bool, Error> {
         if !fileExists(atPath: directory.path) {
             return ft_createDirectory(at: directory)
         } else {
-            return .success(())
+            return .success(false)
         }
     }
-    
-    func ft_createDirectory(at directory: URL) -> Result<Void, Error> {
+    // always returns true or error
+    func ft_createDirectory(at directory: URL) -> Result<Bool, Error> {
         do {
             try createDirectory(at: directory, withIntermediateDirectories: true, attributes: nil)
         } catch {
             return .failure(.createDirectory(error))
         }
         
-        return .success(())
+        return .success(true)
     }
     
     // MARK: - Remove item
