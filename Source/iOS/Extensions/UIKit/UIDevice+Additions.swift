@@ -6,6 +6,13 @@
 import UIKit
 
 public extension UIDevice {
+    /// **Deprecated.** Returns the exif orientation equivalent to the current device orientation. Typically used when you're
+    /// giving an image to Vision but don't have its orientation (i.e. the image is is an ARKit pixel buffer without
+    /// orientation metadata), and you want to just get the current device orientation.
+    ///
+    /// - Warning: We have found that `UIDevice.orientation` is *NOT* a reliable method
+    /// of obtaining the actual device orienation, and may in some cases return `.unknown`.
+    @available(*, deprecated, message: "UIDevice orientation is not reliable")
     var ft_exifOrientation: CGImagePropertyOrientation {
         return orientation.ft_exifOrientation
     }
