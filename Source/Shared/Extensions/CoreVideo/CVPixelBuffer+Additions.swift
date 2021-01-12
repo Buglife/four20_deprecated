@@ -75,6 +75,7 @@ public extension CVPixelBuffer {
         } catch {
             return .failure(.drawing(error))
         }
+        CVBufferPropagateAttachments(self, outPixelBuffer)
         
         /// Convert argb to bgra
         argbImage.permute(channelMap: [3, 2, 1, 0])
@@ -90,11 +91,18 @@ public extension CVPixelBuffer {
     
     private static func make(width: Int, height: Int, format: OSType) -> CVPixelBuffer? {
         var pixelBuffer: CVPixelBuffer? = nil
+        let options = [
+            String(kCVPixelBufferIOSurfacePropertiesKey): ([
+            String(kCVPixelBufferIOSurfaceOpenGLESFBOCompatibilityKey): true as CFBoolean,
+            String(kCVPixelBufferIOSurfaceOpenGLESTextureCompatibilityKey): true as CFBoolean,
+            String(kCVPixelBufferIOSurfaceCoreAnimationCompatibilityKey): true as CFBoolean]) as CFDictionary,
+            String(kCVPixelBufferMetalCompatibilityKey): true as CFBoolean,
+        ] as CFDictionary
         CVPixelBufferCreate(kCFAllocatorDefault,
                             width,
                             height,
                             format,
-                            nil,
+                            options,
                             &pixelBuffer)
         return pixelBuffer
     }
