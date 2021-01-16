@@ -35,11 +35,26 @@ public extension Array {
         guard let maxIndex = indexes.max(), self.count > maxIndex else { return nil }
         return indexes.map { self[$0] }
     }
-}
-
-public extension Array {
+    
     mutating func ft_removeFirstUntil(count: Int) {
         let overflowCount = Swift.max(0, self.count - count)
         self.removeFirst(overflowCount)
+    }
+}
+
+public extension Array where Element: Equatable {
+    func ft_element(before: Element) -> Element? {
+        ft_element(offset: -1, from: before)
+    }
+    
+    func ft_element(after: Element) -> Element? {
+        ft_element(offset: 1, from: after)
+    }
+    
+    func ft_element(offset: Int, from: Element) -> Element? {
+        guard let currentIndex = firstIndex(of: from) else { return nil }
+        let newIndex = currentIndex + offset
+        guard indices.contains(newIndex) else { return nil }
+        return self[newIndex]
     }
 }

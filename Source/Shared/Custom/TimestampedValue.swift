@@ -25,4 +25,4 @@ public struct TimestampedValue<T> {
 }
 
 /// You'll need to add this to your app code (if you want)
-// extension TimestampedValue: Codable where T: Codable {}
+ extension TimestampedValue: Codable where T: Codable {}

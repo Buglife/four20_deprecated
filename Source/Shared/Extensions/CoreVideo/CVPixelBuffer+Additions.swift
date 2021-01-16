@@ -26,6 +26,22 @@ public extension CVPixelBuffer {
         CGSize(width: CVPixelBufferGetWidth(self), height: CVPixelBufferGetHeight(self))
     }
     
+    // MARK: - Helpers that are used more often than you'd think
+    
+    func ft_CGImageCroppedTo(_ denormalizedRect: CGRect) -> CGImage? {
+        let context = CIContext()
+        guard let uiImage = ft_imageWithContext(context) else { return nil }
+        guard let cgImage = uiImage.ft_cgImage else { return nil }
+        return cgImage.cropping(to: denormalizedRect)
+    }
+    
+    func ft_CGImageCroppedTo(normalizedRect: CGRect) -> CGImage? {
+        let denormalizedRect = normalizedRect * ft_size
+        return ft_CGImageCroppedTo(denormalizedRect)
+    }
+    
+    // MARK: - BGRA conversion
+    
     enum BGRAConversionError: Swift.Error {
         case unexpectedPixelFormat
         case drawing(Swift.Error)
