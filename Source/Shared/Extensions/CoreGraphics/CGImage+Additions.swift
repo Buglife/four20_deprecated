@@ -25,7 +25,8 @@ public extension CGImage {
             totalLuminance += pixelLuminance
         }
         
-        let pixelCount = width * height
-        return totalLuminance / Double(pixelCount)
+        //let pixelCount = width * height
+        // the `length` is not equal to the pixel count, and i have no idea why
+        return totalLuminance / Double(length)
     }
 }
