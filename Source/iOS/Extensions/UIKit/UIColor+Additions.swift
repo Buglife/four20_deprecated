@@ -29,22 +29,11 @@ public extension UIColor {
         )
     }
     
-    func ft_lighter(by percentage: CGFloat) -> UIColor? {
-        return ft_adjust(by: abs(percentage))
-    }
-    
-    func ft_darker(by percentage: CGFloat) -> UIColor? {
-        return ft_adjust(by: -1 * abs(percentage))
-    }
-    
-    func ft_adjust(by percentage: CGFloat) -> UIColor? {
-        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+    func ft_withBrightness(multiplied multiplier: CGFloat) -> UIColor? {
+        var hue: CGFloat = 0, saturation: CGFloat = 0, brightness: CGFloat = 0, alpha: CGFloat = 0
         
-        if getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
-            return UIColor(red: min(red + percentage / 100, 1.0),
-                           green: min(green + percentage / 100, 1.0),
-                           blue: min(blue + percentage / 100, 1.0),
-                           alpha: alpha)
+        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
+            return UIColor(hue: hue, saturation: saturation, brightness: brightness * multiplier, alpha: alpha)
         } else {
             return nil
         }
