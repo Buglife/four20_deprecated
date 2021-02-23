@@ -38,7 +38,23 @@ public extension Double {
         (self * 100.0).ft_format(fractionDigits) + "%"
     }
     
+    var ft_toIntegerPercent: Int {
+        return Int(self * 100.0)
+    }
+    
     var ft_abs: Double { abs(self) }
+    
+    func ft_durationString(allowedUnits: NSCalendar.Unit = [.minute, .second]) -> String? {
+        guard self != .infinity && self != .nan else { return nil }
+        let fmt = DateComponentsFormatter()
+        fmt.unitsStyle = .positional
+        fmt.allowedUnits = allowedUnits
+        fmt.zeroFormattingBehavior = [.pad]
+        guard let str = fmt.string(from: self) else { return nil }
+        let sign = self < 0 ? "-" : ""
+        return "\(sign)\(str)"
+    }
+
     var ft_float: Float { Float(self) }
     var ft_CGFloat: CGFloat { CGFloat(self) }
     
@@ -46,6 +62,8 @@ public extension Double {
         let actualDelta = abs(self - otherValue)
         return actualDelta < delta
     }
+    
+    var ft_dateWithTimeIntervalSince1970: Date { .init(timeIntervalSince1970: self) }
 }
 
 public extension Optional where Wrapped == Double {
