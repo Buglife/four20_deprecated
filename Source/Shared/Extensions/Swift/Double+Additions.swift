@@ -25,8 +25,7 @@ public extension Double {
     var ft_3: String { ft_format(3) }
     
     func ft_format(_ fractionDigits: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = fractionDigits
+        let formatter = FormatterProvider.shared.fractionDigitsFormatter(for: fractionDigits)
         let num = NSNumber(value: self)
         return formatter.string(from: num) ?? "\(self)"
     }
@@ -46,10 +45,7 @@ public extension Double {
     
     func ft_durationString(allowedUnits: NSCalendar.Unit = [.minute, .second]) -> String? {
         guard self != .infinity && self != .nan else { return nil }
-        let fmt = DateComponentsFormatter()
-        fmt.unitsStyle = .positional
-        fmt.allowedUnits = allowedUnits
-        fmt.zeroFormattingBehavior = [.pad]
+        let fmt = FormatterProvider.shared.dateComponentsFormatter(for: allowedUnits)
         guard let str = fmt.string(from: self) else { return nil }
         let sign = self < 0 ? "-" : ""
         return "\(sign)\(str)"
@@ -117,5 +113,42 @@ public extension Array where Element == Double {
 public extension Array where Element == Double? {
     var ft_average: Double? {
         return compactMap { $0 }.ft_average
+    }
+}
+
+fileprivate class FormatterProvider {
+    static let shared = FormatterProvider()
+    let workQueue = DispatchQueue(label: "FormatterProvider", autoreleaseFrequency: .workItem)
+    
+    private var fractionDigitsFormatters: [Int:NumberFormatter] = [:]
+    
+    func fractionDigitsFormatter(for digitCount: Int) -> NumberFormatter {
+        return workQueue.sync {
+            if let existing = self.fractionDigitsFormatters[digitCount] {
+                return existing
+            } else {
+                let formatter = NumberFormatter()
+                formatter.maximumFractionDigits = digitCount
+                self.fractionDigitsFormatters[digitCount] = formatter
+                return formatter
+            }
+        }
+    }
+    
+    private var dateComponentsFormatters: [NSCalendar.Unit.RawValue:DateComponentsFormatter] = [:]
+    
+    func dateComponentsFormatter(for units:NSCalendar.Unit) -> DateComponentsFormatter {
+        return workQueue.sync {
+            if let existing = dateComponentsFormatters[units.rawValue] {
+                return existing
+            } else {
+                let formatter = DateComponentsFormatter()
+                formatter.unitsStyle = .positional
+                formatter.allowedUnits = units
+                formatter.zeroFormattingBehavior = [.pad]
+                dateComponentsFormatters[units.rawValue] = formatter
+                return formatter
+            }
+        }
     }
 }
