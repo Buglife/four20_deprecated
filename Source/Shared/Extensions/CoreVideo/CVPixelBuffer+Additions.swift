@@ -20,6 +20,40 @@ public extension CVPixelBuffer {
 }
 
 public extension CVPixelBuffer {
+    func ft_luminanceIn(normalizedRect: CGRect) -> Double? {
+        let denormalizedRect = normalizedRect * ft_size
+        return ft_luminanceIn(denormalizedRect)
+    }
+    func ft_luminanceIn(_ denormalizedRect: CGRect) -> Double? {
+        let pixelFormat = CVPixelBufferGetPixelFormatType(self)
+        
+        guard pixelFormat == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange || pixelFormat == kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange else {
+            ft_assertionFailure("unexpected pixel format: \(pixelFormat)")
+            return nil
+        }
+        CVPixelBufferLockBaseAddress(self, .readOnly)
+        defer {
+            CVPixelBufferUnlockBaseAddress(self, .readOnly)
+        }
+        guard let baseOfLuminancePlane = CVPixelBufferGetBaseAddressOfPlane(self, 0) else {
+            ft_assertionFailure("failed to get luminance plane")
+            return nil
+        }
+        let totalLuminancePlaneSize = CVPixelBufferGetWidthOfPlane(self, 0) * CVPixelBufferGetHeightOfPlane(self, 0)
+        let bytesPerRowOfLuminancePlane = CVPixelBufferGetBytesPerRowOfPlane(self, 0)
+        let luminanceBytes = baseOfLuminancePlane.bindMemory(to: UInt8.self, capacity: totalLuminancePlaneSize)
+        var totalLuminance: Int = 0
+        for row in Int(denormalizedRect.minX)..<Int(denormalizedRect.maxX) {
+            for col in Int(denormalizedRect.minY)..<Int(denormalizedRect.maxY) {
+                totalLuminance += Int(luminanceBytes[row*bytesPerRowOfLuminancePlane + col])
+            }
+        }
+        let cropPixelsCount = Int(denormalizedRect.width) * Int(denormalizedRect.height)
+        return Double(totalLuminance)/Double(cropPixelsCount)
+    }
+}
+
+public extension CVPixelBuffer {
     var ft_pixelFormatType: OSType { CVPixelBufferGetPixelFormatType(self) }
     
     var ft_size: CGSize {
