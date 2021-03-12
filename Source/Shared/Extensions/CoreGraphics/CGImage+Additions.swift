@@ -14,19 +14,16 @@ public extension CGImage {
     var ft_luminance: Double? {
         guard let imageData = dataProvider?.data else { return nil }
         guard let ptr = CFDataGetBytePtr(imageData) else { return nil }
-        let length = CFDataGetLength(imageData)
         var totalLuminance: Double = 0
-        
-        for i in stride(from: 0, to: length, by: 4) {
-            let r = ptr[i]
-            let g = ptr[i + 1]
-            let b = ptr[i + 2]
-            let pixelLuminance = (0.299 * Double(r)) + (0.587 * Double(g)) + (0.114 * Double(b))
-            totalLuminance += pixelLuminance
+        for row in 0..<height {
+            for i in stride(from: 0, to: width, by: 4) {
+                let r = ptr[i]
+                let g = ptr[i + 1]
+                let b = ptr[i + 2]
+                let pixelLuminance = (0.299 * Double(r)) + (0.587 * Double(g)) + (0.114 * Double(b))
+                totalLuminance += pixelLuminance
+            }
         }
-        
-        //let pixelCount = width * height
-        // the `length` is not equal to the pixel count, and i have no idea why
-        return totalLuminance / Double(length)
+        return totalLuminance / Double(width * height)
     }
 }
