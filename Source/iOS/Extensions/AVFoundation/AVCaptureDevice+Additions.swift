@@ -100,3 +100,72 @@ public extension AVCaptureDevice.ExposureMode {
         }
     }
 }
+
+public extension AVCaptureDevice.Position {
+    var ft_debugDescription: String {
+        switch self {
+        case .front: return "front"
+        case .back: return "back"
+        case .unspecified: return "unspecified"
+        @unknown default:
+            assertionFailure()
+            return "unknown"
+        }
+    }
+}
+
+extension AVCaptureDevice.DeviceType {
+    var ft_debugDescription: String {
+        /// know a better way to do this? cause that would be great
+        if #available(iOS 13.0, *) {
+            switch self {
+            case .builtInMicrophone: return "builtInMicrophone"
+            case .builtInWideAngleCamera: return "builtInWideAngleCamera"
+            case .builtInTelephotoCamera: return "builtInTelephotoCamera"
+            case .builtInUltraWideCamera: return "builtInUltraWideCamera"
+            case .builtInDualCamera: return "builtInDualCamera"
+            case .builtInDualWideCamera: return "builtInDualWideCamera"
+            case .builtInTripleCamera: return "builtInTripleCamera"
+            case .builtInTrueDepthCamera: return "builtInTrueDepthCamera"
+            default: return "unknown"
+            }
+        } else {
+            switch self {
+            case .builtInMicrophone: return "builtInMicrophone"
+            case .builtInWideAngleCamera: return "builtInWideAngleCamera"
+            case .builtInTelephotoCamera: return "builtInTelephotoCamera"
+            case .builtInDualCamera: return "builtInDualCamera"
+            case .builtInTrueDepthCamera: return "builtInTrueDepthCamera"
+            default: return "unknown"
+            }
+        }
+    }
+}
+
+extension Array where Element == AVCaptureDevice.DeviceType {
+    static var ft_all: [AVCaptureDevice.DeviceType] {
+        /// make sure these are in the same order as which they're defined (at least in the headers),
+        /// cause chances are some debug code will render them in a table in the same order
+        var all: [AVCaptureDevice.DeviceType] = []
+        
+        all.append(contentsOf: [
+            .builtInMicrophone,
+            .builtInWideAngleCamera,
+            .builtInTelephotoCamera
+        ])
+        
+        if #available(iOS 13.0, *) {
+            all.append(.builtInUltraWideCamera)
+        }
+        
+        all.append(.builtInDualCamera)
+        
+        if #available(iOS 13.0, *) {
+            all.append(.builtInDualWideCamera)
+            all.append(.builtInTripleCamera)
+        }
+        
+        all.append(.builtInTrueDepthCamera)
+        return all
+    }
+}

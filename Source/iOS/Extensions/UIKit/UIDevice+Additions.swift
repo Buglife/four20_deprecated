@@ -16,6 +16,39 @@ public extension UIDevice {
     var ft_exifOrientation: CGImagePropertyOrientation {
         return orientation.ft_exifOrientation
     }
+    
+    var ft_modelIdentifier: String? {
+        var sysinfo = utsname()
+        uname(&sysinfo) // ignore return value
+        return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)?.trimmingCharacters(in: .controlCharacters)
+    }
+    
+    /// List is incomplete, see https://www.theiphonewiki.com/wiki/Models
+    var ft_model: String? {
+        guard let m = ft_modelIdentifier else { return nil }
+        
+        switch m {
+        case "iPhone10,3", "iPhone10,6": return "iPhone X"
+        case "iPhone11,8": return "iPhone XR"
+        case "iPhone11,2": return "iPhone XS"
+        case "iPhone11,6": return "iPhone XS Max"
+        case "iPhone12,1": return "iPhone 11"
+        case "iPhone12,3": return "iPhone 11 Pro"
+        case "iPhone12,5": return "iPhone 11 Pro Max"
+        case "iPhone12,8": return "iPhone SE (2nd gen)"
+        case "iPhone13,1": return "iPhone 12 mini" // Apple doesn't capitalize "mini"
+        case "iPhone13,2": return "iPhone 12"
+        case "iPhone13,3": return "iPhone 12 Pro"
+        case "iPhone13,4": return "iPhone 12 Pro Max"
+        
+        case "iPad8,1", "iPad8,2", "iPad8,3", "iPad8,4": return "iPad Pro (11-inch)"
+        case "iPad8,5", "iPad8,6", "iPad8,7", "iPad8,8": return "iPad Pro (12.9-inch) (3rd gen)"
+        case "iPad8,9", "iPad8,10": return "iPad Pro (11-inch) (2nd gen)"
+        case "iPad8,11", "iPad8,12": return "iPad Pro (12.9-inch) (4th gen)"
+        default:
+            return m
+        }
+    }
 }
 
 public extension UIDeviceOrientation {
