@@ -114,7 +114,7 @@ public extension AVCaptureDevice.Position {
     }
 }
 
-extension AVCaptureDevice.DeviceType {
+public extension AVCaptureDevice.DeviceType {
     var ft_debugDescription: String {
         /// know a better way to do this? cause that would be great
         if #available(iOS 13.0, *) {
@@ -142,7 +142,7 @@ extension AVCaptureDevice.DeviceType {
     }
 }
 
-extension Array where Element == AVCaptureDevice.DeviceType {
+public extension Array where Element == AVCaptureDevice.DeviceType {
     static var ft_all: [AVCaptureDevice.DeviceType] {
         /// make sure these are in the same order as which they're defined (at least in the headers),
         /// cause chances are some debug code will render them in a table in the same order
