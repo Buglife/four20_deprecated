@@ -6,12 +6,22 @@
 import CoreGraphics
 
 public extension CGImage {
+    
+    enum LuminanceRevision {
+        /// Buggy version where we didn't advance the pointer
+        case rev1
+        /// Same as `rev1`, but with the pointer advancement fixed
+        case rev2
+        /// Same as `rev2`, but uses BT.709 luma coefficients
+        case rev3
+    }
+    
     var ft_size: CGSize {
         return .init(width: width, height: height)
     }
     
     /// Returns the mean luminance of all pixels
-    var ft_luminance: Double? {
+    func ft_luminance(_ revision: LuminanceRevision) -> Double? {
         guard let imageData = dataProvider?.data else { return nil }
         guard var ptr = CFDataGetBytePtr(imageData) else { return nil }
         var totalLuminance: Double = 0
@@ -21,16 +31,21 @@ public extension CGImage {
                 let g = ptr[i + 1]
                 let b = ptr[i + 2]
                 
-                /// shit we got off stackoverflow or something at some point
-                let pixelLuminance = (0.299 * Double(r)) + (0.587 * Double(g)) + (0.114 * Double(b))
+                let pixelLuminance: Double
                 
-                /// BT.709
-//                let pixelLuminance = (0.2126 * Double(r)) + (0.7152 * Double(g)) + (0.0722 * Double(b))
+                switch revision {
+                case .rev1, .rev2:
+                    pixelLuminance = (0.299 * Double(r)) + (0.587 * Double(g)) + (0.114 * Double(b))
+                case .rev3:
+                    pixelLuminance = (0.2126 * Double(r)) + (0.7152 * Double(g)) + (0.0722 * Double(b))
+                }
                 
                 totalLuminance += pixelLuminance
             }
             
-            ptr = ptr.advanced(by: bytesPerRow)
+            if revision != .rev1 {
+                ptr = ptr.advanced(by: bytesPerRow)
+            }
         }
         return totalLuminance / Double(width * height)
     }
