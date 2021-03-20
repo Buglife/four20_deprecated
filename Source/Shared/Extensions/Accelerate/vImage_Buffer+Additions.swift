@@ -29,12 +29,12 @@ public extension vImage_Buffer {
 }
 
 public struct VImage {
-    let width: Int
-    let height: Int
-    let bytesPerRow: Int
-    var buffer: vImage_Buffer
+    public let width: Int
+    public let height: Int
+    public let bytesPerRow: Int
+    public var buffer: vImage_Buffer
     
-    init?(ft_pixelBuffer: CVPixelBuffer, plane: Int) {
+    public init?(ft_pixelBuffer: CVPixelBuffer, plane: Int) {
         guard let rawBuffer = CVPixelBufferGetBaseAddressOfPlane(ft_pixelBuffer, plane) else { return nil }
         self.width = CVPixelBufferGetWidthOfPlane(ft_pixelBuffer, plane)
         self.height = CVPixelBufferGetHeightOfPlane(ft_pixelBuffer, plane)
@@ -47,7 +47,7 @@ public struct VImage {
         )
     }
     
-    init?(ft_pixelBuffer: CVPixelBuffer) {
+    public init?(ft_pixelBuffer: CVPixelBuffer) {
         guard let rawBuffer = CVPixelBufferGetBaseAddress(ft_pixelBuffer) else { return nil }
         self.width = CVPixelBufferGetWidth(ft_pixelBuffer)
         self.height = CVPixelBufferGetHeight(ft_pixelBuffer)
@@ -60,11 +60,11 @@ public struct VImage {
         )
     }
     
-    mutating func draw(yBuffer: vImage_Buffer, cbcrBuffer: vImage_Buffer) throws {
+    public mutating func ft_draw(yBuffer: vImage_Buffer, cbcrBuffer: vImage_Buffer) throws {
         try buffer.ft_draw(yBuffer: yBuffer, cbcrBuffer: cbcrBuffer)
     }
     
-    mutating func permute(channelMap: [UInt8]) {
+    public mutating func ft_permute(channelMap: [UInt8]) {
         buffer.ft_permute(channelMap: channelMap)
     }
 }

@@ -83,6 +83,7 @@ public extension CVPixelBuffer {
         case cbcrImageNil
         case outputAllocation
         case argbConversion
+        case unknown
     }
     
     func ft_toBGRA() -> Result<CVPixelBuffer, BGRAConversionError> {
@@ -102,43 +103,43 @@ public extension CVPixelBuffer {
         }
         
         /// Split plane
-        guard let yImage = pixelBuffer.with({ VImage(ft_pixelBuffer: $0, plane: 0) }) else {
+        guard let yImage = pixelBuffer.ft_with({ VImage(ft_pixelBuffer: $0, plane: 0) }) else {
             return .failure(.yImageNil)
         }
         
-        guard let cbcrImage = pixelBuffer.with({ VImage(ft_pixelBuffer: $0, plane: 1) }) else {
+        guard let cbcrImage = pixelBuffer.ft_with({ VImage(ft_pixelBuffer: $0, plane: 1) }) else {
             return .failure(.cbcrImageNil)
         }
         
         /// Create output pixelBuffer
-        guard let outPixelBuffer = CVPixelBuffer.make(width: yImage.width, height: yImage.height, format: kCVPixelFormatType_32BGRA) else {
+        guard let outPixelBuffer = CVPixelBuffer.ft_make(width: yImage.width, height: yImage.height, format: kCVPixelFormatType_32BGRA) else {
             return .failure(.outputAllocation)
         }
         
         /// Convert yuv to argb
-        guard var argbImage = outPixelBuffer.with({ VImage(ft_pixelBuffer: $0) }) else {
+        guard var argbImage = outPixelBuffer.ft_with({ VImage(ft_pixelBuffer: $0) }) else {
             return .failure(.argbConversion)
         }
         
         do {
-            try argbImage.draw(yBuffer: yImage.buffer, cbcrBuffer: cbcrImage.buffer)
+            try argbImage.ft_draw(yBuffer: yImage.buffer, cbcrBuffer: cbcrImage.buffer)
         } catch {
             return .failure(.drawing(error))
         }
         
         /// Convert argb to bgra
-        argbImage.permute(channelMap: [3, 2, 1, 0])
+        argbImage.ft_permute(channelMap: [3, 2, 1, 0])
         return .success(outPixelBuffer)
     }
     
-    private func with<T>(_ closure: ((_ pixelBuffer: CVPixelBuffer) -> T)) -> T {
+    func ft_with<T>(_ closure: ((_ pixelBuffer: CVPixelBuffer) -> T)) -> T {
         CVPixelBufferLockBaseAddress(self, .readOnly)
         let result = closure(self)
         CVPixelBufferUnlockBaseAddress(self, .readOnly)
         return result
     }
     
-    private static func make(width: Int, height: Int, format: OSType) -> CVPixelBuffer? {
+    static func ft_make(width: Int, height: Int, format: OSType) -> CVPixelBuffer? {
         var pixelBuffer: CVPixelBuffer? = nil
         CVPixelBufferCreate(kCFAllocatorDefault,
                             width,
