@@ -193,6 +193,10 @@
 		B6294ADA49F0E60FF03960AC3538F30B /* NSObject+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5DC413F16D88C014DB338980EA3F8 /* NSObject+Additions.swift */; };
 		B69BF27E7008AEC30A7A8999B5C8A5F4 /* TimestampedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2444867B229C58242423DD6CCB4EDC37 /* TimestampedValue.swift */; };
 		B78FA45BE6947DC08630A6B6CCC48B0C /* Progress+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46059684DA1F44A128F121B8BD567D3D /* Progress+Additions.swift */; };
+		B7A9DA692605CF93001D9C13 /* AVCaptureDevice.FlashlightError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9DA682605CF93001D9C13 /* AVCaptureDevice.FlashlightError.swift */; };
+		B7A9DA712605D112001D9C13 /* AVCaptureDevice.ExposureMode+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9DA702605D112001D9C13 /* AVCaptureDevice.ExposureMode+Additions.swift */; };
+		B7A9DA792605D1C1001D9C13 /* AVCaptureDevice.Position+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9DA782605D1C1001D9C13 /* AVCaptureDevice.Position+Additions.swift */; };
+		B7A9DA812605D1F5001D9C13 /* AVCaptureDevice.DeviceType+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9DA802605D1F5001D9C13 /* AVCaptureDevice.DeviceType+Additions.swift */; };
 		B947291B2075943E23BF54F37216FC4A /* CGRect+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135631F84F606A0C7821E1C1C50BC99A /* CGRect+Additions.swift */; };
 		BA306C74A0F9FE29EAC1BED55C788BA2 /* NonConformingFloatStrategy+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBD7A31A8BE1DEA2C01247B9A5FA744 /* NonConformingFloatStrategy+Additions.swift */; };
 		BAFE6B0A524712F93CE5B022D251CC3A /* matrix_float4x4+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C1EC2DCC0CA8614381C3C4305AE66 /* matrix_float4x4+Additions.swift */; };
@@ -290,7 +294,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01028F41AF46509E3B6E80F43083C2ED /* Four20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Four20.framework; path = "Four20-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01028F41AF46509E3B6E80F43083C2ED /* Four20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Four20.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0356C963F16C2FC28EDFAC0D0ACBB227 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		0380ED851047A446331627FC2E29585A /* simd_float4x4+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Additions.swift"; sourceTree = "<group>"; };
 		048DD736FE06C9D0B5C83CEBD0BCD9FE /* UIViewOrUILayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewOrUILayoutGuide.swift; sourceTree = "<group>"; };
@@ -322,10 +326,10 @@
 		1B630FC91EE1BEA7A9D37F90D02881DE /* SIMD4+Float+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SIMD4+Float+Additions.swift"; sourceTree = "<group>"; };
 		1C091D2634776FC1BD1425BFA4028D94 /* NSFileManager+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSFileManager+Additions.swift"; sourceTree = "<group>"; };
 		1F8266C02B7E120E260822CCBD8A8D3C /* JSONDictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONDictionary.swift; sourceTree = "<group>"; };
-		206BAB198AD0AE6657A63A5C9066339C /* Pods_Four20_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Four20_Example.framework; path = "Pods-Four20_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		206BAB198AD0AE6657A63A5C9066339C /* Pods_Four20_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Four20_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BF1BDC16CCF2E332966DE157ADAB33 /* Four20-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Four20-macOS.debug.xcconfig"; path = "../Four20-macOS/Four20-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		22CB250E2E1208952BBAEEFF014CA709 /* UIDevice+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIDevice+Additions.swift"; sourceTree = "<group>"; };
-		23ED1283BE0EC5A1FCC7F97324E5A861 /* Four20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Four20.framework; path = "Four20-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23ED1283BE0EC5A1FCC7F97324E5A861 /* Four20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Four20.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2444867B229C58242423DD6CCB4EDC37 /* TimestampedValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimestampedValue.swift; sourceTree = "<group>"; };
 		26C535B012646714DA028684A9D9FDCB /* SCNVector3+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Additions.swift"; sourceTree = "<group>"; };
 		283EEF5B7BC042317987DE64DE9B2499 /* Pods-Four20_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Four20_Example.modulemap"; sourceTree = "<group>"; };
@@ -361,7 +365,7 @@
 		607E8A9B7211B24909D2005F00F3D096 /* CGSize+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGSize+Additions.swift"; sourceTree = "<group>"; };
 		61DC660169057A4758D86312638E5EB7 /* Pods-Four20_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Four20_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		641DF33A832AEAA5995C69EDE3D2AA52 /* DefaultLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultLogger.swift; sourceTree = "<group>"; };
-		653EAF5C143E8B06C417369BDA8BEA88 /* Pods_Four20_macOSExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Four20_macOSExample.framework; path = "Pods-Four20_macOSExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		653EAF5C143E8B06C417369BDA8BEA88 /* Pods_Four20_macOSExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Four20_macOSExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6556573EF1FFDA4EA1B371F99ACA66C4 /* CVPixelBuffer+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Additions.swift"; sourceTree = "<group>"; };
 		67017A96505C658C4FF9DD95152E2495 /* Pods-Four20_macOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four20_macOSExample.release.xcconfig"; sourceTree = "<group>"; };
 		68E708592D221826160EDA0DF60EF130 /* Error+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Error+Additions.swift"; sourceTree = "<group>"; };
@@ -373,18 +377,18 @@
 		71212726592A449D816F2E71F0BB0638 /* Four20-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Four20-tvOS-dummy.m"; path = "../Four20-tvOS/Four20-tvOS-dummy.m"; sourceTree = "<group>"; };
 		72DE58991D6A9077955348BA8A114F86 /* Pods-Four20_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Four20_Example-Info.plist"; sourceTree = "<group>"; };
 		75043BB01EC32E5B7B1601539434970F /* Four20-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Four20-tvOS.debug.xcconfig"; path = "../Four20-tvOS/Four20-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		77B5AE1BCB48A9CF0137EEBD5CEAE196 /* Pods_Four20_TVExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Four20_TVExample.framework; path = "Pods-Four20_TVExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77B5AE1BCB48A9CF0137EEBD5CEAE196 /* Pods_Four20_TVExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Four20_TVExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AEA74AF9785ED582D2D5A68B25D24BD /* Four20-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Four20-iOS-Info.plist"; sourceTree = "<group>"; };
 		7D1840E79429D7E09CFF810B69A23CA5 /* Pods-Four20_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four20_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7E272CCC1EB31ADDA09CCDAD7BB00CD7 /* JSONEncoder+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+Additions.swift"; sourceTree = "<group>"; };
 		7E84BE9D347BD2374A6E2803EDC04421 /* JSONArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONArray.swift; sourceTree = "<group>"; };
 		7ED06AD4542BCC402E7EEB305238CD81 /* Data+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Data+Additions.swift"; sourceTree = "<group>"; };
 		7F8B9FEEE328FD158D0CF5F9F8D4A984 /* UIImageView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+Additions.swift"; sourceTree = "<group>"; };
-		7FB1A017EEF054D1652C7FB178B19CB4 /* Four20.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Four20.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7FB1A017EEF054D1652C7FB178B19CB4 /* Four20.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Four20.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		836E8CE0907FC2B310798AF0C59BE481 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		849A3A7C453BB48CB45A1F01F78AB275 /* MKCoordinateSpan+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MKCoordinateSpan+Additions.swift"; sourceTree = "<group>"; };
 		86063C60DD00DF69D4F990DF5C488978 /* AssertionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssertionHandler.swift; sourceTree = "<group>"; };
-		87AB77101F847C2DF9A27573CF6FB8E4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		87AB77101F847C2DF9A27573CF6FB8E4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8A4329DDAC2FE0AC88BDB1B4069742B2 /* Four20-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Four20-iOS-dummy.m"; sourceTree = "<group>"; };
 		8DA1BFEA7DBACF6741A3C3E7C7708D39 /* DateCodingStrategy+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "DateCodingStrategy+Additions.swift"; sourceTree = "<group>"; };
 		9333A78E63DBC50C0C20A456B7737E18 /* Pods-Four20_TVExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Four20_TVExample-frameworks.sh"; sourceTree = "<group>"; };
@@ -395,7 +399,7 @@
 		99D7D197B1991BFFAB7C4D9900105D50 /* Pods-Four20_TVExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Four20_TVExample-dummy.m"; sourceTree = "<group>"; };
 		9BF36360D54767176C9983CAACB7E4A0 /* Four20-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Four20-macOS-Info.plist"; path = "../Four20-macOS/Four20-macOS-Info.plist"; sourceTree = "<group>"; };
 		9BF737B6FE6F94F133F039026B68CA8F /* Four20-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Four20-iOS-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E7A8C689BC87C2D25E233F2BFFB8532 /* CMTime+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CMTime+Additions.swift"; sourceTree = "<group>"; };
 		9EEC15AF111582421C27A9F58618AE77 /* Pods-Four20_macOSExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Four20_macOSExample-umbrella.h"; sourceTree = "<group>"; };
 		9FBAEB0449612ED71F58651E1DEA7D00 /* Pods-Four20_macOSExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four20_macOSExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -406,6 +410,10 @@
 		B4A3875A54985D969B73574E46A91F52 /* Benchmark.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
 		B4B711093F756ED33683E29929064341 /* Array+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
 		B62371F0B26170267DBDF2DED8A29E73 /* ARWorldMappingStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ARWorldMappingStatus.swift; sourceTree = "<group>"; };
+		B7A9DA682605CF93001D9C13 /* AVCaptureDevice.FlashlightError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDevice.FlashlightError.swift; sourceTree = "<group>"; };
+		B7A9DA702605D112001D9C13 /* AVCaptureDevice.ExposureMode+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice.ExposureMode+Additions.swift"; sourceTree = "<group>"; };
+		B7A9DA782605D1C1001D9C13 /* AVCaptureDevice.Position+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice.Position+Additions.swift"; sourceTree = "<group>"; };
+		B7A9DA802605D1F5001D9C13 /* AVCaptureDevice.DeviceType+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice.DeviceType+Additions.swift"; sourceTree = "<group>"; };
 		B99E8F696135CA78C396B5BAB3514BD9 /* UIGestureRecognizer+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Additions.swift"; sourceTree = "<group>"; };
 		BBA006D6F55C4BDB9DFE9D39D1D6ABFD /* UIWindow+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIWindow+Additions.swift"; sourceTree = "<group>"; };
 		BC806551A0F9E2DCE807EF245F01EBED /* Float+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Float+Additions.swift"; sourceTree = "<group>"; };
@@ -416,7 +424,7 @@
 		C0E16AA3AA1CC8803E41838A09FAFA59 /* Four20-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Four20-tvOS.release.xcconfig"; path = "../Four20-tvOS/Four20-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		C13804A97797071158E6451914D93984 /* NSAttributedString+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Additions.swift"; sourceTree = "<group>"; };
 		C314C1B38004EE9D6B2D840010161EB0 /* UIImage+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
-		C32B927C07FDA45B4F6722D64D35F03F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		C32B927C07FDA45B4F6722D64D35F03F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C3A2A36002C8FDFEEA48D03FE4783020 /* QueueBenchmark.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QueueBenchmark.swift; sourceTree = "<group>"; };
 		C3C812A1C38957F9CA7CC8A0CA8E12E3 /* Atom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		C3E0EF1B9D69344D0356BD85780929A3 /* UIBezierPath+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Additions.swift"; sourceTree = "<group>"; };
@@ -435,7 +443,7 @@
 		D8EB23E1663060E936DA85C51D357132 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		E16F5485270F1B3F83F61F95537C11ED /* Four20-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Four20-iOS.modulemap"; sourceTree = "<group>"; };
 		E4B1B1B9DFD0B8E5028EF75B9B79D2A8 /* Date+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
-		E50DDCFAEC130F33CC8C963A3E487030 /* Four20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Four20.framework; path = "Four20-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50DDCFAEC130F33CC8C963A3E487030 /* Four20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Four20.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6CCB3C76E9AE9C2ABE654D5277F00B /* Pods-Four20_macOSExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Four20_macOSExample-dummy.m"; sourceTree = "<group>"; };
 		EB6E2BB19A145F98E76F1D894072CF0C /* JSONDecoder+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Additions.swift"; sourceTree = "<group>"; };
 		EEC64F0FA4E63BF1BA4251A49E386671 /* Double+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Double+Additions.swift"; sourceTree = "<group>"; };
@@ -506,7 +514,6 @@
 			children = (
 				2AEA734DE708B591832663E352D5E440 /* OBSRImage.swift */,
 			);
-			name = "Cross platform";
 			path = "Cross platform";
 			sourceTree = "<group>";
 		};
@@ -576,8 +583,11 @@
 			isa = PBXGroup;
 			children = (
 				C4FE15F16A65CBA1239DD93FF335DD4A /* AVCaptureDevice+Additions.swift */,
+				B7A9DA682605CF93001D9C13 /* AVCaptureDevice.FlashlightError.swift */,
+				B7A9DA702605D112001D9C13 /* AVCaptureDevice.ExposureMode+Additions.swift */,
+				B7A9DA782605D1C1001D9C13 /* AVCaptureDevice.Position+Additions.swift */,
+				B7A9DA802605D1F5001D9C13 /* AVCaptureDevice.DeviceType+Additions.swift */,
 			);
-			name = AVFoundation;
 			path = AVFoundation;
 			sourceTree = "<group>";
 		};
@@ -586,7 +596,6 @@
 			children = (
 				3EDABD6DF45E08F0DF69284245F4EE60 /* VNClassificationObservation+Additions.swift */,
 			);
-			name = Vision;
 			path = Vision;
 			sourceTree = "<group>";
 		};
@@ -598,7 +607,6 @@
 				733F24EE03B51599C5C25B11FB14D9AC /* Foundation */,
 				B4F1FF97A3624CD537D17A65F0A3DAE2 /* UIKit */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -619,7 +627,6 @@
 			children = (
 				0380ED851047A446331627FC2E29585A /* simd_float4x4+Additions.swift */,
 			);
-			name = simd;
 			path = simd;
 			sourceTree = "<group>";
 		};
@@ -628,7 +635,6 @@
 			children = (
 				AB3B5F8288D4D09002DC018459FEB6B6 /* CLLocation+Additions.swift */,
 			);
-			name = CoreLocation;
 			path = CoreLocation;
 			sourceTree = "<group>";
 		};
@@ -637,7 +643,6 @@
 			children = (
 				D86AFD26C8396FE224F17A720A45D876 /* MSSessionState.swift */,
 			);
-			name = MultipeerConnectivity;
 			path = MultipeerConnectivity;
 			sourceTree = "<group>";
 		};
@@ -648,7 +653,6 @@
 				0FD63381C92D521B3D973C92862B4A88 /* IntegerSampler.swift */,
 				AF3FD051A8B2C5B4ED6D70D464233421 /* TimeIntervalSampler.swift */,
 			);
-			name = Samplers;
 			path = Samplers;
 			sourceTree = "<group>";
 		};
@@ -670,7 +674,6 @@
 				88FD5BFCF35CD6B45D11770A9E875CB2 /* Swift */,
 				3507DCC3A354B678CC4F937C30377747 /* Vision */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -690,7 +693,6 @@
 				1B3BB37630B67C26CC8DB39344528A71 /* URLSession+Additions.swift */,
 				E26EF53F75313DC36CC679BD4B23E62B /* JSON */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -726,7 +728,6 @@
 				834160A1E197E4C63CE398CAB2105C3E /* Logging */,
 				49E870EB7B8D9E7447298ECD455F9001 /* Samplers */,
 			);
-			name = Custom;
 			path = Custom;
 			sourceTree = "<group>";
 		};
@@ -735,7 +736,6 @@
 			children = (
 				C019CFA427B06DB4329B6247A0FAAE17 /* Notification+Additions.swift */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -746,7 +746,6 @@
 				B62371F0B26170267DBDF2DED8A29E73 /* ARWorldMappingStatus.swift */,
 				4CC03095F4457552D8FB8314C4692F61 /* Dictionary+ARFaceAnchor.swift */,
 			);
-			name = ARKit;
 			path = ARKit;
 			sourceTree = "<group>";
 		};
@@ -765,7 +764,6 @@
 				836E8CE0907FC2B310798AF0C59BE481 /* Logger.swift */,
 				95CDE346D9C0686B55295D57C31975C1 /* LogRouter.swift */,
 			);
-			name = Logging;
 			path = Logging;
 			sourceTree = "<group>";
 		};
@@ -785,7 +783,6 @@
 				1B630FC91EE1BEA7A9D37F90D02881DE /* SIMD4+Float+Additions.swift */,
 				3FF171F6337682251BEE44B5D8D904C0 /* StringProtocol.swift */,
 			);
-			name = Swift;
 			path = Swift;
 			sourceTree = "<group>";
 		};
@@ -828,7 +825,6 @@
 				195CE9D084254FC599F7A2C33BFD05D7 /* CMSampleBuffer+Additions.swift */,
 				9E7A8C689BC87C2D25E233F2BFFB8532 /* CMTime+Additions.swift */,
 			);
-			name = CoreMedia;
 			path = CoreMedia;
 			sourceTree = "<group>";
 		};
@@ -884,7 +880,6 @@
 				048DD736FE06C9D0B5C83CEBD0BCD9FE /* UIViewOrUILayoutGuide.swift */,
 				BBA006D6F55C4BDB9DFE9D39D1D6ABFD /* UIWindow+Additions.swift */,
 			);
-			name = UIKit;
 			path = UIKit;
 			sourceTree = "<group>";
 		};
@@ -893,7 +888,6 @@
 			children = (
 				CA40E113E1B2E87604528ADE8F0211EE /* vImage_Buffer+Additions.swift */,
 			);
-			name = Accelerate;
 			path = Accelerate;
 			sourceTree = "<group>";
 		};
@@ -902,7 +896,6 @@
 			children = (
 				6556573EF1FFDA4EA1B371F99ACA66C4 /* CVPixelBuffer+Additions.swift */,
 			);
-			name = CoreVideo;
 			path = CoreVideo;
 			sourceTree = "<group>";
 		};
@@ -911,7 +904,6 @@
 			children = (
 				BF3417DB19D666DB90570F89939529B4 /* AVAsset+Additions.swift */,
 			);
-			name = AVFoundation;
 			path = AVFoundation;
 			sourceTree = "<group>";
 		};
@@ -938,7 +930,6 @@
 				26C535B012646714DA028684A9D9FDCB /* SCNVector3+Additions.swift */,
 				08E349F405E15DB2FEF2095367945DF0 /* SCNVector4+Additions.swift */,
 			);
-			name = SceneKit;
 			path = SceneKit;
 			sourceTree = "<group>";
 		};
@@ -950,7 +941,6 @@
 				7E272CCC1EB31ADDA09CCDAD7BB00CD7 /* JSONEncoder+Additions.swift */,
 				2DBD7A31A8BE1DEA2C01247B9A5FA744 /* NonConformingFloatStrategy+Additions.swift */,
 			);
-			name = JSON;
 			path = JSON;
 			sourceTree = "<group>";
 		};
@@ -961,7 +951,6 @@
 				1F8266C02B7E120E260822CCBD8A8D3C /* JSONDictionary.swift */,
 				F462F5EDFFB5733B9A9029610EE48B54 /* JSONError.swift */,
 			);
-			name = JSON;
 			path = JSON;
 			sourceTree = "<group>";
 		};
@@ -977,7 +966,6 @@
 				606D606DA4CBD01FBE17C9DE51381E23 /* CGStruct2D.swift */,
 				6E96AEEB783E7535506525D5229CA1D9 /* CGVector+Additions.swift */,
 			);
-			name = CoreGraphics;
 			path = CoreGraphics;
 			sourceTree = "<group>";
 		};
@@ -995,7 +983,6 @@
 			children = (
 				849A3A7C453BB48CB45A1F01F78AB275 /* MKCoordinateSpan+Additions.swift */,
 			);
-			name = MapKit;
 			path = MapKit;
 			sourceTree = "<group>";
 		};
@@ -1394,6 +1381,7 @@
 				D3B50CDC6E6DD1CF47CA150CE74F24EA /* CMTime+Additions.swift in Sources */,
 				9E7261662AC3D43234802425C41982BD /* CVPixelBuffer+Additions.swift in Sources */,
 				4FD840FC98A3C55F9FC168863CE94AC5 /* Data+Additions.swift in Sources */,
+				B7A9DA812605D1F5001D9C13 /* AVCaptureDevice.DeviceType+Additions.swift in Sources */,
 				4AD6A1B8505A76261A40E1ADEC9A4A10 /* Date+Additions.swift in Sources */,
 				D47E9A5A65809D04CB801B314DFDF611 /* DateCodingStrategy+Additions.swift in Sources */,
 				415F5694F2192EDB2892B538BC185833 /* DefaultLogger.swift in Sources */,
@@ -1404,11 +1392,13 @@
 				622B3B658BD669BBD0D67402B0A2A1A6 /* FileManager+Additions.swift in Sources */,
 				61B4055698D0EC3D29B43CADD6EDB886 /* Float+Additions.swift in Sources */,
 				813EFA21DFF24BD2B4C910B3CBBCF6AB /* Four20-iOS-dummy.m in Sources */,
+				B7A9DA692605CF93001D9C13 /* AVCaptureDevice.FlashlightError.swift in Sources */,
 				379446FC090125D6DB3D473D358C4700 /* FTSKFloat.swift in Sources */,
 				19157FE23AFB9DF197ECBCFF6BCC5E7B /* IntegerSampler.swift in Sources */,
 				7815674B3AD9B13AFAB604BCD51960C3 /* ISO8601DateFormatter+Additions.swift in Sources */,
 				ED131FDF4BB8BD16105C93DCB06EE4DE /* JSONArray.swift in Sources */,
 				B5DD318B8DF6AB37F626A10A00E359A7 /* JSONDecoder+Additions.swift in Sources */,
+				B7A9DA792605D1C1001D9C13 /* AVCaptureDevice.Position+Additions.swift in Sources */,
 				9504B24744D7EF643B2B1AA1909AA261 /* JSONDictionary.swift in Sources */,
 				46A77F6D72C9D7C3C3D02B0EC32C0F11 /* JSONEncoder+Additions.swift in Sources */,
 				2468746E277066A6C3E5C93F3D942627 /* JSONError.swift in Sources */,
@@ -1458,6 +1448,7 @@
 				C559F33CA8E95AC96ACB4772A145F77F /* UITextField+Additions.swift in Sources */,
 				DE2938B87DCFF1BEAFC3509F551A0B4F /* UIView+Additions.swift in Sources */,
 				F921AA0B908939FB705A312EC342E621 /* UIViewController+Additions.swift in Sources */,
+				B7A9DA712605D112001D9C13 /* AVCaptureDevice.ExposureMode+Additions.swift in Sources */,
 				F65C165B413C319208B303E6F75198E8 /* UIViewOrUILayoutGuide.swift in Sources */,
 				FC3557074D3BD47C25ACAA7CD1CEEAC2 /* UIWindow+Additions.swift in Sources */,
 				D5C18718B9082C766185120062E93AF6 /* URLSession+Additions.swift in Sources */,
@@ -1956,8 +1947,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 				TVOS_DEPLOYMENT_TARGET = 13.2;

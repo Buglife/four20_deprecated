@@ -8,10 +8,12 @@ import AVFoundation
 private let kFrontCameraAspectRatio: CGFloat = 4.0 / 3.0
 
 public extension AVCaptureDevice {
-    enum FlashlightError: Swift.Error {
-        case noCaptureDevice // what the fuck
-        case torchNotAvailable
-        case wrapped(Swift.Error)
+    
+    /// - Parameter mediaType: default value is `.video`
+    /// - Parameter position: default value is `.unspecified`
+    class func ft_availableCaptureDevices(mediaType: AVMediaType = .video, position: AVCaptureDevice.Position = .unspecified) -> [AVCaptureDevice] {
+        let session = AVCaptureDevice.DiscoverySession(deviceTypes: .ft_all, mediaType: .video, position: position)
+        return session.devices.sorted { $0.ft_deviceTypeAndPosition < $1.ft_deviceTypeAndPosition }
     }
     
     class var ft_frontFacingTrueDepthCamera: AVCaptureDevice? {
@@ -64,108 +66,9 @@ public extension AVCaptureDevice {
     private class var ft_captureDeviceForFlashlight: AVCaptureDevice? {
         return AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: .video, position: .back)
     }
-}
-
-extension AVCaptureDevice.FlashlightError: CustomDebugStringConvertible {
-    public var ft_description: String {
-        switch self {
-        case .noCaptureDevice:
-            return "No capture device"
-        case .torchNotAvailable:
-            return "Flashlight not available"
-        case .wrapped(let error):
-            return "\(error.localizedDescription)"
-        }
-    }
     
-    public var debugDescription: String {
-        return "FlashlightError: \(ft_description))"
-    }
-}
-
-public extension AVCaptureDevice.ExposureMode {
-    var ft_description: String {
-        switch self {
-        case .autoExpose:
-            return "Auto expose"
-        case .continuousAutoExposure:
-            return "Continuous"
-        case .custom:
-            return "Custom"
-        case .locked:
-            return "Locked"
-        default:
-            assertionFailure("Unexpected exposure mode: \(self.rawValue)")
-            return "Unexpected"
-        }
-    }
-}
-
-public extension AVCaptureDevice.Position {
-    var ft_debugDescription: String {
-        switch self {
-        case .front: return "front"
-        case .back: return "back"
-        case .unspecified: return "unspecified"
-        @unknown default:
-            assertionFailure()
-            return "unknown"
-        }
-    }
-}
-
-public extension AVCaptureDevice.DeviceType {
-    var ft_debugDescription: String {
-        /// know a better way to do this? cause that would be great
-        if #available(iOS 13.0, *) {
-            switch self {
-            case .builtInMicrophone: return "builtInMicrophone"
-            case .builtInWideAngleCamera: return "builtInWideAngleCamera"
-            case .builtInTelephotoCamera: return "builtInTelephotoCamera"
-            case .builtInUltraWideCamera: return "builtInUltraWideCamera"
-            case .builtInDualCamera: return "builtInDualCamera"
-            case .builtInDualWideCamera: return "builtInDualWideCamera"
-            case .builtInTripleCamera: return "builtInTripleCamera"
-            case .builtInTrueDepthCamera: return "builtInTrueDepthCamera"
-            default: return "unknown"
-            }
-        } else {
-            switch self {
-            case .builtInMicrophone: return "builtInMicrophone"
-            case .builtInWideAngleCamera: return "builtInWideAngleCamera"
-            case .builtInTelephotoCamera: return "builtInTelephotoCamera"
-            case .builtInDualCamera: return "builtInDualCamera"
-            case .builtInTrueDepthCamera: return "builtInTrueDepthCamera"
-            default: return "unknown"
-            }
-        }
-    }
-}
-
-public extension Array where Element == AVCaptureDevice.DeviceType {
-    static var ft_all: [AVCaptureDevice.DeviceType] {
-        /// make sure these are in the same order as which they're defined (at least in the headers),
-        /// cause chances are some debug code will render them in a table in the same order
-        var all: [AVCaptureDevice.DeviceType] = []
-        
-        all.append(contentsOf: [
-            .builtInMicrophone,
-            .builtInWideAngleCamera,
-            .builtInTelephotoCamera
-        ])
-        
-        if #available(iOS 13.0, *) {
-            all.append(.builtInUltraWideCamera)
-        }
-        
-        all.append(.builtInDualCamera)
-        
-        if #available(iOS 13.0, *) {
-            all.append(.builtInDualWideCamera)
-            all.append(.builtInTripleCamera)
-        }
-        
-        all.append(.builtInTrueDepthCamera)
-        return all
+    /// Used for sorting, debugging, or whatever.
+    var ft_deviceTypeAndPosition: String {
+        position.ft_debugDescription + " " + deviceType.ft_debugDescription
     }
 }
