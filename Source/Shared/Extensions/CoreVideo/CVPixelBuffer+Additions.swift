@@ -4,6 +4,8 @@
 //
 
 import CoreVideo
+import CoreImage
+import Accelerate
 
 #if !os(macOS)
 import UIKit
@@ -42,13 +44,13 @@ public extension CVPixelBuffer {
         let totalLuminancePlaneSize = CVPixelBufferGetWidthOfPlane(self, 0) * CVPixelBufferGetHeightOfPlane(self, 0)
         let bytesPerRowOfLuminancePlane = CVPixelBufferGetBytesPerRowOfPlane(self, 0)
         let luminanceBytes = baseOfLuminancePlane.bindMemory(to: UInt8.self, capacity: totalLuminancePlaneSize)
-        var totalLuminance: Int = 0
+        var totalLuminance: UInt = 0
         for row in Int(denormalizedRect.minX)..<Int(denormalizedRect.maxX) {
             for col in Int(denormalizedRect.minY)..<Int(denormalizedRect.maxY) {
-                totalLuminance += Int(luminanceBytes[row*bytesPerRowOfLuminancePlane + col])
+                totalLuminance += UInt(luminanceBytes[row*bytesPerRowOfLuminancePlane + col])
             }
         }
-        let cropPixelsCount = Int(denormalizedRect.width) * Int(denormalizedRect.height)
+        let cropPixelsCount = UInt(denormalizedRect.width) * UInt(denormalizedRect.height)
         return Double(totalLuminance)/Double(cropPixelsCount)
     }
 }
@@ -150,3 +152,245 @@ public extension CVPixelBuffer {
         return pixelBuffer
     }
 }
+
+public extension CVPixelBuffer {
+    func resizePixelBuffer_BiPlanarYCbCr420(to dstPixelBuffer: CVPixelBuffer,
+                                            cropX: Int,
+                                            cropY: Int,
+                                            cropWidth: Int,
+                                            cropHeight: Int,
+                                            scaleWidth: Int,
+                                            scaleHeight: Int) {
+        let srcPixelBuffer = self
+        assert(CVPixelBufferGetWidth(dstPixelBuffer) >= scaleWidth)
+        assert(CVPixelBufferGetHeight(dstPixelBuffer) >= scaleHeight)
+        
+        let srcFlags = CVPixelBufferLockFlags.readOnly
+        let dstFlags = CVPixelBufferLockFlags(rawValue: 0)
+        
+        guard kCVReturnSuccess == CVPixelBufferLockBaseAddress(srcPixelBuffer, srcFlags) else {
+            print("Error could not lock source pixel buffer")
+            return
+        }
+        defer { CVPixelBufferUnlockBaseAddress(srcPixelBuffer, srcFlags) }
+        guard kCVReturnSuccess == CVPixelBufferLockBaseAddress(dstPixelBuffer, dstFlags) else {
+            print("Error: could not lock destination pixel buffer")
+            return
+        }
+        defer {
+            CVPixelBufferUnlockBaseAddress(dstPixelBuffer, dstFlags)
+        }
+        guard let srcYData = CVPixelBufferGetBaseAddressOfPlane(srcPixelBuffer, 0),
+              let srcCbCrData = CVPixelBufferGetBaseAddressOfPlane(srcPixelBuffer, 1),
+              let dstYData = CVPixelBufferGetBaseAddressOfPlane(dstPixelBuffer, 0),
+              let dstCbCrData = CVPixelBufferGetBaseAddressOfPlane(dstPixelBuffer, 1) else {
+            print("Error: could not get pixel buffer base addresses")
+            return
+        }
+        let srcYBytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(srcPixelBuffer, 0)
+        let srcCbCrBytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(srcPixelBuffer, 1)
+        let offsetY = cropY*srcYBytesPerRow + cropX
+        let offsetCbCr = cropY/2 * srcCbCrBytesPerRow + cropX/2
+        var srcYBuffer = vImage_Buffer(data: srcYData.advanced(by:offsetY),
+                                       height: vImagePixelCount(cropHeight),
+                                       width: vImagePixelCount(cropWidth),
+                                       rowBytes: srcYBytesPerRow)
+        var srcCbCrBuffer = vImage_Buffer(data:srcCbCrData.advanced(by:offsetCbCr),
+                                          height: vImagePixelCount(cropHeight/2),
+                                          width: vImagePixelCount(cropWidth/2),
+                                          rowBytes: srcCbCrBytesPerRow)
+        
+        let dstYBytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(dstPixelBuffer, 0)
+        let dstCbCrBytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(dstPixelBuffer, 1)
+        var dstYBuffer = vImage_Buffer(data: dstYData,
+                                       height: vImagePixelCount(scaleHeight),
+                                       width: vImagePixelCount(scaleWidth),
+                                       rowBytes: dstYBytesPerRow)
+        var dstCbCrBuffer = vImage_Buffer(data: dstCbCrData,
+                                          height: vImagePixelCount(scaleHeight/2),
+                                          width: vImagePixelCount(scaleWidth/2),
+                                          rowBytes: dstCbCrBytesPerRow)
+        var error = vImageScale_Planar8(&srcYBuffer, &dstYBuffer, nil, vImage_Flags(0))
+        if error != kvImageNoError {
+            print("Error: \(error)")
+        }
+        error = vImageScale_CbCr8(&srcCbCrBuffer, &dstCbCrBuffer, nil, vImage_Flags(0))
+        if error != kvImageNoError {
+            print("Error: \(error)")
+        }
+    }
+    /**
+     First crops the pixel buffer, then resizes it.
+     
+     This function requires the caller to pass in both the source and destination
+     pixel buffers. The dimensions of destination pixel buffer should be at least
+     `scaleWidth` x `scaleHeight` pixels.
+     */
+    func resizePixelBuffer(to dstPixelBuffer: CVPixelBuffer,
+                                  cropX: Int,
+                                  cropY: Int,
+                                  cropWidth: Int,
+                                  cropHeight: Int,
+                                  scaleWidth: Int,
+                                  scaleHeight: Int) {
+        let srcPixelBuffer = self
+        assert(CVPixelBufferGetWidth(dstPixelBuffer) >= scaleWidth)
+        assert(CVPixelBufferGetHeight(dstPixelBuffer) >= scaleHeight)
+        
+        let srcFlags = CVPixelBufferLockFlags.readOnly
+        let dstFlags = CVPixelBufferLockFlags(rawValue: 0)
+        
+        guard kCVReturnSuccess == CVPixelBufferLockBaseAddress(srcPixelBuffer, srcFlags) else {
+            print("Error: could not lock source pixel buffer")
+            return
+        }
+        defer { CVPixelBufferUnlockBaseAddress(srcPixelBuffer, srcFlags) }
+        
+        guard kCVReturnSuccess == CVPixelBufferLockBaseAddress(dstPixelBuffer, dstFlags) else {
+            print("Error: could not lock destination pixel buffer")
+            return
+        }
+        defer { CVPixelBufferUnlockBaseAddress(dstPixelBuffer, dstFlags) }
+        
+        guard let srcData = CVPixelBufferGetBaseAddress(srcPixelBuffer),
+              let dstData = CVPixelBufferGetBaseAddress(dstPixelBuffer) else {
+            print("Error: could not get pixel buffer base address")
+            return
+        }
+        
+        let srcBytesPerRow = CVPixelBufferGetBytesPerRow(srcPixelBuffer)
+        let offset = cropY*srcBytesPerRow + cropX*4
+        var srcBuffer = vImage_Buffer(data: srcData.advanced(by: offset),
+                                      height: vImagePixelCount(cropHeight),
+                                      width: vImagePixelCount(cropWidth),
+                                      rowBytes: srcBytesPerRow)
+        
+        let dstBytesPerRow = CVPixelBufferGetBytesPerRow(dstPixelBuffer)
+        var dstBuffer = vImage_Buffer(data: dstData,
+                                      height: vImagePixelCount(scaleHeight),
+                                      width: vImagePixelCount(scaleWidth),
+                                      rowBytes: dstBytesPerRow)
+        
+        let error = vImageScale_ARGB8888(&srcBuffer, &dstBuffer, nil, vImage_Flags(0))
+        if error != kvImageNoError {
+            print("Error:", error)
+        }
+    }
+    
+    /**
+     First crops the pixel buffer, then resizes it.
+     
+     This allocates a new destination pixel buffer that is Metal-compatible.
+     */
+    func resizePixelBuffer(cropX: Int,
+                                  cropY: Int,
+                                  cropWidth: Int,
+                                  cropHeight: Int,
+                                  scaleWidth: Int,
+                                  scaleHeight: Int) -> CVPixelBuffer? {
+        let srcPixelBuffer = self
+        let pixelFormat = CVPixelBufferGetPixelFormatType(srcPixelBuffer)
+        let dstPixelBuffer = CVPixelBuffer.createMetalIOSurfacePixelBuffer(width: scaleWidth, height: scaleHeight,
+                                               pixelFormat: pixelFormat)
+        
+        if let dstPixelBuffer = dstPixelBuffer {
+            CVBufferPropagateAttachments(srcPixelBuffer, dstPixelBuffer)
+            
+            if pixelFormat == kCVPixelFormatType_32BGRA {
+                resizePixelBuffer(to: dstPixelBuffer,
+                                  cropX: cropX, cropY: cropY,
+                                  cropWidth: cropWidth, cropHeight: cropHeight,
+                                  scaleWidth: scaleWidth, scaleHeight: scaleHeight)
+            } else if pixelFormat == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange {
+                resizePixelBuffer_BiPlanarYCbCr420(to: dstPixelBuffer,
+                                                   cropX: cropX,cropY: cropY,
+                                                   cropWidth: cropWidth, cropHeight: cropHeight,
+                                                   scaleWidth: scaleWidth, scaleHeight: scaleHeight)
+            }
+        }
+        
+        return dstPixelBuffer
+    }
+    
+    /**
+     Resizes a CVPixelBuffer to a new width and height.
+     
+     This function requires the caller to pass in both the source and destination
+     pixel buffers. The dimensions of destination pixel buffer should be at least
+     `width` x `height` pixels.
+     */
+    func resizePixelBuffer(to dstPixelBuffer: CVPixelBuffer,
+                                  width: Int, height: Int) {
+        let srcPixelBuffer = self
+        resizePixelBuffer(to: dstPixelBuffer,
+                          cropX: 0, cropY: 0,
+                          cropWidth: CVPixelBufferGetWidth(srcPixelBuffer),
+                          cropHeight: CVPixelBufferGetHeight(srcPixelBuffer),
+                          scaleWidth: width, scaleHeight: height)
+    }
+    
+    /**
+     Resizes a CVPixelBuffer to a new width and height.
+     
+     This allocates a new destination pixel buffer that is Metal-compatible.
+     */
+    func resizePixelBuffer(width: Int, height: Int) -> CVPixelBuffer? {
+        let pixelBuffer = self
+        return resizePixelBuffer(cropX: 0, cropY: 0,
+                                 cropWidth: CVPixelBufferGetWidth(pixelBuffer),
+                                 cropHeight: CVPixelBufferGetHeight(pixelBuffer),
+                                 scaleWidth: width, scaleHeight: height)
+    }
+    
+    /**
+     Resizes a CVPixelBuffer to a new width and height, using Core Image.
+     */
+    func resizePixelBuffer(width: Int, height: Int,
+                                  output: CVPixelBuffer, context: CIContext) {
+        let pixelBuffer = self
+        let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+        let sx = CGFloat(width) / CGFloat(CVPixelBufferGetWidth(pixelBuffer))
+        let sy = CGFloat(height) / CGFloat(CVPixelBufferGetHeight(pixelBuffer))
+        let scaleTransform = CGAffineTransform(scaleX: sx, y: sy)
+        let scaledImage = ciImage.transformed(by: scaleTransform, highQualityDownsample:true)
+        context.render(scaledImage, to: output)
+    }
+    
+    
+    fileprivate static func metalCompatiblityAttributes() -> [String: Any] {
+        let attributes: [String: Any] = [
+            String(kCVPixelBufferMetalCompatibilityKey): true,
+            String(kCVPixelBufferOpenGLCompatibilityKey): true,
+            String(kCVPixelBufferIOSurfacePropertiesKey): [
+                String(kCVPixelBufferIOSurfaceOpenGLESTextureCompatibilityKey): true,
+                String(kCVPixelBufferIOSurfaceOpenGLESFBOCompatibilityKey): true,
+                String(kCVPixelBufferIOSurfaceCoreAnimationCompatibilityKey): true
+            ]
+        ]
+        return attributes
+    }
+    
+    /**
+     Creates a pixel buffer of the specified width, height, and pixel format.
+     - Note: This pixel buffer is backed by an IOSurface and therefore can be
+     turned into a Metal texture.
+     */
+    static func createMetalIOSurfacePixelBuffer(width: Int, height: Int, pixelFormat: OSType) -> CVPixelBuffer? {
+        let attributes = CVPixelBuffer.metalCompatiblityAttributes() as CFDictionary
+        var pixelBuffer: CVPixelBuffer?
+        let status = CVPixelBufferCreate(nil, width, height, pixelFormat, attributes, &pixelBuffer)
+        if status != kCVReturnSuccess {
+            print("Error: could not create pixel buffer", status)
+            return nil
+        }
+        return pixelBuffer
+    }
+    
+    /**
+     Creates a RGB pixel buffer of the specified width and height.
+     */
+    static func createMetalIOSurfaceBGRAPixelBuffer(width: Int, height: Int) -> CVPixelBuffer? {
+        createMetalIOSurfacePixelBuffer(width: width, height: height, pixelFormat: kCVPixelFormatType_32BGRA)
+    }
+}
+
