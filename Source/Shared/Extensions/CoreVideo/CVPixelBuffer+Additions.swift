@@ -42,13 +42,13 @@ public extension CVPixelBuffer {
         let totalLuminancePlaneSize = CVPixelBufferGetWidthOfPlane(self, 0) * CVPixelBufferGetHeightOfPlane(self, 0)
         let bytesPerRowOfLuminancePlane = CVPixelBufferGetBytesPerRowOfPlane(self, 0)
         let luminanceBytes = baseOfLuminancePlane.bindMemory(to: UInt8.self, capacity: totalLuminancePlaneSize)
-        var totalLuminance: Int = 0
-        for row in Int(denormalizedRect.minX)..<Int(denormalizedRect.maxX) {
-            for col in Int(denormalizedRect.minY)..<Int(denormalizedRect.maxY) {
-                totalLuminance += Int(luminanceBytes[row*bytesPerRowOfLuminancePlane + col])
+        var totalLuminance: UInt = 0
+        for row in Int(denormalizedRect.minY)..<Int(denormalizedRect.maxY) {
+            for col in Int(denormalizedRect.minX)..<Int(denormalizedRect.maxX) {
+                totalLuminance += UInt(luminanceBytes[row*bytesPerRowOfLuminancePlane + col])
             }
         }
-        let cropPixelsCount = Int(denormalizedRect.width) * Int(denormalizedRect.height)
+        let cropPixelsCount = UInt(denormalizedRect.width) * UInt(denormalizedRect.height)
         return Double(totalLuminance)/Double(cropPixelsCount)
     }
 }
