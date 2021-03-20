@@ -190,7 +190,7 @@ public extension CVPixelBuffer {
         let srcYBytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(srcPixelBuffer, 0)
         let srcCbCrBytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(srcPixelBuffer, 1)
         let offsetY = cropY*srcYBytesPerRow + cropX
-        let offsetCbCr = cropY/2 * srcCbCrBytesPerRow + cropX/2
+        let offsetCbCr = cropY / 2 * srcCbCrBytesPerRow + cropX / 2 * 2
         var srcYBuffer = vImage_Buffer(data: srcYData.advanced(by:offsetY),
                                        height: vImagePixelCount(cropHeight),
                                        width: vImagePixelCount(cropWidth),
