@@ -42,3 +42,10 @@ public extension StringProtocol {
 }
 #endif
 
+public extension Optional where Wrapped: StringProtocol {
+    /// Useful for logging optional values
+    var ft_orNil: String {
+        guard let val = self else { return "nil" }
+        return String(val)
+    }
+}
