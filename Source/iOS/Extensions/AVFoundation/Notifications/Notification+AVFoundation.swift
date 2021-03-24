@@ -81,7 +81,7 @@ fileprivate extension Dictionary where Key == AnyHashable {
         }
         
         if let rawValue = mutableCopy.removeValue(forKey: AVAudioSessionRouteChangeReasonKey) as? UInt, let val = AVAudioSession.RouteChangeReason(rawValue: rawValue) {
-            userInfoStrs["routeChangeReason"] = val.ft_debugDescription
+            userInfoStrs["reason"] = val.ft_debugDescription
         }
         
         if let value = mutableCopy.removeValue(forKey: AVAudioSessionRouteChangePreviousRouteKey) as? AVAudioSessionRouteDescription {
@@ -89,7 +89,7 @@ fileprivate extension Dictionary where Key == AnyHashable {
         }
         
         if let category = mutableCopy.removeValue(forKey: AVSystemController_AudioCategoryNotificationParameterKey) as? String {
-            userInfoStrs["audioCategory"] = category
+            userInfoStrs["category"] = category
         }
         
         if let newVolume = mutableCopy.removeValue(forKey: AVSystemController_AudioVolumeNotificationParameterKey) as? Float {

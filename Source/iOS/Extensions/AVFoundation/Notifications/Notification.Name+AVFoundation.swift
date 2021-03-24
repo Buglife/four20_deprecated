@@ -11,20 +11,30 @@ public extension Notification.Name {
     /// [StackOverflow](https://www.google.com/search?q=AVSystemController+site:stackoverflow.com)
     static let ft_AVSystemController_SystemVolumeDidChangeNotification = Notification.Name("AVSystemController_SystemVolumeDidChangeNotification")
     
+    /// Private API, see `MPAVLightweightRoutingController.h`
+    static let ft_AVOutputContextOutputDeviceDidChangeNotification = Notification.Name("AVOutputContextOutputDeviceDidChangeNotification")
+    
+    /// Private API, see `MPAVLightweightRoutingController.h`
+    static let ft_AVOutputDeviceDiscoverySessionAvailableOutputDevicesDidChangeNotification = Notification.Name("AVOutputDeviceDiscoverySessionAvailableOutputDevicesDidChangeNotification")
+    
     // MARK: - Debugging
     
     var ft_audioDebugDescription: String {
         switch self {
         case AVAudioSession.interruptionNotification:
-            return "interruptionNotification"
+            return "interruption"
         case AVAudioSession.routeChangeNotification:
-            return "routeChangeNotification"
+            return "routeChange"
         case AVAudioSession.mediaServicesWereResetNotification:
-            return "mediaServicesWereResetNotification"
+            return "mediaServicesWereReset"
         case AVAudioSession.mediaServicesWereLostNotification:
-            return "mediaServicesWereLostNotification"
+            return "mediaServicesWereLost"
         case .ft_AVSystemController_SystemVolumeDidChangeNotification:
-            return "systemVolumeDidChangeNotification"
+            return "systemVolumeDidChange"
+        case .ft_AVOutputContextOutputDeviceDidChangeNotification:
+            return "outputDeviceDidChange"
+        case .ft_AVOutputDeviceDiscoverySessionAvailableOutputDevicesDidChangeNotification:
+            return "availableOutputDevicesDidChange"
         default:
             return rawValue
         }
