@@ -1,6 +1,6 @@
 {
   "name": "Four20",
-  "version": "0.3.12",
+  "version": "0.3.23",
   "summary": "A grab-bag of Swift extensions.",
   "description": "A grab-bag of Swift extensions for rapid prototyping.",
   "homepage": "https://github.com/Buglife/four20",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/Buglife/four20.git",
-    "tag": "0.3.12"
+    "tag": "0.3.23"
   },
   "platforms": {
     "ios": "12.0",
