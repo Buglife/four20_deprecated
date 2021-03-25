@@ -209,6 +209,10 @@
 		B4684F1BC0F0EF1575CC84B5F42E7AB8 /* AVAudioSessionRouteDescription+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679D93B20DC886D4757704F222B0DDD /* AVAudioSessionRouteDescription+Additions.swift */; };
 		B5DCAA0AE8834CDCA3690390B74265DC /* SCNMatrix4+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A93410C7B5DB1F0D42156B24867DE1 /* SCNMatrix4+Additions.swift */; };
 		B7506F4C260B146E002DA30F /* Notification.Name+AVFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7506F4B260B146E002DA30F /* Notification.Name+AVFoundation.swift */; };
+		B7E80022260C6180007841DB /* Noop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E80021260C6180007841DB /* Noop.swift */; };
+		B7E80023260C6180007841DB /* Noop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E80021260C6180007841DB /* Noop.swift */; };
+		B7E8002B260C6231007841DB /* VoidHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E8002A260C6231007841DB /* VoidHandler.swift */; };
+		B7E8002C260C6231007841DB /* VoidHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E8002A260C6231007841DB /* VoidHandler.swift */; };
 		B84223E203E272B5AF5B14C170AE77F9 /* TimestampedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C5B337F6518AFDC2EBE6A1836E26CD /* TimestampedValue.swift */; };
 		B8B188B137ADD223022AC566E4349C69 /* FileManager+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100DA66E13DBDA08F45C2EBCC85728E /* FileManager+Additions.swift */; };
 		B8BB48CF2C1C5C02CC6F3063AC0DE9BD /* URLSession+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE5A85D9C124AE1236C05E432D6F78 /* URLSession+Additions.swift */; };
@@ -443,6 +447,8 @@
 		B100DA66E13DBDA08F45C2EBCC85728E /* FileManager+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "FileManager+Additions.swift"; sourceTree = "<group>"; };
 		B2DB1D11FB98E0532CF696BA873D7666 /* Pods-Four20_macOSExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Four20_macOSExample-acknowledgements.plist"; sourceTree = "<group>"; };
 		B7506F4B260B146E002DA30F /* Notification.Name+AVFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+AVFoundation.swift"; sourceTree = "<group>"; };
+		B7E80021260C6180007841DB /* Noop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noop.swift; sourceTree = "<group>"; };
+		B7E8002A260C6231007841DB /* VoidHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidHandler.swift; sourceTree = "<group>"; };
 		B888AC9A0C2D00A58DA499EC33BAA64A /* StringProtocol+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Additions.swift"; sourceTree = "<group>"; };
 		BA3986DC7F20C376DCBA10F2DD57C643 /* UIImage+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
 		BD02CDDD2DB99B10B9760E1C57C6D792 /* Four20-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Four20-iOS-prefix.pch"; sourceTree = "<group>"; };
@@ -702,6 +708,8 @@
 				8EAF1808F6456174DD1EBBB62A956C7E /* Persisted.swift */,
 				25C15DF59580E6DD9E2822C152DB9914 /* QueueBenchmark.swift */,
 				46C5B337F6518AFDC2EBE6A1836E26CD /* TimestampedValue.swift */,
+				B7E8002A260C6231007841DB /* VoidHandler.swift */,
+				B7E80021260C6180007841DB /* Noop.swift */,
 				4EED10C8E66CF430203F1C61A9D78A30 /* JSON */,
 				5777298995D7E65799FCA829F942CEEA /* Logging */,
 				6CC969A5A396E342030241C5C4A5C4CE /* Samplers */,
@@ -1395,6 +1403,7 @@
 				BAC694204FA012FF1EC4179929F397E0 /* Atom.swift in Sources */,
 				9D4BD2E1AC73A1FDAC19C00DA7329611 /* Atomic.swift in Sources */,
 				4A735E39A5074578619827E0FB9250B0 /* AtomicArray.swift in Sources */,
+				B7E80023260C6180007841DB /* Noop.swift in Sources */,
 				A0936198317DB47853869CF979420E13 /* AtomicQueue.swift in Sources */,
 				85E70EC7D882B1B7167BCB7F1EB0C87B /* AtomicTimeIntervalSampler.swift in Sources */,
 				4E850CA544BA4CEE4887BF04F14CD07E /* AVAsset+Additions.swift in Sources */,
@@ -1461,6 +1470,7 @@
 				CF425F6BE73E42E99AB76E848DB46E1A /* SCNVector4+Additions.swift in Sources */,
 				857A46C4123880CE2C039E481FFA41FF /* SIMD4+Float+Additions.swift in Sources */,
 				F8E49206178CA75C42CFD0E83FE61B6F /* simd_float4x4+Additions.swift in Sources */,
+				B7E8002C260C6231007841DB /* VoidHandler.swift in Sources */,
 				517639A29EC5F0123A087CFA26019088 /* StringProtocol+Additions.swift in Sources */,
 				973DB8F48A224E4E69ED8684AD71B356 /* TimeIntervalSampler.swift in Sources */,
 				1A1F8A3290E4BC9E1780788CAD014F96 /* TimestampedValue.swift in Sources */,
@@ -1555,6 +1565,7 @@
 				53C101B477DED6952523896F80D237AC /* NonConformingFloatStrategy+Additions.swift in Sources */,
 				8CFB9637B3ACA47D02E0DDB04787C629 /* Notification+Additions.swift in Sources */,
 				DBB2D9E339C21703852CF4ACBEC7FD7A /* Notification+AVFoundation.swift in Sources */,
+				B7E80022260C6180007841DB /* Noop.swift in Sources */,
 				37BF04D20DD6032F1B22095E79122C59 /* NSAttributedString+Additions.swift in Sources */,
 				D42935F5EBDF880265B1CE88C903901C /* NSFileManager+Additions.swift in Sources */,
 				2DECFA27A90B482025C5C1CA82EB2924 /* NSLayoutConstraint+Additions.swift in Sources */,
@@ -1562,6 +1573,7 @@
 				FBA088A9D5AD048C5E5BC0310A419886 /* NSURL+Additions.swift in Sources */,
 				CD3347502E9D7FD8039D8DA34680EA47 /* OBSRImage.swift in Sources */,
 				E7694B084C3C7EE1B4623F3E697E4180 /* Operation+Additions.swift in Sources */,
+				B7E8002B260C6231007841DB /* VoidHandler.swift in Sources */,
 				27B7F8FAF14CD56DF14D2D692F498F80 /* Persisted.swift in Sources */,
 				616270BC4C28005F2B8CD69F1F979CF1 /* ProcessInfo+Additions.swift in Sources */,
 				0E1DB85F7D19323EF05DB2E1D8F93275 /* Progress+Additions.swift in Sources */,
