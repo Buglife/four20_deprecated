@@ -56,7 +56,7 @@ public extension URLSession {
             }
         }
         
-        var betterDebugDescription: String { localizedDescription }
+        public var betterDebugDescription: String { localizedDescription }
     }
     
     enum JSONObject {

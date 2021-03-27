@@ -3,7 +3,7 @@
 //  Copyright © 2019 Observant. All rights reserved.
 //
 
-extension Error {
+public extension Error {
     var ft_NSError: NSError {
         return self as NSError
     }
@@ -19,7 +19,7 @@ extension Error {
     var ft_isLocalRailsConnectionError: Bool { ft_NSError.ft_isLocalRailsConnectionError }
 }
 
-extension NSError {
+public extension NSError {
     var ft_underlyingError: NSError? {
         return userInfo[NSUnderlyingErrorKey] as? NSError
     }
@@ -55,6 +55,6 @@ extension NSError {
     }
 }
 
-protocol BetterDebugStringConvertible {
+public protocol BetterDebugStringConvertible {
     var betterDebugDescription: String { get }
 }

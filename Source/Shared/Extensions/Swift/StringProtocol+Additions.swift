@@ -17,6 +17,11 @@
 //
 
 public extension StringProtocol {
+    var ft_int: Int? { Int(self) }
+    var ft_int32: Int32? { Int32(self) }
+    var ft_int64: Int64? { Int64(self) }
+    var ft_seconds: TimeInterval? { ft_int.map { .init($0) } }
+    
     var firstUppercased: String {
         guard let first = first else { return "" }
         return String(first).uppercased() + dropFirst()
@@ -25,6 +30,22 @@ public extension StringProtocol {
         guard let first = first else { return "" }
         return String(first).capitalized + dropFirst()
     }
+    func ft_truncatingMiddle(prefixLimit: Int, suffixLimit: Int) -> String {
+        guard self.count > (prefixLimit + suffixLimit) else { return String(self) }
+        return "\(prefix(prefixLimit))...\(suffix(suffixLimit))"
+    }
+    
+    /// wraps a string in parentheses
+    var ft_parenthesized: String {
+        "(\(String(self)))"
+    }
+    
+    func ft_leftPadded(upTo totalLength: Int) -> String {
+        let spaceCount = Swift.max(0, totalLength - self.count)
+        let spaceString = String(repeating: " ", count: spaceCount)
+        return spaceString + self
+    }
+
 }
 
 #if !os(macOS)
