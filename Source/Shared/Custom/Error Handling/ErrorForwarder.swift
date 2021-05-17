@@ -12,11 +12,11 @@ public final class ErrorForwarder {
     
     // MARK: - iVars
     
-    var errorHandler: ErrorHandler = DefaultErrorHandler()
+    public var errorHandler: ErrorHandler = DefaultErrorHandler()
     
     // MARK: - Initializer
     
-    static let shared = ErrorForwarder()
+    public static let shared = ErrorForwarder()
     private init() {}
     
     // MARK: - Public methods
