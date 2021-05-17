@@ -90,7 +90,7 @@ fileprivate extension UserDefaults {
         do {
             wrapper = try JSONDecoder.ft_safeDecoder().decode(Wrapper<T>.self, from: encodedWrapper)
         } catch {
-            ft_assertionFailure("Error decoding wrapped object", underlyingError: error)
+            ft__assertionFailure("Error decoding wrapped object", underlyingError: error)
             return nil
         }
 
@@ -109,7 +109,7 @@ fileprivate extension UserDefaults {
         do {
             encodedWrapper = try JSONEncoder.ft_safeEncoder().encode(wrapper)
         } catch {
-            ft_assertionFailure("Error encoding wrapped object", underlyingError: error)
+            ft__assertionFailure("Error encoding wrapped object", underlyingError: error)
             return
         }
 

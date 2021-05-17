@@ -28,7 +28,7 @@ public extension CVPixelBuffer {
         let pixelFormat = CVPixelBufferGetPixelFormatType(self)
         
         guard pixelFormat == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange || pixelFormat == kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange else {
-            ft_assertionFailure("unexpected pixel format: \(pixelFormat)")
+            ft__assertionFailure("Unexpected pixel format", userInfo: ["format" : pixelFormat])
             return nil
         }
         CVPixelBufferLockBaseAddress(self, .readOnly)
@@ -36,7 +36,7 @@ public extension CVPixelBuffer {
             CVPixelBufferUnlockBaseAddress(self, .readOnly)
         }
         guard let baseOfLuminancePlane = CVPixelBufferGetBaseAddressOfPlane(self, 0) else {
-            ft_assertionFailure("failed to get luminance plane")
+            ft__assertionFailure("Failed to get luminance plane")
             return nil
         }
         let totalLuminancePlaneSize = CVPixelBufferGetWidthOfPlane(self, 0) * CVPixelBufferGetHeightOfPlane(self, 0)

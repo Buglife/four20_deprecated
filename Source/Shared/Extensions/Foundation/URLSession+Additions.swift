@@ -79,7 +79,7 @@ public extension URLSession {
     }
     
     func ft_syncJSONTask<T : Encodable>(with url: URL, method: Method = .get, headers: Headers? = nil, encodableBody: T, timeoutInterval: TimeInterval? = nil) -> Result<HeadersAndJSONObject, Error> {
-        ft_assertBackgroundThread()
+        ft__assertBackgroundThread()
         let semaphore = DispatchSemaphore(value: 0)
         var result: Result<HeadersAndJSONObject, Error> = .failure(.semaphoreNeverSignaled)
         
@@ -109,14 +109,14 @@ public extension URLSession {
         let data: Data
         
         guard JSONSerialization.isValidJSONObject(bodyJSON) else {
-            ft_assertionFailure("Error before encoding JSON: bodyJSON probably contains infinities, or NaNs")
+            ft__assertionFailure("Error before encoding JSON: bodyJSON probably contains infinities, or NaNs")
             completion(.failure(.jsonTypeMismatch))
             return nil
         }
         do {
             data = try JSONSerialization.data(withJSONObject: bodyJSON, options: [])
         } catch {
-            ft_assertionFailure("⚠️ Error encoding JSON: \(error)")
+            ft__assertionFailure("⚠️ Error encoding JSON", underlyingError: error)
             completion(.failure(.jsonSerialization(error)))
             return nil
         }
@@ -131,7 +131,7 @@ public extension URLSession {
             } else if let error = error {
                 completion(.failure(.urlSession(error)))
             } else {
-                ft_assertionFailure()
+                ft__assertionFailure("Download task nil error")
                 return
             }
         }
@@ -171,7 +171,7 @@ public extension URLSession {
     }
     
     func ft_syncGetJSONDictionary(with url: URL, method: Method = .get, headers: Headers? = nil, body: Data? = nil) -> JSONDictionaryResult {
-        ft_assertBackgroundThread()
+        ft__assertBackgroundThread()
         let semaphore = DispatchSemaphore(value: 0)
         var result: JSONDictionaryResult = .failure(.semaphoreNeverSignaled)
         
@@ -259,7 +259,7 @@ public extension URLSession {
     }
     
     func ft_syncGetData(with request: URLRequest) -> Result<Data, Error> {
-        ft_assertBackgroundThread()
+        ft__assertBackgroundThread()
         let semaphore = DispatchSemaphore(value: 0)
         var result: Result<Data, Error> = .failure(.semaphoreNeverSignaled)
         
