@@ -16,14 +16,17 @@ public func ft__assertionFailure(_ message: StaticString? = nil, underlyingError
 }
 
 public func ft__assertMainThread(file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
-    if !Thread.isMainThread {
-        ErrorForwarder.shared.assertionFailure("Main thread assertion", file: file, function: function, line: line)
-    }
+    _ft__assertThread(isMain: true)
 }
 
 public func ft__assertBackgroundThread(file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
-    if !Thread.isMainThread {
-        ErrorForwarder.shared.assertionFailure("Background thread assertion", file: file, function: function, line: line)
+    _ft__assertThread(isMain: false)
+}
+
+fileprivate func _ft__assertThread(isMain: Bool, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+    if (isMain && !Thread.isMainThread) || (!isMain && Thread.isMainThread) {
+        let prefix: String = isMain ? "Main" : "Background"
+        ErrorForwarder.shared.assertionFailure("\(prefix) thread assertion", file: file, function: function, line: line)
     }
 }
 
