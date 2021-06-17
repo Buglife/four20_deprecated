@@ -14,6 +14,15 @@ public extension AVCaptureDevice.DeviceType {
         return debugDescription
     }
     
+    var ft_localizedDescription: String {
+        guard let debugDescription = type(of: self).ft_casesAndLocalizedDescriptions[self] else {
+            assertionFailure("Unknown AVCaptureDevice.DeviceType: \(rawValue)")
+            return "unknown"
+        }
+        
+        return debugDescription
+    }
+    
     private static let ft_casesAndDebugDescriptions: [AVCaptureDevice.DeviceType : String] = {
         var result: [AVCaptureDevice.DeviceType : String] = [
             .builtInMicrophone : "builtInMicrophone",
@@ -27,6 +36,24 @@ public extension AVCaptureDevice.DeviceType {
             result[.builtInUltraWideCamera] = "builtInUltraWideCamera"
             result[.builtInDualWideCamera] = "builtInDualWideCamera"
             result[.builtInTripleCamera] = "builtInTripleCamera"
+        }
+        
+        return result
+    }()
+    
+    private static let ft_casesAndLocalizedDescriptions: [AVCaptureDevice.DeviceType : String] = {
+        var result: [AVCaptureDevice.DeviceType : String] = [
+            .builtInMicrophone : "Microphone",
+            .builtInWideAngleCamera : "Wide Angle",
+            .builtInTelephotoCamera : "Telephoto",
+            .builtInDualCamera : "Dual",
+            .builtInTrueDepthCamera : "TrueDepth"
+        ]
+        
+        if #available(iOS 13.0, *) {
+            result[.builtInUltraWideCamera] = "Ultra Wide"
+            result[.builtInDualWideCamera] = "Dual Wide"
+            result[.builtInTripleCamera] = "Triple"
         }
         
         return result
