@@ -70,6 +70,14 @@ public extension SCNNode {
         ft_isDoubleSided = doubleSided
         return self
     }
+    
+    // MARK: - Other stuff
+    
+    func ft_addChildNodes(_ childNodes: [SCNNode]) {
+        for node in childNodes {
+            addChildNode(node)
+        }
+    }
 }
 
 #if !os(macOS)

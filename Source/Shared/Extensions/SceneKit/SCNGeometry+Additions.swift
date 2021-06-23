@@ -27,17 +27,23 @@ public extension SCNGeometry {
             firstMaterial?.isDoubleSided = newValue
         }
     }
+    
+    var ft_firstMaterialContents: Any? {
+        get { firstMaterial?.diffuse.contents }
+        set { firstMaterial?.diffuse.contents = newValue }
+    }
 }
 
 #if !os(macOS)
 public extension SCNGeometry {
     var ft_color: UIColor? {
-        get {
-            return firstMaterial?.diffuse.contents as? UIColor
-        }
-        set {
-            firstMaterial?.diffuse.contents = newValue
-        }
+        get { ft_firstMaterialContents as? UIColor }
+        set { ft_firstMaterialContents = newValue }
+    }
+    
+    var ft_image: UIImage? {
+        get { ft_firstMaterialContents as? UIImage }
+        set { ft_firstMaterialContents = newValue }
     }
 }
 #endif
