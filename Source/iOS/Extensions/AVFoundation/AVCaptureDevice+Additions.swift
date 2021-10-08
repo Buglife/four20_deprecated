@@ -8,6 +8,7 @@ import ARKit
 
 private let kFrontCameraAspectRatio: CGFloat = 4.0 / 3.0
 
+@available(macCatalyst 14.0, *)
 public extension AVCaptureDevice {
     
     /// - Parameter mediaType: default value is `.video`

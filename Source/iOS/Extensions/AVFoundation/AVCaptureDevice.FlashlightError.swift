@@ -4,6 +4,7 @@
 
 import AVFoundation
 
+@available(macCatalyst 14.0, *)
 public extension AVCaptureDevice {
     enum FlashlightError: Swift.Error, CustomDebugStringConvertible {
         case noCaptureDevice // what the fuck

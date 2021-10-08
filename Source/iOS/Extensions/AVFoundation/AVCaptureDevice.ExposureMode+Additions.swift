@@ -4,6 +4,7 @@
 
 import AVFoundation
 
+@available(macCatalyst 14.0, *)
 public extension AVCaptureDevice.ExposureMode {
     var ft_localizedDescription: String {
         switch self {

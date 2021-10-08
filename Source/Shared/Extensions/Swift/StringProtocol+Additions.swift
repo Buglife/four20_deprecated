@@ -50,15 +50,16 @@ public extension StringProtocol {
 
 #if !os(macOS)
 public extension StringProtocol {
-    func ft_boundingRect(with font: UIFont) -> CGRect {
-        let size = CGSize(width: 1000, height: 1000)
+    func ft_boundingRect(with font: UIFont, maxWidth: CGFloat? = nil) -> CGRect {
+        let maxWidth = maxWidth ?? 10000
+        let size = CGSize(width: maxWidth, height: 10000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         let attributes = [NSAttributedString.Key.font: font]
         return String(self).boundingRect(with: size, options: options, attributes: attributes, context: nil)
     }
     
-    func ft_boundingSize(with font: UIFont) -> CGSize {
-        return ft_boundingRect(with: font).size
+    func ft_boundingSize(with font: UIFont, maxWidth: CGFloat? = nil) -> CGSize {
+        return ft_boundingRect(with: font, maxWidth: maxWidth).size
     }
 }
 #endif

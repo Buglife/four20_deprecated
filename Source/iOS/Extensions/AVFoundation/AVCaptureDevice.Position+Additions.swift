@@ -4,6 +4,7 @@
 
 import AVFoundation
 
+@available(macCatalyst 14.0, *)
 public extension AVCaptureDevice.Position {
     var ft_debugDescription: String {
         switch self {

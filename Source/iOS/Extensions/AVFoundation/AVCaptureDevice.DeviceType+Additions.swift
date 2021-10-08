@@ -4,6 +4,7 @@
 
 import AVFoundation
 
+@available(macCatalyst 14.0, *)
 public extension AVCaptureDevice.DeviceType {
     var ft_debugDescription: String {
         guard let debugDescription = type(of: self).ft_casesAndDebugDescriptions[self] else {
@@ -60,6 +61,7 @@ public extension AVCaptureDevice.DeviceType {
     }()
 }
 
+@available(macCatalyst 14.0, *)
 public extension Array where Element == AVCaptureDevice.DeviceType {
     static var ft_all: [AVCaptureDevice.DeviceType] {
         /// make sure these are in the same order as which they're defined (at least in the headers),
