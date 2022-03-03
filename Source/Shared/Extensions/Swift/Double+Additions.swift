@@ -88,6 +88,51 @@ public extension Array where Element == Double {
         return sqrt(sumofSquaredAvgDiff / length)
     }
     
+    var ft_skew: Double? {
+        let length = Double(self.count)
+        guard length > 2 else { return nil }
+        guard let avg = self.ft_average else { return nil }
+        guard let stdDev = self.ft_standardDeviation else { return nil }
+        let stdDevCubed = stdDev * stdDev * stdDev
+        let reciprocal = 1/length
+        let sum = self.reduce(0, { $0 + (($1 - avg)*($1 - avg)*($1 - avg))/stdDevCubed })
+        return sum * reciprocal
+                                    
+    }
+    
+    var ft_centralMoment2: Double? {
+        let length = Double(self.count)
+        guard length > 0 else { return nil }
+        guard let avg = self.ft_average else { return nil }
+        let tot = self.reduce(0) { semisum, val in
+            semisum + ((val - avg)*(val - avg))
+        }
+        return tot / length
+    }
+    
+    // yeah this could be parameterized into a func
+    
+    var ft_centralMoment4: Double? {
+        let length = Double(self.count)
+        guard length > 0 else { return nil }
+        guard let avg = self.ft_average else { return nil }
+        let tot = self.reduce(0) { semisum, val in
+            semisum + ((val - avg)*(val - avg)*(val - avg)*(val-avg))
+        }
+        return tot / length
+        
+    }
+    
+    var ft_kurtosis: Double? {
+        let length = Double(self.count)
+        guard length > 2 else { return nil }
+        guard let centralMoment2 = self.ft_centralMoment2 else { return nil }
+        guard let centralMoment4 = self.ft_centralMoment4 else { return nil }
+        guard centralMoment2 != 0 else { return nil }
+        return centralMoment4 / (centralMoment2 * centralMoment2)
+    }
+
+    
     func ft_indexOfNearest(to target: Double) -> Int? {
         var optNearestIndex: Int?
         
