@@ -83,7 +83,7 @@ public extension Array where Element == Float {
         let length = Float(self.count)
         guard length > 2 else { return nil }
         guard let avg = self.ft_average else { return nil }
-        guard let stdDev = self.ft_standardDeviation else { return nil }
+        guard let stdDev = self.ft_standardDeviation, stdDev != 0.0 else { return nil }
         let stdDevCubed = stdDev * stdDev * stdDev
         let reciprocal = 1/length
         let sum = self.reduce(0, { $0 + (($1 - avg)*($1 - avg)*($1 - avg))/stdDevCubed })
