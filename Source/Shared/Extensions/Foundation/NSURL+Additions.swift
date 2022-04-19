@@ -19,6 +19,12 @@
 import Foundation
 
 public extension URL {
+    var ft_debugDescription: String {
+        /// truncates the middle of the last path component, so that some ridiculously long URLs don't take up 10 lines in the Xcode console
+        let truncatedLastPathComponent = lastPathComponent.ft_truncatingMiddle(prefixLimit: 10, suffixLimit: 10)
+        return deletingLastPathComponent().appendingPathComponent(truncatedLastPathComponent).absoluteString
+    }
+    
     var ft_creationDate: Date? {
         return ft_attributes?[.creationDate] as? Date
     }

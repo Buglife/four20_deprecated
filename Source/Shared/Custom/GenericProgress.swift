@@ -28,7 +28,7 @@ public struct GenericProgress<T : ProgressUnit>: Codable {
 }
 
 public extension GenericProgress where T : BinaryInteger {
-    public init(progress: Progress) {
+    init(progress: Progress) {
         self.completed = T(progress.completedUnitCount)
         self.total = T(progress.totalUnitCount)
     }

@@ -3,12 +3,27 @@
 //  Copyright © 2019 Observant. All rights reserved.
 //
 
-public struct TimestampedValue<T> {
+import Foundation
+
+public protocol TimestampValued {
+
+    associatedtype ValueType
+    var timestamp: Date { get }
+    var value: ValueType { get }
+}
+
+public struct TimestampedValue<T> : TimestampValued {
+    
+    typealias T = ValueType
     public let timestamp: Date
     public let value: T
     public var age: TimeInterval { timestamp.timeIntervalSinceNow.ft_abs }
     
-    public init(_ value: T, at timestamp: Date = Date()) {
+    public init(_ value: T, at timestamp: Date) {
+        self.init(value, timestamp: timestamp)
+    }
+    
+    public init(_ value: T, timestamp: Date = Date()) {
         self.timestamp = timestamp
         self.value = value
     }

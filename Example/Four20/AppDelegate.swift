@@ -17,13 +17,50 @@
 //
 
 import UIKit
+import Four20
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    enum MyError: Swift.Error {
+        case foobar
+    }
+    
+    func test(_ error: Swift.Error) {
+        print("DSDSDS 3 error: \(error)")
+        
+        let nsError = error.ft_NSError as Swift.Error
+        print("DSDSDS 3 nsError: \(type(of: nsError))")
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let url = URL(string: "https://www.google.com")!
+        let task = URLSession.shared.dataTask(with: url) { _, _, error in
+            if let error = error {
+                print("DSDSDS 2 error: \(error)")
+                
+                let nsError = error.ft_NSError.ft_NSError
+                print("DSDSDS 2 nsError: \(nsError)")
+                
+                if let underlyingError = nsError.ft_underlyingError {
+                    print("DSDSDS 2 underlyingError: \(underlyingError)")
+                    
+                    self.test(underlyingError)
+                }
+            }
+        }
+        
+        task.resume()
+        
+        let error = MyError.foobar
+        print("DSDSDS 1 error: \(error)")
+        
+        let nsError = error.ft_NSError
+        print("DSDSDS 1 nsError: \(nsError)")
+        
         return true
     }
 }

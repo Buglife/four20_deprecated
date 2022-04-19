@@ -11,7 +11,7 @@ public extension Collection {
         }
     }
     
-    public func ft_chunked(into size: Int) -> [SubSequence] {
+    func ft_chunked(into size: Int) -> [SubSequence] {
         var chunks: [SubSequence] = []
         chunks.reserveCapacity((underestimatedCount + size - 1) / size)
         

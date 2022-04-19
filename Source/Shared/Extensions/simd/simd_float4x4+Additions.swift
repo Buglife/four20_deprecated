@@ -41,7 +41,7 @@ public extension simd_float4x4 {
         // pitch (y-axis rotation)
         let sinp = +2.0 * (qw * qy - qz * qx)
         var pitch: Float
-        if fabs(sinp) >= 1 {
+        if abs(sinp) >= 1 {
              pitch = copysign(Float.pi / 2, sinp)
         } else {
             pitch = asin(sinp)
